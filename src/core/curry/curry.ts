@@ -10,16 +10,23 @@ type Curried<T extends (...args: any) => any> = (
 ) => CurryRest<T>;
 
 /**
- * Curry function that partially applies arguments until all required arguments are provided.
- *
- * @param {T} fn - The function to be curried.
- * @return {Curried<T>} The curried function.
+ * Curry function
+ * @param fn - Function to be curried
+ * @returns Curried function
  */
 export const curry = <T extends (...args: any) => any>(fn: T): Curried<T> => {
+    // If the function has no arguments, execute it
     if (!fn.length) {
         return fn();
     }
-    return (arg: CurryFirst<T>): CurryRest<T> => {
-        return curry(fn.bind(null, arg) as any) as any;
+
+    /**
+     * Curried function
+     * @param arg - Argument to be passed to the function
+     * @returns Curried function
+     */
+    return (...args: CurryFirst<T>[]): CurryRest<T> => {
+        // Bind the argument to the function and recursively curry the rest
+        return curry(fn.bind(null, ...args) as any) as any;
     };
 };
