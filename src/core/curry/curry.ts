@@ -6,7 +6,7 @@ type CurryRest<T> = T extends (x: infer U) => infer V
     : never;
 
 type Curried<T extends (...args: any) => any> = (
-    x: CurryFirst<T>
+    ...x: CurryFirst<T>[]
 ) => CurryRest<T>;
 
 /**
@@ -30,3 +30,5 @@ export const curry = <T extends (...args: any) => any>(fn: T): Curried<T> => {
         return curry(fn.bind(null, ...args) as any) as any;
     };
 };
+
+const sum = (a: number, b: number) => a + b;
