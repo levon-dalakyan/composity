@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "declaration": true,
+        "target": "ESNext",
+        "module": "CommonJS",
+        "outDir": "dist",
+        "esModuleInterop": true,
+        "strict": true
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": [
+        "node_modules",
+        "src/**/*.spec.ts",
+        "src/__tests__",
+        "src/jest.helpers.ts"
+    ]
+}
