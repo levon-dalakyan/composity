@@ -1,7 +1,7 @@
 import _p_ from "../../public/_p_/_p_";
 import { _curry3 } from "./_curry3";
 
-describe("_curry3", () => {
+describe("private/_curry3", () => {
     it("should return a function if no arguments are provided", () => {
         const fn = _curry3(() => {});
         expect(typeof fn).toBe("function");
