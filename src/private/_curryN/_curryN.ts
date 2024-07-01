@@ -1,27 +1,20 @@
+import * as _ from "ts-toolbelt";
+import { _curry3 } from "../_curry3";
 import { _isPlaceholder } from "../_isPlaceholder";
 
-/**
- * Returns a curried version of the provided function that has a specified number of arguments.
- *
- * @template F The type of the original function.
- * @param {number} length The number of arguments the curried function should accept.
- * @param {any[]} entrance An array of initial arguments to the curried function.
- * @param {F} fn The function to curry.
- * @returns {(this: ThisParameterType<F>, ...args: any[]) => any} The curried function.
- */
-export function _curryN<F extends (...args: any[]) => any>(
+var _curryN = _curry3(function _curryN<F extends (...args: any[]) => any>(
     length: number,
-    entrance: any[],
+    entrance: Array<any>,
     fn: F
 ) {
-    return function (this: ThisParameterType<F>, ...args: any[]): any {
+    return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
         let remains = length;
-        const store = [];
+        const store: Array<any> = [];
         let storedIdx = 0;
         let argsIdx = 0;
 
         while (storedIdx < entrance.length || argsIdx < args.length) {
-            let result;
+            let result: any;
             if (
                 storedIdx < entrance.length &&
                 (!_isPlaceholder(entrance[storedIdx]) || argsIdx >= args.length)
@@ -44,4 +37,6 @@ export function _curryN<F extends (...args: any[]) => any>(
             return _curryN(length, store, fn);
         }
     };
-}
+});
+
+export default _curryN;
