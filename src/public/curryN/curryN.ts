@@ -10,15 +10,9 @@ import _curryN from "../../private/_curryN/_curryN";
  * @param {F} fn The function to curry.
  * @returns {_.F.Curry<F>} The curried function.
  */
-var curryN = _curry2(function curryN<F extends (...args: any) => any>(
+export function curryN<F extends (...args: any) => any>(
     length: number,
     fn: F
-) {
-    if (length === 1) {
-        return _curry1(fn);
-    }
-
+): _.F.Curry<F> {
     return _curryN(length, [], fn);
-});
-
-export default curryN;
+}

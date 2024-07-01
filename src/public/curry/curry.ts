@@ -1,7 +1,7 @@
 import * as _ from "ts-toolbelt";
 import _p_ from "../_p_/_p_";
 import { _curry1 } from "../../private";
-import curryN from "../curryN/curryN";
+import { curryN } from "../curryN/curryN";
 
 /**
  * Returns a curried version of the provided function.
