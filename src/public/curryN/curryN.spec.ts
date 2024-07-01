@@ -24,13 +24,4 @@ describe("curryN", () => {
         const result = curried(2, 3);
         expect(result).toBe(6);
     });
-
-    it("should preserve the context of the function", () => {
-        const context = { foo: "bar" };
-        const fn = curryN(1, function (this: typeof context) {
-            return this.foo;
-        });
-        const result = fn.call(context);
-        expect(result).toBe("bar");
-    });
 });

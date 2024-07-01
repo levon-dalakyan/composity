@@ -1,4 +1,4 @@
-import { _curryN } from "./_curryN";
+import _curryN from "./_curryN";
 
 describe("private/_curryN", () => {
     it("should return the correct result when all arguments are provided", () => {

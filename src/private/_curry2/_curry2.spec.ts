@@ -8,7 +8,7 @@ describe("private/_curry2", () => {
     });
 
     it("should return a function if a placeholder is provided", () => {
-        const fn = _curry2(() => {});
+        const fn = _curry2((a) => {});
         const curried = fn(_p_);
         expect(typeof curried).toBe("function");
     });
