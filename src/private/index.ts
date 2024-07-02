@@ -6,3 +6,4 @@ export * from "./_curry3";
 export * from "./_curryN";
 export * from "./_reduceArray";
 export * from "./_reduceIterator";
+export * from "./_reduceByMethod";
