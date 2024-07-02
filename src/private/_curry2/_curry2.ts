@@ -3,11 +3,10 @@ import { _curry1 } from "../_curry1";
 import { _isPlaceholder } from "../_isPlaceholder";
 
 /**
- * Returns a curried version of the provided function that has two arguments.
+ * Returns a curried version of the provided function with two arguments.
  *
- * @template F The type of the original function.
  * @param {F} fn The function to curry.
- * @returns {(this: ThisParameterType<F>, a: Parameters<F>[0], b: Parameters<F>[1]) => ReturnType<F>} The curried function.
+ * @return {_.F.Curry<F>} The curried function.
  */
 export function _curry2<F extends (...args: any) => any>(fn: F): _.F.Curry<F> {
     return function curried(this: ThisParameterType<F>, ...args: any) {

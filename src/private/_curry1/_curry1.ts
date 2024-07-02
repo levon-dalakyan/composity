@@ -3,8 +3,10 @@ import { _isPlaceholder } from "../_isPlaceholder";
 /**
  * Returns a curried version of the provided function with one argument.
  *
- * @param {P | undefined} arg - The argument to be passed to the curried function.
- * @return {(...args: any[]) => any} The curried function.
+ * @template P The type of the argument.
+ * @template R The type of the return value.
+ * @param {(...args: P) => R} fn The original function.
+ * @return {(...args: P | undefined) => (...args: P | undefined) => R} The curried function.
  */
 export function _curry1<P, R>(fn: (arg: P) => R) {
     return function curried(

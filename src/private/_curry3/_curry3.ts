@@ -1,8 +1,9 @@
+import * as _ from "ts-toolbelt";
 import { _isPlaceholder } from "../_isPlaceholder";
 import { _curry1 } from "../_curry1";
 import { _curry2 } from "../_curry2";
 
-export function _curry3<F extends (...args: any) => any>(fn: F) {
+export function _curry3<F extends (...args: any) => any>(fn: F): _.F.Curry<F> {
     return function curried(this: ThisParameterType<F>, ...args: any) {
         if (arguments.length === 0) {
             return curried;

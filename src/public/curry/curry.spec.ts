@@ -17,7 +17,7 @@ describe("curry", () => {
         expect(curriedAdd(1)(2, 3)).toEqual(6);
     });
 
-    test("should preserve the context (this) of the original function", () => {
+    test("should preserve the context of the original function", () => {
         const context = { foo: "bar" };
         const mockFn = jest.fn();
         const fn = curry(mockFn);

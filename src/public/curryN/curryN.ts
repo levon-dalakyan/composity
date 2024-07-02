@@ -4,9 +4,9 @@ import { _curry1, _curry2 } from "../../private";
 import _curryN from "../../private/_curryN/_curryN";
 
 /**
- * Returns a curried version of the provided function.
+ * Returns a curried version of the provided function with a specified number of arguments.
  *
- * @template F The type of the original function.
+ * @param {number} length The number of arguments the curried function should accept.
  * @param {F} fn The function to curry.
  * @returns {_.F.Curry<F>} The curried function.
  */

@@ -1,27 +1,25 @@
 import { curryN } from "./curryN";
+import _p_ from "../_p_/_p_";
 
-describe("curryN", () => {
-    it("should return a function if no arguments are provided", () => {
-        const fn = curryN(2, (a: number, b: number) => a + b);
-        expect(typeof fn).toBe("function");
+describe("curryN function", () => {
+    it("should return a function", () => {
+        const curriedFn = curryN(2, (a: number, b: number) => a + b);
+        expect(typeof curriedFn).toBe("function");
     });
 
-    it("should return a function that can be partially applied", () => {
-        const fn = curryN(2, (a: number, b: number) => a + b);
-        const curried = fn(1);
-        expect(typeof curried).toBe("function");
+    it("should curry the function with the specified number of arguments", () => {
+        const mockFn = jest.fn((a: number, b: number, c: number) => a + b + c);
+        const curriedFn = curryN(3, mockFn);
+
+        const result = curriedFn(1)(2)(3);
+        expect(result).toBe(6);
     });
 
-    it("should return a function that can be fully applied", () => {
-        const fn = curryN(2, (a: number, b: number) => a + b);
-        const result = fn(1, 2);
-        expect(result).toBe(3);
-    });
+    it("should curry the function with placeholders", () => {
+        const mockFn = jest.fn((a: number, b: number, c: number) => a + b + c);
+        const curriedFn = curryN(3, mockFn);
 
-    it("should return a function that can be partially applied and fully applied", () => {
-        const fn = curryN(3, (a: number, b: number, c: number) => a + b + c);
-        const curried = fn(1);
-        const result = curried(2, 3);
+        const result = curriedFn(1, _p_, 3)(2);
         expect(result).toBe(6);
     });
 });
