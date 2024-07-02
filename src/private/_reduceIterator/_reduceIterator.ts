@@ -1,3 +1,5 @@
+import { NextObj } from "../types";
+
 /**
  * Reduces an iterator using a reducer function, starting with an initial value.
  *
@@ -8,7 +10,7 @@
  * @return {ReturnType<F>} The final accumulated value after reducing the entire iterator.
  */
 export function _reduceIterator<F extends (...args: any) => any>(
-    iter: Iterator<any> | { next: () => { value?: any; done: boolean } },
+    iter: Iterator<any> | NextObj<any>,
     reducer: F,
     init: any
 ) {
