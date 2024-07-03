@@ -9,3 +9,5 @@ export * from "./_reduceIterator";
 export * from "./_reduceByMethod";
 export * from "./_createReduce";
 export * from "./_reduce";
+export * from "./_reverseString";
+export * from "./_reverseArray";
