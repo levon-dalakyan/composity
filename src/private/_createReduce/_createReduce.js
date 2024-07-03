@@ -1,13 +1,5 @@
-export function _createReduce(
-    reduceArray: any,
-    reduceIterator: any,
-    reduceByMethod: any
-) {
-    return function _reduce<T, U>(
-        reducer: (acc: U, value: T) => U,
-        init: U,
-        collection: any
-    ): U {
+export function _createReduce(reduceArray, reduceIterator, reduceByMethod) {
+    return function _reduce(reducer, init, collection) {
         if (collection == null) {
             return init;
         }
