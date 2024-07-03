@@ -1,11 +1,7 @@
-import { _reduceArray } from "../_reduceArray";
-import { _reduceByMethod } from "../_reduceByMethod";
-import { _reduceIterator } from "../_reduceIterator";
-
 export function _createReduce(
-    reduceArray: typeof _reduceArray,
-    reduceIterator: typeof _reduceIterator,
-    reduceByMethod: typeof _reduceByMethod
+    reduceArray: any,
+    reduceIterator: any,
+    reduceByMethod: any
 ) {
     return function _reduce<T, U>(
         collection: any,
