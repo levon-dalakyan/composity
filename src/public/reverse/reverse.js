@@ -1,7 +1,7 @@
 import { _curry1, _reverseArray, _reverseString } from "../../private";
 import { _reverseIterator } from "../../private/_reverseIterator/_reverseIterator";
 
-function reverse(collection) {
+var reverse = _curry1(function reverse(collection) {
     if (typeof collection === "string") {
         return _reverseString(collection);
     }
@@ -19,6 +19,6 @@ function reverse(collection) {
     }
 
     throw new TypeError("Cannot reverse a received value");
-}
+});
 
 export default reverse;
