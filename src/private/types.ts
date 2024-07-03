@@ -6,3 +6,7 @@ export type NextObjResult<T> = {
 export type NextObj<T> = {
     next: () => NextObjResult<T>;
 };
+
+export type ReduceObj<T> = {
+    reduce: (reducer: (acc: T, value: T) => T, init: T) => T;
+};

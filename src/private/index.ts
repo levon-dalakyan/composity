@@ -7,3 +7,5 @@ export * from "./_curryN";
 export * from "./_reduceArray";
 export * from "./_reduceIterator";
 export * from "./_reduceByMethod";
+export * from "./_createReduce";
+export * from "./_reduce";
