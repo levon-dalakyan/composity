@@ -4,9 +4,9 @@ export function _createReduce(
     reduceByMethod: any
 ) {
     return function _reduce<T, U>(
-        collection: any,
         reducer: (acc: U, value: T) => U,
-        init: U
+        init: U,
+        collection: any
     ): U {
         if (collection == null) {
             return init;
