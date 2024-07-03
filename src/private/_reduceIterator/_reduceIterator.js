@@ -1,5 +1,3 @@
-import { NextObj } from "../types";
-
 export function _reduceIterator(iter, reducer, init) {
     let acc = init;
 

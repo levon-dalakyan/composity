@@ -1,4 +1,3 @@
-import * as _ from "ts-toolbelt";
 import { _curry3 } from "../_curry3";
 import { _isPlaceholder } from "../_isPlaceholder";
 

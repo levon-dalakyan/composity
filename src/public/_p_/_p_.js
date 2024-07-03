@@ -1,1 +1,1 @@
-export default { "@@functiolize/placeholder": true } as any;
+export default { "@@functiolize/placeholder": true };
