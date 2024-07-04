@@ -1,1 +1,1 @@
-export * from "./compose";
+export { compose } from "./compose";

@@ -9,3 +9,6 @@ export { default as curry } from "./curry/curry";
 export { find } from "./find";
 export { some } from "./some";
 export { every } from "./every";
+export { pipe } from "./pipe";
+export { compose } from "./compose";
+export { memoize } from "./memoize";
