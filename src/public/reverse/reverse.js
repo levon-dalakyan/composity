@@ -6,7 +6,7 @@ var reverse = _curry1(function reverse(collection) {
         return _reverseString(collection);
     }
 
-    if (collection[Symbol.iterator] != null) {
+    if (typeof collection[Symbol.iterator] === "function") {
         return _reverseIterator(collection);
     }
 

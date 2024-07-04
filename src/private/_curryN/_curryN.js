@@ -2,7 +2,7 @@ import { _curry3 } from "../_curry3";
 import { _isPlaceholder } from "../_isPlaceholder";
 import { _arify } from "../_arify";
 
-var _curryN = _curry3(function _curryN(length, entrance, fn) {
+var _curryN = _curry3(function (length, entrance, fn) {
     return function (...args) {
         let remains = length;
         const store = [];

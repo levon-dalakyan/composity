@@ -1,9 +1,9 @@
 export * from "./_same";
 export * from "./_isPlaceholder";
-export * from "./_curry1";
-export * from "./_curry2";
+export { _curry1 } from "./_curry1";
+export { _curry2 } from "./_curry2";
 export * from "./_curry3";
-export * from "./_curryN";
+export { _curryN } from "./_curryN";
 export * from "./_reduceArray";
 export * from "./_reduceIterator";
 export * from "./_reduceByMethod";
@@ -12,3 +12,4 @@ export * from "./_reduce";
 export * from "./_reverseString";
 export * from "./_reverseArray";
 export * from "./_arify";
+export { _find } from "./_find";
