@@ -1,4 +1,4 @@
-import { _reduce } from "../../utils";
+import { _reduce } from "../utils";
 
 export function pipe(...fns) {
     return function (arg) {

@@ -1,4 +1,4 @@
-import { _curry1, _objectHas } from "../../utils";
+import { _curry1, _objectHas } from "../utils";
 
 var memoize = _curry1(function (fn) {
     const cashe = {};
