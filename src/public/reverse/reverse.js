@@ -1,5 +1,5 @@
-import { _curry1, _reverseArray, _reverseString } from "../../private";
-import { _reverseIterator } from "../../private/_reverseIterator/_reverseIterator";
+import { _curry1, _reverseArray, _reverseString } from "../../utils";
+import { _reverseIterator } from "../../utils/_reverseIterator/_reverseIterator";
 
 var reverse = _curry1(function reverse(collection) {
     if (typeof collection === "string") {
