@@ -1,4 +1,4 @@
-import { _curry1, _objectHas } from "../utils";
+import { _curry1 } from "../utils";
 import keys from "../keys/keys";
 
 var values = _curry1(function (obj) {

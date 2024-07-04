@@ -1,4 +1,4 @@
-import { _curry1, _objectHas } from "../utils";
+import { _curry1 } from "../utils";
 
 var memoize = _curry1(function (fn) {
     const cashe = {};
@@ -6,7 +6,7 @@ var memoize = _curry1(function (fn) {
     return function (...args) {
         const key = JSON.stringify(args);
 
-        if (!_objectHas(key, cashe)) {
+        if (!cashe.hasOwnProperty(key)) {
             cashe[key] = fn.apply(this, args);
         }
 

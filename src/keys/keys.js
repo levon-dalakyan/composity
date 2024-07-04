@@ -1,4 +1,4 @@
-import { _curry1, _objectHas } from "../utils";
+import { _curry1 } from "../utils";
 
 var keys = _curry1(function (obj) {
     if (Object(obj) !== obj) {
@@ -8,7 +8,7 @@ var keys = _curry1(function (obj) {
     const _keys = [];
 
     for (const key in obj) {
-        if (_objectHas(key, obj)) {
+        if (obj.hasOwnProperty(key)) {
             _keys.push(key);
         }
     }
