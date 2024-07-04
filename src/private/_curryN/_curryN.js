@@ -1,5 +1,6 @@
 import { _curry3 } from "../_curry3";
 import { _isPlaceholder } from "../_isPlaceholder";
+import { _arify } from "../_arify";
 
 var _curryN = _curry3(function _curryN(length, entrance, fn) {
     return function (...args) {
@@ -29,7 +30,7 @@ var _curryN = _curry3(function _curryN(length, entrance, fn) {
         if (remains <= 0) {
             return fn.apply(this, store);
         } else {
-            return _curryN(length, store, fn);
+            return _arify(Math.max(0, remains), _curryN(length, store, fn));
         }
     };
 });

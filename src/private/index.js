@@ -11,3 +11,4 @@ export * from "./_createReduce";
 export * from "./_reduce";
 export * from "./_reverseString";
 export * from "./_reverseArray";
+export * from "./_arify";

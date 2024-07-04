@@ -2,6 +2,12 @@ import _p_ from "../_p_/_p_";
 import { _curry1, _curry2 } from "../../private";
 import _curryN from "../../private/_curryN/_curryN";
 
-export function curryN(length, fn) {
-    return _curryN(length, [], fn);
-}
+var curryN = _curry2(function curryN(length, fn) {
+    if (length === 1) {
+        return _curry1(fn);
+    }
+
+    return _arify(length, _curryN(length, [], fn));
+});
+
+export default curryN;
