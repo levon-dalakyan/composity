@@ -15,3 +15,4 @@ export * from "./_arify";
 export { _find } from "./_find";
 export { _map } from "./_map";
 export { _filter } from "./_filter";
+export { _nth } from "./_nth";

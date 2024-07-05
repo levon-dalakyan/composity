@@ -1,1 +1,1 @@
-export * from "./_nth";
+export { _nth } from "./_nth";
