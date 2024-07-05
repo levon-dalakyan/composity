@@ -1,1 +1,1 @@
-export * from "./curryN";
+export { default as curryN } from "./curryN";

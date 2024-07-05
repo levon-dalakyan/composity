@@ -1,6 +1,6 @@
-import _p_ from "../_p_/_p_";
+import _ from "../_";
 import { _curry1 } from "../utils";
-import { curryN } from "../curryN/curryN";
+import { curryN } from "../curryN";
 
 export function curry(fn) {
     return curryN(fn.length, fn);
