@@ -1,5 +1,5 @@
 import { _curry1 } from "../_curry1";
-import { _isPlaceholder } from "../_isPlaceholder";
+import { _isPlaceholder } from "../_is-placeholder";
 
 export function _curry2(fn) {
     return function curried(a, b) {

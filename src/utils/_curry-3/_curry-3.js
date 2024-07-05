@@ -1,4 +1,4 @@
-import { _isPlaceholder } from "../_isPlaceholder";
+import { _isPlaceholder } from "../_is-placeholder";
 import { _curry1 } from "../_curry1";
 import { _curry2 } from "../_curry2";
 
