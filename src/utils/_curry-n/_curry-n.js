@@ -1,5 +1,5 @@
-import { _curry3 } from "../_curry3";
-import { _isPlaceholder } from "../_isPlaceholder";
+import { _curry3 } from "../_curry-3";
+import { _isPlaceholder } from "../_is-placeholder";
 import { _arify } from "../_arify";
 
 var _curryN = _curry3(function (length, entrance, fn) {

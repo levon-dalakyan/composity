@@ -1,4 +1,4 @@
-import { _reverseArray } from "../_reverseArray";
+import { _reverseArray } from "../_reverse-array";
 
 export function _reverseIterator(iterator) {
     const iter = iterator[Symbol.iterator]();

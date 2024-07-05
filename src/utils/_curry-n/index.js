@@ -1,1 +1,1 @@
-export { default as _curryN } from "./_curryN";
+export { default as _curryN } from "./_curry-n";

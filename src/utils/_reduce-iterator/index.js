@@ -1,1 +1,1 @@
-export * from "./_reduceIterator";
+export * from "./_reduce-iterator";

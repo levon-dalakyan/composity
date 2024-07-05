@@ -1,6 +1,6 @@
 import { _isPlaceholder } from "../_is-placeholder";
-import { _curry1 } from "../_curry1";
-import { _curry2 } from "../_curry2";
+import { _curry1 } from "../_curry-1";
+import { _curry2 } from "../_curry-2";
 
 export function _curry3(fn) {
     return function curried(a, b, c) {

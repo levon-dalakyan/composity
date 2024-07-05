@@ -1,1 +1,1 @@
-export * from "./_reverseString";
+export * from "./_reverse-string";

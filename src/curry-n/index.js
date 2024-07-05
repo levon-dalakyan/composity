@@ -1,1 +1,1 @@
-export { default as curryN } from "./curryN";
+export { default as curryN } from "./curry-n";

@@ -1,1 +1,1 @@
-export * from "./_createReduce";
+export * from "./_create-reduce";

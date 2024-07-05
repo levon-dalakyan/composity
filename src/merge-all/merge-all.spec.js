@@ -1,4 +1,4 @@
-import mergeAll from "./mergeAll";
+import mergeAll from "./merge-all";
 
 describe("mergeAll", () => {
     it("should merge multiple objects into a single object", () => {

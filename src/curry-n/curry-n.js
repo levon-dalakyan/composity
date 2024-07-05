@@ -1,5 +1,5 @@
 import { _curry1, _curry2 } from "../utils";
-import _curryN from "../utils/_curryN/_curryN";
+import _curryN from "../utils/_curry-n/_curry-n";
 import { _arify } from "../utils";
 
 var curryN = _curry2(function curryN(length, fn) {
