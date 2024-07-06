@@ -1,21 +1,21 @@
-import { _curry1, _reverseArray, _reverseString } from "../utils";
+import { _curry1, _isArray, _reverseArray, _reverseString } from "../utils";
 import { _reverseIterator } from "../utils/_reverse-iterator/_reverse-iterator";
 
-var reverse = _curry1(function reverse(collection) {
-    if (typeof collection === "string") {
-        return _reverseString(collection);
+var reverse = _curry1(function reverse(coll) {
+    if (typeof coll === "string") {
+        return _reverseString(coll);
     }
 
-    if (typeof collection[Symbol.iterator] === "function") {
-        return _reverseIterator(collection);
+    if (typeof coll[Symbol.iterator] === "function") {
+        return _reverseIterator(coll);
     }
 
-    if (Array.isArray(collection)) {
-        return _reverseArray(collection);
+    if (_isArray(coll)) {
+        return _reverseArray(coll);
     }
 
-    if (typeof collection.reverse === "function") {
-        return collection.reverse();
+    if (typeof coll.reverse === "function") {
+        return coll.reverse();
     }
 
     throw new TypeError("Cannot reverse a received value");

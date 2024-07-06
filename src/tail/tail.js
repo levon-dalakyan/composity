@@ -1,8 +1,8 @@
-import { _curry1 } from "../utils";
+import { _curry1, _isArray } from "../utils";
 
-var tail = _curry1(function (collection) {
-    if (typeof collection === "string" || Array.isArray(collection)) {
-        return collection.slice(1);
+var tail = _curry1(function (coll) {
+    if (typeof coll === "string" || _isArray(coll)) {
+        return coll.slice(1);
     }
 
     throw new TypeError(

@@ -1,23 +1,25 @@
+import { _isArray } from "../_is-array";
+
 export function _createReduce(reduceArray, reduceIterator, reduceByMethod) {
-    return function _reduce(reducer, init, collection) {
-        if (collection == null) {
+    return function _reduce(reducer, init, coll) {
+        if (coll == null) {
             return init;
         }
 
-        if (Array.isArray(collection)) {
-            return reduceArray(collection, reducer, init);
+        if (_isArray(coll)) {
+            return reduceArray(coll, reducer, init);
         }
 
-        if (collection[Symbol.iterator] != null) {
-            return reduceIterator(collection, reducer, init);
+        if (coll[Symbol.iterator] != null) {
+            return reduceIterator(coll, reducer, init);
         }
 
-        if (typeof collection.next === "function") {
-            return reduceIterator(collection, reducer, init);
+        if (typeof coll.next === "function") {
+            return reduceIterator(coll, reducer, init);
         }
 
-        if (typeof collection.reduce === "function") {
-            return reduceByMethod("reduce", collection, reducer, init);
+        if (typeof coll.reduce === "function") {
+            return reduceByMethod("reduce", coll, reducer, init);
         }
 
         throw new TypeError("Cannot reduce a non-iterable object");

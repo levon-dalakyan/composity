@@ -17,3 +17,4 @@ export { _map } from "./_map";
 export { _filter } from "./_filter";
 export { _nth } from "./_nth";
 export { _isInteger } from "./_is-integer";
+export { _isArray } from "./_is-array";

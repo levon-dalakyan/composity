@@ -1,16 +1,18 @@
-export function _find(pred, collection) {
-    if (Array.isArray(collection) || typeof collection === "string") {
-        for (let i = 0; i <= collection.length; i++) {
-            if (pred(collection[i])) {
-                return collection[i];
+import { _isArray } from "../_is-array";
+
+export function _find(pred, coll) {
+    if (_isArray(coll) || typeof coll === "string") {
+        for (let i = 0; i <= coll.length; i++) {
+            if (pred(coll[i])) {
+                return coll[i];
             }
         }
 
         return undefined;
     }
 
-    if (typeof collection[Symbol.iterator] === "function") {
-        const iter = collection[Symbol.iterator]();
+    if (typeof coll[Symbol.iterator] === "function") {
+        const iter = coll[Symbol.iterator]();
 
         let cur = iter.next();
 
@@ -26,6 +28,6 @@ export function _find(pred, collection) {
     }
 
     throw new TypeError(
-        "The collection must be either an array, a string, or an iterable object"
+        "The coll must be either an array, a string, or an iterable object"
     );
 }

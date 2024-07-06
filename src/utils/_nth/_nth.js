@@ -1,5 +1,3 @@
-export function _nth(offset, collection) {
-    return offset < 0
-        ? collection[collection.length + offset]
-        : collection[offset];
+export function _nth(offset, coll) {
+    return offset < 0 ? coll[coll.length + offset] : coll[offset];
 }
