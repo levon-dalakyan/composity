@@ -1,5 +1,5 @@
 import { _reduce } from "../../utils";
-import reverse from "../reverse/reverse";
+import reverse from "../../reverse/reverse";
 
 export function compose(...fns) {
     return function (arg) {

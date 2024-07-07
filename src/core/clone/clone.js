@@ -1,4 +1,4 @@
-import { _curry1 } from "../utils";
+import { _curry1 } from "../../utils";
 
 var clone = _curry1(function clone(obj) {
     if (typeof obj !== "object" || obj === null) {
