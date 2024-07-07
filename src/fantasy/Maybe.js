@@ -1,27 +1,17 @@
-class Optional {
-    #value;
-
+class Maybe {
     constructor(value) {
-        this.#value = value;
-    }
-
-    get() {
-        if (this.isNone()) {
-            throw new Error("Cannot get value from None");
-        }
-
-        return this.#value;
+        this.value = value;
     }
 
     getOrElse(defaultValue) {
-        return this.isNone() ? defaultValue : this.#value;
+        return this.isNone() ? defaultValue : this.value;
     }
 
     map(fn) {
         return this["fantasy-land/map"](fn);
     }
 
-    flatMap(fn) {
+    chain(fn) {
         return this["fantasy-land/chain"](fn);
     }
 
@@ -30,7 +20,7 @@ class Optional {
     }
 
     filter(pred) {
-        return this.isEmpty() || !pred(this.#value) ? Optional.empty() : this;
+        return this.isEmpty() || !pred(this.value) ? Maybe.empty() : this;
     }
 
     alt(other) {
@@ -50,7 +40,7 @@ class Optional {
     }
 
     isNone() {
-        return this.#value === null || this.#value === undefined;
+        return this.value === null || this.value === undefined;
     }
 
     isSome() {
@@ -58,7 +48,7 @@ class Optional {
     }
 
     toString() {
-        return this.isNone() ? "None" : `Some(${this.#value})`;
+        return this.isNone() ? "None" : `Some(${this.value})`;
     }
 
     static Some(value) {
@@ -66,25 +56,25 @@ class Optional {
             throw new Error("Some cannot contain null or undefined");
         }
 
-        return new Optional(value);
+        return new Maybe(value);
     }
 
     static None() {
-        return new Optional(null);
+        return new Maybe(null);
     }
 
     ["fantasy-land/map"](fn) {
-        return this.isNone() ? Optional.None() : Optional.Some(fn(this.#value));
+        return this.isNone() ? Maybe.None() : Maybe.Some(fn(this.value));
     }
 
     ["fantasy-land/chain"](fn) {
-        return this.isNone() ? Optional.None() : fn(this.#value);
+        return this.isNone() ? Maybe.None() : fn(this.value);
     }
 
     ["fantasy-land/ap"](optionalFn) {
         return this.isNone() || optionalFn.isNone()
-            ? Optional.None()
-            : this["fantasy-land/map"](optionalFn.get());
+            ? Maybe.None()
+            : this["fantasy-land/map"](optionalFn.value);
     }
 
     ["fantasy-land/alt"](other) {
@@ -92,33 +82,33 @@ class Optional {
     }
 
     ["fantasy-land/extend"](fn) {
-        return this.isNone() ? Optional.None() : Optional.Some(fn(this));
+        return this.isNone() ? Maybe.None() : Maybe.Some(fn(this));
     }
 
     ["fantasy-land/join"]() {
         return this.isNone()
-            ? Optional.None()
-            : this.#value instanceof Optional
-            ? this.#value
+            ? Maybe.None()
+            : this.value instanceof Maybe
+            ? this.value
             : this;
     }
 
     ["fantasy-land/equals"](other) {
-        if (!(other instanceof Optional)) return false;
+        if (!(other instanceof Maybe)) return false;
         if (this.isNone() && other.isNone()) return true;
         if (this.isNone() || other.isNone()) return false;
 
-        return this.#value === other.get();
+        return this.value === other.value;
     }
 
     static ["fantasy-land/of"](value) {
-        return Optional.Some(value);
+        return Maybe.Some(value);
     }
 
     static ["fantasy-land/zero"]() {
-        return Optional.None();
+        return Maybe.None();
     }
 }
 
-Optional.of = Optional["fantasy-land/of"];
-Optional.zero = Optional["fantasy-land/zero"];
+Maybe.of = Maybe["fantasy-land/of"];
+Maybe.zero = Maybe["fantasy-land/zero"];
