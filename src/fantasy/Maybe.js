@@ -15,8 +15,8 @@ class Maybe {
         return this["fantasy-land/chain"](fn);
     }
 
-    ap(optionalFn) {
-        return this["fantasy-land/ap"](optionalFn);
+    ap(maybeFn) {
+        return this["fantasy-land/ap"](maybeFn);
     }
 
     filter(pred) {
@@ -47,10 +47,6 @@ class Maybe {
         return !this.isNone();
     }
 
-    toString() {
-        return this.isNone() ? "None" : `Some(${this.value})`;
-    }
-
     static Some(value) {
         if (value === null || value === undefined) {
             throw new Error("Some cannot contain null or undefined");
@@ -71,10 +67,10 @@ class Maybe {
         return this.isNone() ? Maybe.None() : fn(this.value);
     }
 
-    ["fantasy-land/ap"](optionalFn) {
-        return this.isNone() || optionalFn.isNone()
+    ["fantasy-land/ap"](maybeFn) {
+        return this.isNone() || maybeFn.isNone()
             ? Maybe.None()
-            : this["fantasy-land/map"](optionalFn.value);
+            : this["fantasy-land/map"](maybeFn.value);
     }
 
     ["fantasy-land/alt"](other) {
@@ -107,6 +103,10 @@ class Maybe {
 
     static ["fantasy-land/zero"]() {
         return Maybe.None();
+    }
+
+    toString() {
+        return this.isNone() ? "None" : `Some(${this.value})`;
     }
 }
 

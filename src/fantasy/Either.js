@@ -16,8 +16,8 @@ class Either {
         return this["fantasy-land/chain"](fn);
     }
 
-    ap(other) {
-        return this["fantasy-land/ap"](other);
+    ap(eitherFn) {
+        return this["fantasy-land/ap"](eitherFn);
     }
 
     bimap(fnLeft, fnRight) {
@@ -40,10 +40,6 @@ class Either {
         return !this.isRight;
     }
 
-    toString() {
-        return this.isRight() ? `Right(${this.value})` : `Left(${this.value})`;
-    }
-
     static Right(value) {
         return new Either(true, value);
     }
@@ -60,8 +56,8 @@ class Either {
         return this.isRight() ? fn(this.value) : this;
     }
 
-    ["fantasy-land/ap"](other) {
-        return this.isRight() ? this["fantasy-land/map"](other.value) : this;
+    ["fantasy-land/ap"](eitherFn) {
+        return this.isRight() ? this["fantasy-land/map"](eitherFn.value) : this;
     }
 
     ["fantasy-land/bimap"](fnLeft, fnRight) {
@@ -84,6 +80,10 @@ class Either {
 
     static ["fantasy-land/of"](value) {
         return Either.Right(value);
+    }
+
+    toString() {
+        return this.isRight() ? `Right(${this.value})` : `Left(${this.value})`;
     }
 }
 
