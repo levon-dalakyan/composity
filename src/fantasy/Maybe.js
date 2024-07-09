@@ -1,10 +1,10 @@
 class Maybe {
     constructor(value) {
-        this.value = value;
+        this._value = value;
     }
 
     getOrElse(defaultValue) {
-        return this.isNone() ? defaultValue : this.value;
+        return this.isNone() ? defaultValue : this._value;
     }
 
     map(fn) {
@@ -20,7 +20,7 @@ class Maybe {
     }
 
     filter(pred) {
-        return this.isEmpty() || !pred(this.value) ? Maybe.empty() : this;
+        return this.isEmpty() || !pred(this._value) ? Maybe.empty() : this;
     }
 
     alt(other) {
@@ -40,7 +40,7 @@ class Maybe {
     }
 
     isNone() {
-        return this.value === null || this.value === undefined;
+        return this._value === null || this._value === undefined;
     }
 
     isSome() {
@@ -60,17 +60,17 @@ class Maybe {
     }
 
     ["fantasy-land/map"](fn) {
-        return this.isNone() ? Maybe.None() : Maybe.Some(fn(this.value));
+        return this.isNone() ? Maybe.None() : Maybe.Some(fn(this._value));
     }
 
     ["fantasy-land/chain"](fn) {
-        return this.isNone() ? Maybe.None() : fn(this.value);
+        return this.isNone() ? Maybe.None() : fn(this._value);
     }
 
     ["fantasy-land/ap"](other) {
         return this.isNone() || other.isNone()
             ? Maybe.None()
-            : this["fantasy-land/map"](other.value);
+            : this["fantasy-land/map"](other._value);
     }
 
     ["fantasy-land/alt"](other) {
@@ -84,8 +84,8 @@ class Maybe {
     ["fantasy-land/join"]() {
         return this.isNone()
             ? Maybe.None()
-            : this.value instanceof Maybe
-            ? this.value
+            : this._value instanceof Maybe
+            ? this._value
             : this;
     }
 
@@ -94,7 +94,7 @@ class Maybe {
         if (this.isNone() && other.isNone()) return true;
         if (this.isNone() || other.isNone()) return false;
 
-        return this.value === other.value;
+        return this._value === other._value;
     }
 
     static ["fantasy-land/of"](value) {
@@ -106,7 +106,7 @@ class Maybe {
     }
 
     toString() {
-        return this.isNone() ? "None" : `Some(${this.value})`;
+        return this.isNone() ? "None" : `Some(${this._value})`;
     }
 }
 

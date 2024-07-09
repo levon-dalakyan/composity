@@ -1,24 +1,24 @@
 class UniqueList {
     constructor(values = []) {
-        this.set = new Set(values);
+        this._set = new Set(values);
     }
 
     has(value) {
-        return this.set.has(value);
+        return this._set.has(value);
     }
 
     add(value) {
-        return new UniqueList([...this.set, value]);
+        return new UniqueList([...this._set, value]);
     }
 
     delete(value) {
-        const newSet = new Set(this.set);
+        const newSet = new Set(this._set);
         newSet.delete(value);
         return new UniqueList(newSet);
     }
 
     get size() {
-        return this.set.size;
+        return this._set.size;
     }
 
     map(fn) {
@@ -54,40 +54,40 @@ class UniqueList {
     }
 
     ["fantasy-land/map"](fn) {
-        return new UniqueList(Array.from(this.set, fn));
+        return new UniqueList(Array.from(this._set, fn));
     }
 
     ["fantasy-land/ap"](other) {
         return new UniqueList(
-            Array.from(this.set, (x) =>
-                Array.from(other.set, (f) => f(x))
+            Array.from(this._set, (x) =>
+                Array.from(other._set, (f) => f(x))
             ).flat()
         );
     }
 
     ["fantasy-land/chain"](fn) {
         return new UniqueList(
-            Array.from(this.set, (x) => Array.from(fn(x).set)).flat()
+            Array.from(this._set, (x) => Array.from(fn(x).set)).flat()
         );
     }
 
     ["fantasy-land/concat"](other) {
-        return new UniqueList([...this.set, ...other.set]);
+        return new UniqueList([...this._set, ...other._set]);
     }
 
     ["fantasy-land/reduce"](fn, initial) {
-        return Array.from(this.set).reduce(fn, initial);
+        return Array.from(this._set).reduce(fn, initial);
     }
 
     ["fantasy-land/filter"](pred) {
-        return new UniqueList(Array.from(this.set).filter(pred));
+        return new UniqueList(Array.from(this._set).filter(pred));
     }
 
     ["fantasy-land/equals"](other) {
         if (!(other instanceof UniqueList) || this.size !== other.size)
             return false;
 
-        return Array.from(this.set).every((v) => other.has(v));
+        return Array.from(this._set).every((v) => other.has(v));
     }
 
     ["fantasy-land/alt"](other) {
@@ -107,11 +107,11 @@ class UniqueList {
     }
 
     [Symbol.iterator]() {
-        return this.set[Symbol.iterator]();
+        return this._set[Symbol.iterator]();
     }
 
     toString() {
-        return `UniqueList(${Array.from(this.set)})`;
+        return `UniqueList(${Array.from(this._set)})`;
     }
 }
 

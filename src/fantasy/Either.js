@@ -1,11 +1,11 @@
 class Either {
     constructor(isRight, value) {
-        this.isRight = isRight;
-        this.value = value;
+        this._isRight = isRight;
+        this._value = value;
     }
 
     fold(fnLeft, fnRight) {
-        return this.isRight() ? fnRight(this.value) : fnLeft(this.value);
+        return this.isRight() ? fnRight(this._value) : fnLeft(this._value);
     }
 
     map(fn) {
@@ -33,11 +33,11 @@ class Either {
     }
 
     isRight() {
-        return this.isRight;
+        return this._isRight;
     }
 
     isLeft() {
-        return !this.isRight;
+        return !this._isRight;
     }
 
     static Right(value) {
@@ -49,21 +49,21 @@ class Either {
     }
 
     ["fantasy-land/map"](fn) {
-        return this.isRight() ? Either.Right(fn(this.value)) : this;
+        return this.isRight() ? Either.Right(fn(this._value)) : this;
     }
 
     ["fantasy-land/chain"](fn) {
-        return this.isRight() ? fn(this.value) : this;
+        return this.isRight() ? fn(this._value) : this;
     }
 
     ["fantasy-land/ap"](other) {
-        return this.isRight() ? this["fantasy-land/map"](other.value) : this;
+        return this.isRight() ? this["fantasy-land/map"](other._value) : this;
     }
 
     ["fantasy-land/bimap"](fnLeft, fnRight) {
         return this.isRight()
-            ? Either.Right(fnRight(this.value))
-            : Either.Left(fnLeft(this.value));
+            ? Either.Right(fnRight(this._value))
+            : Either.Left(fnLeft(this._value));
     }
 
     ["fantasy-land/extend"](fn) {
@@ -74,7 +74,7 @@ class Either {
         return (
             other instanceof Either &&
             this.isRight() === other.isRight() &&
-            this.value === other.value
+            this._value === other._value
         );
     }
 
@@ -83,7 +83,9 @@ class Either {
     }
 
     toString() {
-        return this.isRight() ? `Right(${this.value})` : `Left(${this.value})`;
+        return this.isRight()
+            ? `Right(${this._value})`
+            : `Left(${this._value})`;
     }
 }
 

@@ -1,6 +1,6 @@
 class List {
     constructor(values = []) {
-        this.values = values;
+        this._list = values;
     }
 
     map(fn) {
@@ -36,35 +36,35 @@ class List {
     }
 
     ["fantasy-land/map"](fn) {
-        return new List(this.values.map(fn));
+        return new List(this._list.map(fn));
     }
 
     ["fantasy-land/ap"](other) {
         return new List(
-            this.values.flatMap((value) => other.values.map((fn) => fn(value)))
+            this._list.flatMap((value) => other._list.map((fn) => fn(value)))
         );
     }
 
     ["fantasy-land/chain"](fn) {
-        return new List(this.values.flatMap((value) => fn(value).values));
+        return new List(this._list.flatMap((value) => fn(value).values));
     }
 
     ["fantasy-land/concat"](other) {
-        return new List(this.values.concat(other.values));
+        return new List(this._list.concat(other._list));
     }
 
     ["fantasy-land/reduce"](fn, initial) {
-        return this.values.reduce(fn, initial);
+        return this._list.reduce(fn, initial);
     }
 
     ["fantasy-land/filter"](pred) {
-        return new List(this.values.filter(pred));
+        return new List(this._list.filter(pred));
     }
 
     ["fantasy-land/equals"](other) {
         return (
-            this.values.length === other.values.length &&
-            this.values.every((v, i) => v === other.values[i])
+            this._list.length === other._list.length &&
+            this._list.every((v, i) => v === other._list[i])
         );
     }
 
@@ -85,11 +85,11 @@ class List {
     }
 
     [Symbol.iterator]() {
-        return this.values[Symbol.iterator]();
+        return this._list[Symbol.iterator]();
     }
 
     toString() {
-        return `List(${this.values})`;
+        return `List(${this._list})`;
     }
 }
 
