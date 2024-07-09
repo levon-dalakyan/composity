@@ -7,8 +7,8 @@ class List {
         return this["fantasy-land/map"](fn);
     }
 
-    ap(arrayFns) {
-        return this["fantasy-land/ap"](arrayFns);
+    ap(other) {
+        return this["fantasy-land/ap"](other);
     }
 
     chain(fn) {
@@ -31,15 +31,17 @@ class List {
         return this["fantasy-land/equals"](other);
     }
 
+    alt(other) {
+        return this["fantasy-land/alt"](other);
+    }
+
     ["fantasy-land/map"](fn) {
         return new List(this.values.map(fn));
     }
 
-    ["fantasy-land/ap"](arrayFns) {
+    ["fantasy-land/ap"](other) {
         return new List(
-            this.values.flatMap((value) =>
-                arrayFns.values.map((fn) => fn(value))
-            )
+            this.values.flatMap((value) => other.values.map((fn) => fn(value)))
         );
     }
 
@@ -60,17 +62,14 @@ class List {
     }
 
     ["fantasy-land/equals"](other) {
-        if (!(other instanceof List)) {
-            return false;
-        }
-
-        if (this.values.length !== other.values.length) {
-            return false;
-        }
-
-        return this.values.every((value, index) =>
-            this.deepEquals(value, other.values[index])
+        return (
+            this.values.length === other.values.length &&
+            this.values.every((v, i) => v === other.values[i])
         );
+    }
+
+    ["fantasy-land/alt"](other) {
+        return this["fantasy-land/concat"](other);
     }
 
     static ["fantasy-land/of"](value) {
@@ -81,41 +80,8 @@ class List {
         return new List();
     }
 
-    deepEquals(a, b) {
-        if (a === b) {
-            return true;
-        }
-
-        if (a instanceof List && b instanceof List) {
-            return a["fantasy-land/equals"](b);
-        }
-
-        if (List.isArray(a) && List.isArray(b)) {
-            return (
-                a.length === b.length &&
-                a.every((val, index) => this.deepEquals(val, b[index]))
-            );
-        }
-
-        if (
-            typeof a === "object" &&
-            a !== null &&
-            typeof b === "object" &&
-            b !== null
-        ) {
-            const keysA = Object.keys(a);
-            const keysB = Object.keys(b);
-
-            return (
-                keysA.length === keysB.length &&
-                keysA.every(
-                    (key) =>
-                        keysB.includes(key) && this.deepEquals(a[key], b[key])
-                )
-            );
-        }
-
-        return false;
+    static ["fantasy-land/zero"]() {
+        return this["fantasy-land/empty"]();
     }
 
     [Symbol.iterator]() {
@@ -129,3 +95,4 @@ class List {
 
 List.of = List["fantasy-land/of"];
 List.empty = List["fantasy-land/empty"];
+List.zero = List["fantasy-land/zero"];

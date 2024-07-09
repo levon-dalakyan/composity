@@ -15,8 +15,8 @@ class Maybe {
         return this["fantasy-land/chain"](fn);
     }
 
-    ap(maybeFn) {
-        return this["fantasy-land/ap"](maybeFn);
+    ap(other) {
+        return this["fantasy-land/ap"](other);
     }
 
     filter(pred) {
@@ -67,10 +67,10 @@ class Maybe {
         return this.isNone() ? Maybe.None() : fn(this.value);
     }
 
-    ["fantasy-land/ap"](maybeFn) {
-        return this.isNone() || maybeFn.isNone()
+    ["fantasy-land/ap"](other) {
+        return this.isNone() || other.isNone()
             ? Maybe.None()
-            : this["fantasy-land/map"](maybeFn.value);
+            : this["fantasy-land/map"](other.value);
     }
 
     ["fantasy-land/alt"](other) {
