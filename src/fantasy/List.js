@@ -81,7 +81,7 @@ class List {
     }
 
     static ["fantasy-land/zero"]() {
-        return this["fantasy-land/empty"]();
+        return List["fantasy-land/empty"]();
     }
 
     [Symbol.iterator]() {

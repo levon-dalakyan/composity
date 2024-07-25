@@ -103,7 +103,7 @@ class UniqueList {
     }
 
     static ["fantasy-land/zero"]() {
-        return this["fantasy-land/empty"]();
+        return UniqueList["fantasy-land/empty"]();
     }
 
     [Symbol.iterator]() {

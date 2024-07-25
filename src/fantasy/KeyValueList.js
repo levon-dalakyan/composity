@@ -127,7 +127,7 @@ class KeyValueList {
     }
 
     static ["fantasy-land/zero"]() {
-        return this["fantasy-land/empty"]();
+        return KeyValueList["fantasy-land/empty"]();
     }
 
     [Symbol.iterator]() {
