@@ -1,4 +1,4 @@
-export function _map(transformer, coll) {
+export function map(transformer, coll) {
     const arr = [];
 
     for (let i = 0; i < coll.length; i++) {
