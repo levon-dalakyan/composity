@@ -1,7 +1,5 @@
-import { createAsyncIterableIterator } from "../utils/creators/creators.js";
-
 export function iFilterAsync(iterable, predicate) {
-    const iterator = createAsyncIterableIterator(iterable);
+    const iterator = iterable[Symbol.asyncIterator]();
 
     return {
         [Symbol.asyncIterator]() {

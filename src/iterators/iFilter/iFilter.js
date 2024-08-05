@@ -1,7 +1,5 @@
-import { createIterableIterator } from "../utils/creators/creators.js";
-
 export function iFilter(iterable, predicate) {
-    const iterator = createIterableIterator(iterable);
+    const iterator = iterable[Symbol.iterator]();
 
     return {
         [Symbol.iterator]() {

@@ -1,7 +1,5 @@
-import { createIterableIterator } from "../utils/creators/creators.js";
-
 export function iReverse(iterable) {
-    const iterator = createIterableIterator(iterable);
+    const iterator = iterable[Symbol.iterator]();
     const buffer = [];
     let isBufferFull = false;
 
