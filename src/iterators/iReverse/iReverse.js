@@ -11,9 +11,11 @@ export function iReverse(iterable) {
         next() {
             if (!isBufferFull) {
                 let current;
-                while ((current = iterator.next()).done === false) {
+
+                while (!(current = iterator.next()).done) {
                     buffer.unshift(current.value);
                 }
+
                 isBufferFull = true;
             }
 
