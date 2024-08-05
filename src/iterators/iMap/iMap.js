@@ -1,6 +1,6 @@
 import { createIterableIterator } from "../utils/creators/creators.js";
 
-export function iterMap(iterable, fn) {
+export function iMap(iterable, fn) {
     const iterator = createIterableIterator(iterable);
 
     return {

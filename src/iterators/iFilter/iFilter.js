@@ -1,16 +1,16 @@
-import { createAsyncIterableIterator } from "../utils/creators/creators.js";
+import { createIterableIterator } from "../utils/creators/creators.js";
 
-export function iterFilterAsync(iterable, predicate) {
-    const iterator = createAsyncIterableIterator(iterable);
+export function iFilter(iterable, predicate) {
+    const iterator = createIterableIterator(iterable);
 
     return {
-        [Symbol.asyncIterator]() {
+        [Symbol.iterator]() {
             return this;
         },
 
-        async next() {
+        next() {
             while (true) {
-                const current = await iterator.next();
+                const current = iterator.next();
 
                 if (current.done) {
                     return current;

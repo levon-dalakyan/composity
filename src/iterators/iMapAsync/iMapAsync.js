@@ -1,6 +1,6 @@
 import { createAsyncIterableIterator } from "../utils/creators/creators.js";
 
-export function iterMapAsync(iterable, fn) {
+export function iMapAsync(iterable, fn) {
     const iterator = createAsyncIterableIterator(iterable);
 
     return {

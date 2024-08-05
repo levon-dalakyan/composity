@@ -1,6 +1,6 @@
 import { createIterableIterator } from "../utils/creators/creators.js";
 
-export function iterReverse(iterable) {
+export function iReverse(iterable) {
     const iterator = createIterableIterator(iterable);
     const buffer = [];
     let isBufferFull = false;
