@@ -1,8 +1,8 @@
-export function _filter(pred, coll) {
+export function filter(predicate, coll) {
     const arr = [];
 
     for (let i = 0; i < coll.length; i++) {
-        if (pred(coll[i])) {
+        if (predicate(coll[i])) {
             arr.push(coll[i]);
         }
     }
