@@ -1,5 +1,6 @@
-export function iSkipAsync(iterable, amount = 1) {
+export function iSkipWhileAsync(iterable, predicate) {
     const iterator = iterable[Symbol.asyncIterator]();
+    let isSkipped = false;
 
     return {
         [Symbol.asyncIterator]() {
@@ -9,9 +10,11 @@ export function iSkipAsync(iterable, amount = 1) {
         async next() {
             let current = await iterator.next();
 
-            while (amount > 0 && !current.done) {
-                current = await iterator.next();
-                amount--;
+            if (!isSkipped) {
+                while (predicate(current.value) && !current.done) {
+                    current = await iterator.next();
+                }
+                isSkipped = true;
             }
 
             if (current.done) {

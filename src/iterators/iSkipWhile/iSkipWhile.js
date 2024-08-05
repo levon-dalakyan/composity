@@ -1,5 +1,6 @@
-export function iSkip(iterable, amount = 1) {
+export function iSkipWhile(iterable, predicate) {
     const iterator = iterable[Symbol.iterator]();
+    let isSkipped = false;
 
     return {
         [Symbol.iterator]() {
@@ -9,9 +10,11 @@ export function iSkip(iterable, amount = 1) {
         next() {
             let current = iterator.next();
 
-            while (amount > 0 && !current.done) {
-                current = iterator.next();
-                amount--;
+            if (!isSkipped) {
+                while (predicate(current.value) && !current.done) {
+                    current = iterator.next();
+                }
+                isSkipped = true;
             }
 
             if (current.done) {
