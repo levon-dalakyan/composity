@@ -1,14 +1,14 @@
-export function iEnumerate(iterable) {
-    const iterator = iterable[Symbol.iterator]();
+export function iEnumerateAsync(iterable) {
+    const iterator = iterable[Symbol.asyncIterator]();
     let count = 0;
 
     return {
-        [Symbol.iterator]() {
+        [Symbol.asyncIterator]() {
             return this;
         },
 
-        next() {
-            const current = iterator.next();
+        async next() {
+            const current = await iterator.next();
 
             if (current.done) {
                 return current;
