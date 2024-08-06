@@ -53,6 +53,18 @@ export class UniqueList {
         return this["fantasy-land/alt"](other);
     }
 
+    static of(value) {
+        return UniqueList["fantasy-land/of"](value);
+    }
+
+    static empty() {
+        return UniqueList["fantasy-land/empty"]();
+    }
+
+    static zero() {
+        return UniqueList["fantasy-land/zero"]();
+    }
+
     ["fantasy-land/map"](fn) {
         return new UniqueList(Array.from(this._set, fn));
     }
@@ -114,7 +126,3 @@ export class UniqueList {
         return `UniqueList(${Array.from(this._set)})`;
     }
 }
-
-UniqueList.of = UniqueList["fantasy-land/of"];
-UniqueList.empty = UniqueList["fantasy-land/empty"];
-UniqueList.zero = UniqueList["fantasy-land/zero"];

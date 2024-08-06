@@ -55,6 +55,18 @@ export class KeyValueList {
         return this["fantasy-land/equals"](other);
     }
 
+    static of(value) {
+        return KeyValueList["fantasy-land/of"](value);
+    }
+
+    static empty() {
+        return KeyValueList["fantasy-land/empty"]();
+    }
+
+    static zero() {
+        return KeyValueList["fantasy-land/zero"]();
+    }
+
     ["fantasy-land/map"](fn) {
         return new KeyValueList(
             Array.from(this._map, ([k, v]) => [k, fn(v, k)])
@@ -138,7 +150,3 @@ export class KeyValueList {
         return `KeyValueList(${JSON.stringify(Object.fromEntries(this._map))})`;
     }
 }
-
-KeyValueList.of = KeyValueList["fantasy-land/of"];
-KeyValueList.empty = KeyValueList["fantasy-land/empty"];
-KeyValueList.zero = KeyValueList["fantasy-land/zero"];

@@ -59,6 +59,18 @@ export class Maybe {
         return new Maybe(null);
     }
 
+    static of(value) {
+        return Maybe["fantasy-land/of"](value);
+    }
+
+    static empty() {
+        return Maybe["fantasy-land/empty"]();
+    }
+
+    static zero() {
+        return Maybe["fantasy-land/zero"]();
+    }
+
     ["fantasy-land/map"](fn) {
         return this.isNone() ? Maybe.None() : Maybe.Some(fn(this._value));
     }
@@ -101,14 +113,15 @@ export class Maybe {
         return Maybe.Some(value);
     }
 
-    static ["fantasy-land/zero"]() {
+    static ["fantasy-land/empty"]() {
         return Maybe.None();
+    }
+
+    static ["fantasy-land/zero"]() {
+        return Maybe["fantasy-land/empty"]();
     }
 
     toString() {
         return this.isNone() ? "None" : `Some(${this._value})`;
     }
 }
-
-Maybe.of = Maybe["fantasy-land/of"];
-Maybe.zero = Maybe["fantasy-land/zero"];

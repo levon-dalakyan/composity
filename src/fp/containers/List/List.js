@@ -35,6 +35,18 @@ export class List {
         return this["fantasy-land/alt"](other);
     }
 
+    static of(value) {
+        return List["fantasy-land/of"](value);
+    }
+
+    static empty() {
+        return List["fantasy-land/empty"]();
+    }
+
+    static zero() {
+        return List["fantasy-land/zero"]();
+    }
+
     ["fantasy-land/map"](fn) {
         return new List(this._list.map(fn));
     }
@@ -92,7 +104,3 @@ export class List {
         return `List(${this._list})`;
     }
 }
-
-List.of = List["fantasy-land/of"];
-List.empty = List["fantasy-land/empty"];
-List.zero = List["fantasy-land/zero"];
