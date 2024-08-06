@@ -1,9 +1,9 @@
 export async function iToArrayAsync(iterable) {
-    const result = [];
+    const array = [];
 
     for await (const value of iterable) {
-        result.push(value);
+        array.push(value);
     }
 
-    return result;
+    return array;
 }
