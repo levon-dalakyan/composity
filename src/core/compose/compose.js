@@ -3,6 +3,6 @@ import reverse from "../../reverse/reverse";
 
 export function compose(...fns) {
     return function (arg) {
-        return _reduce((v, fn) => fn(v), arg, reverse(fns));
+        return _reduce(reverse(fns), (v, fn) => fn(v), arg);
     };
 }

@@ -1,7 +1,7 @@
 import { _isArray } from "../_is-array";
 
 export function _createReduce(reduceArray, reduceIterator, reduceByMethod) {
-    return function _reduce(reducer, init, coll) {
+    return function _reduce(coll, reducer, init) {
         if (coll == null) {
             return init;
         }

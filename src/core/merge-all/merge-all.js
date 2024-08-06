@@ -3,6 +3,7 @@ import { curry } from "../curry";
 
 var mergeAll = curry(function (...objs) {
     return _reduce(
+        objs,
         (merged, obj) => {
             if (Object(obj) === obj) {
                 for (const key in obj) {
@@ -14,9 +15,7 @@ var mergeAll = curry(function (...objs) {
 
             return merged;
         },
-
-        {},
-        objs
+        {}
     );
 });
 
