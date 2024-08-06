@@ -1,4 +1,4 @@
-class IO {
+export class IO {
     constructor(effect) {
         this._effect = effect;
     }

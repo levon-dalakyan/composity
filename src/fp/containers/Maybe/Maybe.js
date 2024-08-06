@@ -1,4 +1,4 @@
-class Maybe {
+export class Maybe {
     constructor(value) {
         this._value = value;
     }
@@ -85,8 +85,8 @@ class Maybe {
         return this.isNone()
             ? Maybe.None()
             : this._value instanceof Maybe
-            ? this._value
-            : this;
+              ? this._value
+              : this;
     }
 
     ["fantasy-land/equals"](other) {

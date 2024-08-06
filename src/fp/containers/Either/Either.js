@@ -1,4 +1,4 @@
-class Either {
+export class Either {
     constructor(isRight, value) {
         this._isRight = isRight;
         this._value = value;

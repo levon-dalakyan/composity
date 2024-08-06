@@ -1,4 +1,4 @@
-class List {
+export class List {
     constructor(values = []) {
         this._list = values;
     }

@@ -1,4 +1,4 @@
-class Lazy {
+export class Lazy {
     constructor(computation) {
         this.computation = computation;
     }

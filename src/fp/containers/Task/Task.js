@@ -1,4 +1,4 @@
-class Task {
+export class Task {
     constructor(computation) {
         this.computation = computation;
     }

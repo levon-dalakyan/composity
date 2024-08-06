@@ -1,4 +1,4 @@
-class KeyValueList {
+export class KeyValueList {
     constructor(entries = []) {
         this._map = new Map(entries);
     }

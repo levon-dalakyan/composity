@@ -1,4 +1,4 @@
-class Reader {
+export class Reader {
     constructor(run) {
         this.run = run;
     }

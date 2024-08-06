@@ -1,4 +1,4 @@
-class UniqueList {
+export class UniqueList {
     constructor(values = []) {
         this._set = new Set(values);
     }
