@@ -1,13 +1,15 @@
-export function iZip(...iterables) {
-    const iterators = iterables.map((iterable) => iterable[Symbol.iterator]());
+export function iZipAsync(...iterables) {
+    const iterators = iterables.map((iterable) =>
+        iterable[Symbol.asyncIterator]()
+    );
     let nonEmptyIters = iterators.length;
 
     return {
-        [Symbol.iterator]() {
+        [Symbol.asyncIterator]() {
             return this;
         },
 
-        next() {
+        async next() {
             if (nonEmptyIters === 0) {
                 return {
                     value: undefined,
@@ -19,7 +21,7 @@ export function iZip(...iterables) {
             const allItersFull = nonEmptyIters === iterators.length;
 
             for (const iterator of iterators) {
-                const current = iterator.next();
+                const current = await iterator.next();
 
                 if (current.done) {
                     nonEmptyIters--;
