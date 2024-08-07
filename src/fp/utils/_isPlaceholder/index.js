@@ -1,1 +1,1 @@
-export * from "./_is-placeholder";
+export { _isPlaceholder } from "./_isPlaceholder";

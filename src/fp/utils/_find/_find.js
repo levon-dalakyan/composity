@@ -1,4 +1,4 @@
-import { _isArray } from "../_is-array";
+import { _isArray } from "../_isArray";
 
 export function _find(pred, coll) {
     if (_isArray(coll) || typeof coll === "string") {

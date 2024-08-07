@@ -1,1 +1,1 @@
-export * from "./_curry-2";
+export { _curry2 } from "./_curry2";

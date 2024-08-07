@@ -1,1 +1,1 @@
-export { default as _isArray } from "./_is-array";
+export { _isArray } from "./_isArray";

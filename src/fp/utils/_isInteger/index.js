@@ -1,1 +1,1 @@
-export { _isInteger } from "./_is-integer";
+export { _isInteger } from "./_isInteger";

@@ -1,1 +1,1 @@
-export * from "./_reduce-array";
+export { _reduceArray } from "./_reduceArray";

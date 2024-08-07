@@ -1,1 +1,1 @@
-export { _curry1 } from "./_curry-1";
+export { _curry1 } from "./_curry1";

@@ -1,1 +1,1 @@
-export * from "./_reduce-by-method";
+export { _reduceByMethod } from "./_reduceByMethod";

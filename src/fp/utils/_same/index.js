@@ -1,1 +1,1 @@
-export * from "./_same";
+export { _same } from "./_same";

@@ -1,7 +1,7 @@
-import { _createReduce } from "../_create-reduce";
-import { _reduceArray } from "../_reduce-array";
-import { _reduceByMethod } from "../_reduce-by-method";
-import { _reduceIterator } from "../_reduce-iterator";
+import { _createReduce } from "../_createReduce";
+import { _reduceArray } from "../_reduceArray";
+import { _reduceByMethod } from "../_reduceByMethod";
+import { _reduceIterator } from "../_reduceIterator";
 
 export var _reduce = _createReduce(
     _reduceArray,

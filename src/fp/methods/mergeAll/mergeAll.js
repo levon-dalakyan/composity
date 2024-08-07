@@ -1,7 +1,7 @@
-import { _curry2, _reduce } from "../utils";
 import { curry } from "../curry";
+import { _curry2, _reduce } from "../../utils";
 
-var mergeAll = curry(function (...objs) {
+export const mergeAll = curry(function (...objs) {
     return _reduce(
         objs,
         (merged, obj) => {
@@ -18,5 +18,3 @@ var mergeAll = curry(function (...objs) {
         {}
     );
 });
-
-export default mergeAll;

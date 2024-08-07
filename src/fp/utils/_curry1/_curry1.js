@@ -1,4 +1,4 @@
-import { _isPlaceholder } from "../_is-placeholder";
+import { _isPlaceholder } from "../_isPlaceholder";
 
 export function _curry1(fn) {
     return function curried(arg) {

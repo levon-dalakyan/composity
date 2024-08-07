@@ -1,1 +1,1 @@
-export * from "./_reverse-array";
+export { _reverseArray } from "./_reverseArray";

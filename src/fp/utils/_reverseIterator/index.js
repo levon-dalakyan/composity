@@ -1,1 +1,1 @@
-export * from "./_reverse-iterator";
+export { _reverseIterator } from "./_reverseIterator";

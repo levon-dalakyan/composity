@@ -1,8 +1,8 @@
-import { _curry3 } from "../_curry-3";
-import { _isPlaceholder } from "../_is-placeholder";
+import { _curry3 } from "../_curry3";
+import { _isPlaceholder } from "../_isPlaceholder";
 import { _arify } from "../_arify";
 
-var _curryN = _curry3(function (length, entrance, fn) {
+export const _curryN = _curry3(function (length, entrance, fn) {
     return function (...args) {
         let remains = length;
         const store = [];
@@ -34,5 +34,3 @@ var _curryN = _curry3(function (length, entrance, fn) {
         }
     };
 });
-
-export default _curryN;

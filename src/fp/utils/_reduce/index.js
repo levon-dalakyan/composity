@@ -1,1 +1,1 @@
-export * from "./_reduce";
+export { _reduce } from "./_reduce";
