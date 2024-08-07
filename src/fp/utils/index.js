@@ -1,8 +1,8 @@
-export * from "./_same";
-export * from "./_is-placeholder";
+export { _same } from "./_same";
+export { _isPlaceholder } from "./_is-placeholder";
 export { _curry1 } from "./_curry-1";
 export { _curry2 } from "./_curry-2";
-export * from "./_curry-3";
+export { _curry3 } from "./_curry-3";
 export { _curryN } from "./_curry-n";
 export * from "./_reduce-array";
 export * from "./_reduce-iterator";

@@ -1,4 +1,4 @@
-import { _isArray } from "../_is-array";
+import { _isArray } from "../_isArray";
 
 export function _createReduce(reduceArray, reduceIterator, reduceByMethod) {
     return function _reduce(coll, reducer, init) {

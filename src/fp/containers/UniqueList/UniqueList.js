@@ -1,4 +1,23 @@
+/**
+ * Represents a unique list of values.
+ * @class
+ * @implements {Functor}
+ * @implements {Apply}
+ * @implements {Applicative}
+ * @implements {Chain}
+ * @implements {Monoid}
+ * @implements {Foldable}
+ * @implements {Filterable}
+ * @implements {Setoid}
+ * @implements {Alt}
+ * @implements {Plus}
+ * @implements {Alternative}
+ */
 export class UniqueList {
+    /**
+     * Creates an instance of UniqueList.
+     * @param {Array} [values=[]] - Initial values for the list.
+     */
     constructor(values = []) {
         this._set = new Set(values);
     }

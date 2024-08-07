@@ -1,6 +1,6 @@
 import { _curry1 } from "../../utils";
 
-var clone = _curry1(function clone(obj) {
+export const clone = _curry1(function clone(obj) {
     if (typeof obj !== "object" || obj === null) {
         return obj;
     }
@@ -15,5 +15,3 @@ var clone = _curry1(function clone(obj) {
 
     return newObj;
 });
-
-export default clone;

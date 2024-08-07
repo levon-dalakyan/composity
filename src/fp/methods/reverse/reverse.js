@@ -1,5 +1,5 @@
 import { _curry1, _isArray, _reverseArray, _reverseString } from "../utils";
-import { _reverseIterator } from "../utils/_reverse-iterator/_reverse-iterator";
+import { _reverseIterator } from "../utils";
 
 var reverse = _curry1(function reverse(coll) {
     if (typeof coll === "string") {
