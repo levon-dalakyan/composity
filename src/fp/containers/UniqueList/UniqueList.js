@@ -271,7 +271,7 @@ export class UniqueList {
     }
 
     /**
-     * Iterator for the UniqueList.
+     * Makes UniqueList iterable.
      * @returns {Iterator} An iterator for the set.
      */
     [Symbol.iterator]() {
