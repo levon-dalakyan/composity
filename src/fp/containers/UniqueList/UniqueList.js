@@ -1,5 +1,5 @@
 /**
- * Represents a unique list of values.
+ * Represents an immutable unique list with various functional programming capabilities.
  * @class
  * @implements {Functor}
  * @implements {Apply}
