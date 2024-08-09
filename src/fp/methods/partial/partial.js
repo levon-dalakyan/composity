@@ -17,7 +17,3 @@ export const partial = _curry2(function (fn, ...args) {
         return fn.call(this, ...args, ...nextArgs);
     });
 });
-
-const greet = (greeting, name, surname) => `${greeting}, ${name}, ${surname}!`;
-const sayHello = partial(greet, "Hello");
-console.log(sayHello("World"));
