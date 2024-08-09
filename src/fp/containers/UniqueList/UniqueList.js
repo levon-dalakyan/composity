@@ -152,15 +152,6 @@ export class UniqueList {
     }
 
     /**
-     * Creates an empty UniqueList.
-     * @static
-     * @returns {UniqueList} An empty UniqueList instance.
-     */
-    static zero() {
-        return UniqueList["fantasy-land/zero"]();
-    }
-
-    /**
      * Fantasy-land compliant map method.
      * @param {Function} fn - The function to apply to each element.
      * @returns {UniqueList} A new UniqueList with the mapped values.
@@ -259,15 +250,6 @@ export class UniqueList {
      */
     static ["fantasy-land/empty"]() {
         return new UniqueList();
-    }
-
-    /**
-     * Fantasy-land compliant zero method.
-     * @static
-     * @returns {UniqueList} An empty UniqueList instance.
-     */
-    static ["fantasy-land/zero"]() {
-        return UniqueList["fantasy-land/empty"]();
     }
 
     /**

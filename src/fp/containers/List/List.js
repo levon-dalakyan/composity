@@ -117,15 +117,6 @@ export class List {
     }
 
     /**
-     * Creates an empty List.
-     * @static
-     * @returns {List} An empty List instance.
-     */
-    static zero() {
-        return List["fantasy-land/zero"]();
-    }
-
-    /**
      * Fantasy-land compliant map method.
      * @param {function(*): *} fn - Function to apply to each value.
      * @returns {List} A new List instance.
@@ -220,15 +211,6 @@ export class List {
      */
     static ["fantasy-land/empty"]() {
         return new List();
-    }
-
-    /**
-     * Fantasy-land compliant zero method.
-     * @static
-     * @returns {List} An empty List instance.
-     */
-    static ["fantasy-land/zero"]() {
-        return List["fantasy-land/empty"]();
     }
 
     /**

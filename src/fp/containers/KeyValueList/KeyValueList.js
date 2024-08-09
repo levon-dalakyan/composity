@@ -155,15 +155,6 @@ export class KeyValueList {
     }
 
     /**
-     * Creates an empty KeyValueList.
-     * @static
-     * @returns {KeyValueList} An empty KeyValueList instance.
-     */
-    static zero() {
-        return KeyValueList["fantasy-land/zero"]();
-    }
-
-    /**
      * Fantasy-land compliant map method.
      * @param {function(*, *): *} fn - Function to apply to each value-key pair.
      * @returns {KeyValueList} A new KeyValueList instance.
@@ -280,15 +271,6 @@ export class KeyValueList {
      */
     static ["fantasy-land/empty"]() {
         return new KeyValueList();
-    }
-
-    /**
-     * Fantasy-land compliant zero method.
-     * @static
-     * @returns {KeyValueList} An empty KeyValueList instance.
-     */
-    static ["fantasy-land/zero"]() {
-        return KeyValueList["fantasy-land/empty"]();
     }
 
     /**
