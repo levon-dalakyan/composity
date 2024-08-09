@@ -1,6 +1,6 @@
 import { _curry1 } from "../utils";
 
-var keys = _curry1(function (obj) {
+export const keys = _curry1(function (obj) {
     if (Object(obj) !== obj) {
         return [];
     }
@@ -15,5 +15,3 @@ var keys = _curry1(function (obj) {
 
     return _keys;
 });
-
-export default keys;

@@ -1,2 +1,1 @@
-export { _arify } from "./_arify";
-
+export { _arify } from "./_arify.js";

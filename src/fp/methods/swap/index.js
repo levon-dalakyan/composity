@@ -1,1 +1,2 @@
-export * from "./swap";
+export { swap } from "./swap";
+

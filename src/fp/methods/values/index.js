@@ -1,1 +1,1 @@
-export { default as values } from "./values";
+export { values } from "./values";

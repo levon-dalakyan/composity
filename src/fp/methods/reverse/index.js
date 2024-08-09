@@ -1,1 +1,2 @@
-export * from "./reverse";
+export { reverse } from "./reverse";
+

@@ -1,1 +1,1 @@
-export { default as keys } from "./keys";
+export { keys } from "./keys";

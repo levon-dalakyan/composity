@@ -1,1 +1,2 @@
-export * from "./tail";
+export { tail } from "./tail";
+
