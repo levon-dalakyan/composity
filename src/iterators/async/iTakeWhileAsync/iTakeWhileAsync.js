@@ -1,25 +1,27 @@
-export function iTakeWhileAsync(iterable, predicate) {
-    const iterator = iterable[Symbol.asyncIterator]();
-    let isTaken = false;
+export function iTakeWhileAsync(predicate) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.asyncIterator]();
+        let isTaken = false;
 
-    return {
-        [Symbol.asyncIterator]() {
-            return this;
-        },
+        return {
+            [Symbol.asyncIterator]() {
+                return this;
+            },
 
-        async next() {
-            const current = await iterator.next();
+            async next() {
+                const current = await iterator.next();
 
-            if (!predicate(current.value) || isTaken || current.done) {
-                isTaken = true;
+                if (!predicate(current.value) || isTaken || current.done) {
+                    isTaken = true;
 
-                return {
-                    value: undefined,
-                    done: true,
-                };
-            }
+                    return {
+                        value: undefined,
+                        done: true,
+                    };
+                }
 
-            return current;
-        },
+                return current;
+            },
+        };
     };
 }

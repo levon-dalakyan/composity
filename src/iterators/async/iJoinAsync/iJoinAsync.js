@@ -1,5 +1,9 @@
-import { iToArrayAsync } from "../iToArrayAsync/iToArrayAsync.js";
+import { iToArrayAsync } from "../iToArrayAsync";
 
-export async function iJoinAsync(iterable, separator = "") {
-    return await iToArrayAsync(iterable).then((array) => array.join(separator));
+export function iJoinAsync(separator = "") {
+    return async function (iterable) {
+        return await iToArrayAsync(iterable).then((array) =>
+            array.join(separator)
+        );
+    };
 }

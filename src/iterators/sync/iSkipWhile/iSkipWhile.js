@@ -1,30 +1,32 @@
-export function iSkipWhile(iterable, predicate) {
-    const iterator = iterable[Symbol.iterator]();
-    let isSkipped = false;
+export function iSkipWhile(predicate) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.iterator]();
+        let isSkipped = false;
 
-    return {
-        [Symbol.iterator]() {
-            return this;
-        },
+        return {
+            [Symbol.iterator]() {
+                return this;
+            },
 
-        next() {
-            let current = iterator.next();
+            next() {
+                let current = iterator.next();
 
-            if (!isSkipped) {
-                while (predicate(current.value) && !current.done) {
-                    current = iterator.next();
+                if (!isSkipped) {
+                    while (predicate(current.value) && !current.done) {
+                        current = iterator.next();
+                    }
+                    isSkipped = true;
                 }
-                isSkipped = true;
-            }
 
-            if (current.done) {
-                return {
-                    value: undefined,
-                    done: true,
-                };
-            }
+                if (current.done) {
+                    return {
+                        value: undefined,
+                        done: true,
+                    };
+                }
 
-            return current;
-        },
+                return current;
+            },
+        };
     };
 }

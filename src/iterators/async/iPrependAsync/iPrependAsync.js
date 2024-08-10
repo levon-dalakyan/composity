@@ -1,5 +1,7 @@
-import { iSeqAsync } from "../iSeqAsync/iSeqAsync.js";
+import { iSeqAsync } from "../iSeqAsync";
 
-export function iPrependAsync(iterable, ...iterables) {
-    return iSeqAsync(...iterables, iterable);
+export function iPrependAsync(...iterables) {
+    return function (iterable) {
+        return iSeqAsync(...iterables, iterable);
+    };
 }

@@ -1,27 +1,29 @@
-export function iSkipAsync(iterable, amount = 1) {
-    const iterator = iterable[Symbol.asyncIterator]();
+export function iSkipAsync(amount = 1) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.asyncIterator]();
 
-    return {
-        [Symbol.asyncIterator]() {
-            return this;
-        },
+        return {
+            [Symbol.asyncIterator]() {
+                return this;
+            },
 
-        async next() {
-            let current = await iterator.next();
+            async next() {
+                let current = await iterator.next();
 
-            while (amount > 0 && !current.done) {
-                current = await iterator.next();
-                amount--;
-            }
+                while (amount > 0 && !current.done) {
+                    current = await iterator.next();
+                    amount--;
+                }
 
-            if (current.done) {
-                return {
-                    value: undefined,
-                    done: true,
-                };
-            }
+                if (current.done) {
+                    return {
+                        value: undefined,
+                        done: true,
+                    };
+                }
 
-            return current;
-        },
+                return current;
+            },
+        };
     };
 }

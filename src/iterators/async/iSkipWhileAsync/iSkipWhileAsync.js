@@ -1,30 +1,32 @@
-export function iSkipWhileAsync(iterable, predicate) {
-    const iterator = iterable[Symbol.asyncIterator]();
-    let isSkipped = false;
+export function iSkipWhileAsync(predicate) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.asyncIterator]();
+        let isSkipped = false;
 
-    return {
-        [Symbol.asyncIterator]() {
-            return this;
-        },
+        return {
+            [Symbol.asyncIterator]() {
+                return this;
+            },
 
-        async next() {
-            let current = await iterator.next();
+            async next() {
+                let current = await iterator.next();
 
-            if (!isSkipped) {
-                while (predicate(current.value) && !current.done) {
-                    current = await iterator.next();
+                if (!isSkipped) {
+                    while (predicate(current.value) && !current.done) {
+                        current = await iterator.next();
+                    }
+                    isSkipped = true;
                 }
-                isSkipped = true;
-            }
 
-            if (current.done) {
-                return {
-                    value: undefined,
-                    done: true,
-                };
-            }
+                if (current.done) {
+                    return {
+                        value: undefined,
+                        done: true,
+                    };
+                }
 
-            return current;
-        },
+                return current;
+            },
+        };
     };
 }

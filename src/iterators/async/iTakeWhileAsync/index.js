@@ -1,0 +1,1 @@
+export { iTakeWhileAsync } from "./iTakeWhileAsync";

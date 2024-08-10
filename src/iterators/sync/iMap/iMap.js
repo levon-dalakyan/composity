@@ -1,22 +1,24 @@
-export function iMap(iterable, fn) {
-    const iterator = iterable[Symbol.iterator]();
+export function iMap(fn) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.iterator]();
 
-    return {
-        [Symbol.iterator]() {
-            return this;
-        },
+        return {
+            [Symbol.iterator]() {
+                return this;
+            },
 
-        next() {
-            const current = iterator.next();
+            next() {
+                const current = iterator.next();
 
-            if (current.done) {
-                return current;
-            }
+                if (current.done) {
+                    return current;
+                }
 
-            return {
-                value: fn(current.value),
-                done: false,
-            };
-        },
+                return {
+                    value: fn(current.value),
+                    done: false,
+                };
+            },
+        };
     };
 }

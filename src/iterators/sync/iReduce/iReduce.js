@@ -1,21 +1,23 @@
-import { iEnumerate } from "../iEnumerate/iEnumerate.js";
+import { iEnumerate } from "../iEnumerate";
 
-export function iReduce(iterable, reducer, init) {
-    const iterator = iEnumerate(iterable);
+export function iReduce(reducer, init) {
+    return function (iterable) {
+        const iterator = iEnumerate(iterable);
 
-    if (init === undefined) {
-        const current = iterator.next();
+        if (init === undefined) {
+            const current = iterator.next();
 
-        if (current.done) {
-            return init;
+            if (current.done) {
+                return init;
+            }
+
+            init = current.value[1];
         }
 
-        init = current.value[1];
-    }
+        for (const [idx, value] of iterator) {
+            init = reducer(init, value, idx, iterable);
+        }
 
-    for (const [idx, value] of iterator) {
-        init = reducer(init, value, idx, iterable);
-    }
-
-    return init;
+        return init;
+    };
 }

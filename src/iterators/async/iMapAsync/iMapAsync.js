@@ -1,22 +1,24 @@
-export function iMapAsync(iterable, fn) {
-    const iterator = iterable[Symbol.asyncIterator]();
+export function iMapAsync(fn) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.asyncIterator]();
 
-    return {
-        [Symbol.asyncIterator]() {
-            return this;
-        },
+        return {
+            [Symbol.asyncIterator]() {
+                return this;
+            },
 
-        async next() {
-            const current = await iterator.next();
+            async next() {
+                const current = await iterator.next();
 
-            if (current.done) {
-                return current;
-            }
+                if (current.done) {
+                    return current;
+                }
 
-            return {
-                value: fn(current.value),
-                done: false,
-            };
-        },
+                return {
+                    value: fn(current.value),
+                    done: false,
+                };
+            },
+        };
     };
 }

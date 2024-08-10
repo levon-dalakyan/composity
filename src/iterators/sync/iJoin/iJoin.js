@@ -1,5 +1,7 @@
-import { iToArray } from "../iToArray/iToArray.js";
+import { iToArray } from "../iToArray";
 
-export function iJoin(iterable, separator = "") {
-    return iToArray(iterable).join(separator);
+export function iJoin(separator = "") {
+    return function (iterable) {
+        return iToArray(iterable).join(separator);
+    };
 }

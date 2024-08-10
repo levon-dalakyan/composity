@@ -1,0 +1,1 @@
+export { iSlice } from "./iSlice";

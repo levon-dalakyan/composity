@@ -1,24 +1,26 @@
-export function iTake(iterable, amount) {
-    const iterator = iterable[Symbol.iterator]();
+export function iTake(amount) {
+    return function (iterable) {
+        const iterator = iterable[Symbol.iterator]();
 
-    return {
-        [Symbol.iterator]() {
-            return this;
-        },
+        return {
+            [Symbol.iterator]() {
+                return this;
+            },
 
-        next() {
-            let current = iterator.next();
+            next() {
+                let current = iterator.next();
 
-            if (amount === 0 || current.done) {
-                return {
-                    value: undefined,
-                    done: true,
-                };
-            }
+                if (amount === 0 || current.done) {
+                    return {
+                        value: undefined,
+                        done: true,
+                    };
+                }
 
-            amount--;
+                amount--;
 
-            return current;
-        },
+                return current;
+            },
+        };
     };
 }
