@@ -1,5 +1,7 @@
-import { iSeq } from "../iSeq/iSeq.js";
+import { iSeq } from "../iSeq";
 
-export function iAppend(iterable, ...iterables) {
-    return iSeq(iterable, ...iterables);
+export function iAppend(...iterables) {
+    return function (iterable) {
+        return iSeq(iterable, ...iterables);
+    };
 }
