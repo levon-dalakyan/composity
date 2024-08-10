@@ -1,0 +1,1 @@
+export { pTag } from "./pTag";
