@@ -1,5 +1,5 @@
 import { _reduce } from "../../utils";
-import { reverse } from "../../reverse";
+import { reverse } from "../reverse";
 
 /**
  * Composes multiple functions into a single function, applying them from right to left.

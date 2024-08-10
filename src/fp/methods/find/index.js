@@ -1,1 +1,1 @@
-export { default as find } from "./find";
+export { find } from "./find";

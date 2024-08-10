@@ -1,4 +1,4 @@
-import { _curry1, _curry2, _curryN, _arify } from "../utils";
+import { _curry1, _curry2, _curryN, _arify } from "../../utils";
 
 /**
  * Creates a curried version of the provided function with a specified arity.
