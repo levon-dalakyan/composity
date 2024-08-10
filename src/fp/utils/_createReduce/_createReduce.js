@@ -14,25 +14,25 @@ import { _isArray } from "../_isArray";
  * iterables, and objects with a reduce method.
  */
 export function _createReduce(reduceArray, reduceIterator, reduceByMethod) {
-    return function _reduce(coll, reducer, init) {
+    return function _reduce(reducer, init, coll) {
         if (coll == null) {
             return init;
         }
 
         if (_isArray(coll)) {
-            return reduceArray(coll, reducer, init);
+            return reduceArray(reducer, init, coll);
         }
 
         if (coll[Symbol.iterator] != null) {
-            return reduceIterator(coll, reducer, init);
+            return reduceIterator(reducer, init, coll);
         }
 
         if (typeof coll.next === "function") {
-            return reduceIterator(coll, reducer, init);
+            return reduceIterator(reducer, init, coll);
         }
 
         if (typeof coll.reduce === "function") {
-            return reduceByMethod("reduce", coll, reducer, init);
+            return reduceByMethod("reduce", reducer, init, coll);
         }
 
         throw new TypeError("Cannot reduce a non-iterable object");

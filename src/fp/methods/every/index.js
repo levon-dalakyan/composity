@@ -1,1 +1,1 @@
-export { default as every } from "./every";
+export { every } from "./every";

@@ -13,5 +13,5 @@ import { _curry3, _reduce } from "../utils";
  * console.log(reduce(sum, 0, [1, 2, 3, 4, 5])); // Output: 15
  */
 export const reduce = _curry3(function (reducer, init, coll) {
-    return _reduce(coll, reducer, init);
+    return _reduce(reducer, init, coll);
 });
