@@ -13,5 +13,7 @@ export { _reduce } from "./_reduce";
 export { _reduceArray } from "./_reduceArray";
 export { _reduceByMethod } from "./_reduceByMethod";
 export { _reduceIterator } from "./_reduceIterator";
+export { _reverseArray } from "./_reverseArray";
+export { _reverseIterator } from "./_reverseIterator";
 export { _reverseString } from "./_reverseString";
 export { _same } from "./_same";

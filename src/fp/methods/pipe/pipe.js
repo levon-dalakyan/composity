@@ -1,4 +1,4 @@
-import { _reduce } from "../utils";
+import { _reduce } from "../../utils";
 
 /**
  * Performs left-to-right function composition.

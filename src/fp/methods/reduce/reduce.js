@@ -1,4 +1,4 @@
-import { _curry3, _reduce } from "../utils";
+import { _curry3, _reduce } from "../../utils";
 
 /**
  * Reduces a collection to a single value.

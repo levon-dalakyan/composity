@@ -1,1 +1,1 @@
-export { default as clone } from "./clone";
+export { clone } from "./clone";

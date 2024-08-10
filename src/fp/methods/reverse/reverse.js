@@ -1,5 +1,10 @@
-import { _curry1, _isArray, _reverseArray, _reverseString } from "../utils";
-import { _reverseIterator } from "../utils";
+import {
+    _curry1,
+    _isArray,
+    _reverseArray,
+    _reverseString,
+    _reverseIterator,
+} from "../../utils";
 
 /**
  * Reverses the elements of an array, string, or iterable.

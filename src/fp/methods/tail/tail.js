@@ -1,4 +1,4 @@
-import { _curry1, _isArray } from "../utils";
+import { _curry1, _isArray } from "../../utils";
 
 /**
  * Returns all but the first element of an array or string.

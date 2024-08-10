@@ -1,4 +1,4 @@
-import { _curry2, _find } from "../utils";
+import { _curry2, _find } from "../../utils";
 
 /**
  * Tests whether at least one element in the collection satisfies the predicate.

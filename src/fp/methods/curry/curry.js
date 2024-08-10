@@ -1,5 +1,5 @@
-import _ from "../_";
 import { _curry1 } from "../../utils";
+import { _ } from "../_";
 import { curryN } from "../curryN";
 
 /**

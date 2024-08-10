@@ -1,4 +1,4 @@
-import { _curry2, _isInteger, _nth } from "../utils";
+import { _curry2, _isInteger, _nth } from "../../utils";
 
 /**
  * Returns the value at the specified property of an object.
