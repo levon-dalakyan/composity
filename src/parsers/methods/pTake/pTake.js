@@ -1,5 +1,6 @@
 import { pTag } from "../pTag/pTag.js";
 import { _makeParser } from "../../utils/_makeParser/_makeParser.js";
+import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
 
 export function pTake(condition, options = {}) {
     const { min = 0, max = Infinity } = options;
@@ -27,8 +28,9 @@ export function pTake(condition, options = {}) {
         }
 
         if (count < min) {
-            throw new Error(
-                `Expected at least ${min} "${condition}" but got ${count}`
+            throw new _ParsingError(
+                `Expected at least ${min} to be matched but got ${count}`,
+                { type: "TAKE" }
             );
         }
 
@@ -36,9 +38,9 @@ export function pTake(condition, options = {}) {
     });
 }
 
-//const digits = pTake((value) => typeof +value === "number", { min: 3, max: 4 });
+//const digits = pTake((value) => typeof +value === value, { min: 1 });
 //
-//const res = digits("123456world");
+//const res = digits("world");
 //
 //console.log(res);
 //console.log(...res.rest);

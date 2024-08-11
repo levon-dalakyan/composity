@@ -1,6 +1,7 @@
 export class _ParsingError extends Error {
-    constructor(message, { lastValue } = {}) {
+    constructor(message, { type, lastValue } = {}) {
         super(message);
+        this.type = type;
         this.lastValue = lastValue;
     }
 }

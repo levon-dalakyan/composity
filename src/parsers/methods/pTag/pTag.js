@@ -12,7 +12,7 @@ export function pTag(condition) {
                 if (done || value !== char) {
                     throw new _ParsingError(
                         `Expected "${condition}" but got "${consumed}${value || ""}"`,
-                        { lastValue: value }
+                        { type: "TAG", lastValue: value }
                     );
                 }
 
@@ -24,7 +24,7 @@ export function pTag(condition) {
             if (done || !condition.test(value)) {
                 throw new _ParsingError(
                     `Expected "${condition}" but got "${value || ""}"`,
-                    { lastValue: value }
+                    { type: "TAG", lastValue: value }
                 );
             }
 
@@ -35,13 +35,16 @@ export function pTag(condition) {
             if (done || !condition(value)) {
                 throw new _ParsingError(
                     `Expected to match condition "${condition.toString()}", but got "${value || ""}"`,
-                    { lastValue: value }
+                    { type: "TAG", lastValue: value }
                 );
             }
 
             consumed = value;
         } else {
-            throw new Error("Tag condition must be a string or RegExp");
+            throw new _ParsingError(
+                "Tag condition must be a string, RegExp or function",
+                { type: "TAG" }
+            );
         }
 
         return {

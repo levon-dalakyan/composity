@@ -1,5 +1,6 @@
 import { pTake } from "../pTake/pTake.js";
 import { pSeq } from "../pSeq/pSeq.js";
+import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
 
 export function pEnd() {
     return function (iterable) {
@@ -7,7 +8,10 @@ export function pEnd() {
         const { value, done } = iterator.next();
 
         if (!done) {
-            throw new Error(`Expected end of input but found: ${value}`);
+            throw new _ParsingError(
+                `Expected end of input but found: ${value}`,
+                { type: "END" }
+            );
         }
 
         return {
@@ -26,8 +30,8 @@ export function pEnd() {
     };
 }
 
-//const parser = pSeq(pTake("a"), pEnd());
-//const res = parser("aaa");
+//const parser = pSeq(pTake("a", { max: 2 }), pEnd());
+//const res = parser("aa");
 //
 //console.log(res);
 //console.log(...res.rest);
