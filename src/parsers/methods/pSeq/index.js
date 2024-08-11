@@ -1,1 +1,1 @@
-export { pSeq } from "./pSeq;
+export { pSeq } from "./pSeq";

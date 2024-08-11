@@ -1,6 +1,4 @@
-import { pTag } from "../pTag/pTag.js";
-import { pRepeat } from "../pRepeat/pRepeat.js";
-import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
+import { _ParsingError } from "../../utils";
 
 export function pOr(...parsers) {
     return function (iterable) {
@@ -28,9 +26,3 @@ export function pOr(...parsers) {
         }
     };
 }
-
-//const or = pOr(pTag("a"), pRepeat(pTag("b"), { min: 2 }));
-//
-//const res = or("cbbd");
-//console.log(res);
-//console.log(...res.rest);

@@ -1,1 +1,1 @@
-export { iAverate } from "./iAverage";
+export { iAverage } from "./iAverage";

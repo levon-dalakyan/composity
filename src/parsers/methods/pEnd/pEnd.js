@@ -1,6 +1,4 @@
-import { pTake } from "../pTake/pTake.js";
-import { pSeq } from "../pSeq/pSeq.js";
-import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
+import { _ParsingError } from "../../utils";
 
 export function pEnd() {
     return function (iterable) {
@@ -29,9 +27,3 @@ export function pEnd() {
         };
     };
 }
-
-//const parser = pSeq(pTake("a", { max: 2 }), pEnd());
-//const res = parser("aa");
-//
-//console.log(res);
-//console.log(...res.rest);

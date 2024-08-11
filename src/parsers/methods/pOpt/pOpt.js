@@ -1,7 +1,3 @@
-import { pTag } from "../pTag/pTag.js";
-import { pRepeat } from "../pRepeat/pRepeat.js";
-import { pSeq } from "../pSeq/pSeq.js";
-
 export function pOpt(parser) {
     return function (iterable) {
         try {
@@ -21,9 +17,3 @@ export function pOpt(parser) {
         }
     };
 }
-
-//const seq = pSeq(pOpt(pTag("a")), pRepeat(pTag("b")));
-//
-//const res = seq("abbc");
-//console.log(res);
-//console.log(...res.rest);

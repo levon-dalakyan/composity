@@ -1,0 +1,1 @@
+export { pMany } from "./pMany";

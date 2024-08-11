@@ -1,4 +1,4 @@
-import { pTag } from "../methods/pTag/pTag.js";
+import { pTag } from "../methods";
 
 export const any = pTag(/./);
 

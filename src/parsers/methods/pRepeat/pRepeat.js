@@ -1,5 +1,4 @@
-import { pTag } from "../pTag/pTag.js";
-import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
+import { _ParsingError } from "../../utils";
 
 export function pRepeat(parser, options = {}) {
     const { min = 0, max = Infinity } = options;
@@ -59,9 +58,3 @@ export function pRepeat(parser, options = {}) {
         };
     };
 }
-
-//const repeat = pRepeat(pTag("a"), { min: 3, max: 5 });
-//
-//const res = repeat("abcde");
-//console.log(res);
-//console.log(...res.rest);

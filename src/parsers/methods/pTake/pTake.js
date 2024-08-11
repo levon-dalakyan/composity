@@ -1,6 +1,5 @@
-import { pTag } from "../pTag/pTag.js";
-import { _makeParser } from "../../utils/_makeParser/_makeParser.js";
-import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
+import { _makeParser, _ParsingError } from "../../utils";
+import { pTag } from "../pTag";
 
 export function pTake(condition, options = {}) {
     const { min = 0, max = Infinity } = options;
@@ -37,10 +36,3 @@ export function pTake(condition, options = {}) {
         return { type: "TAKE", value: consumed };
     });
 }
-
-//const digits = pTake((value) => typeof +value === value, { min: 1 });
-//
-//const res = digits("world");
-//
-//console.log(res);
-//console.log(...res.rest);
