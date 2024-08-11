@@ -36,9 +36,9 @@ export function pTake(condition, options = {}) {
     });
 }
 
-//const digits = pTake(/[0-9]/, { min: 3 });
+//const digits = pTake((value) => typeof +value === "number", { min: 3, max: 4 });
 //
-//const res = digits("234434world");
+//const res = digits("123456world");
 //
 //console.log(res);
 //console.log(...res.rest);

@@ -25,18 +25,26 @@ export function pTag(condition) {
             }
 
             consumed = value;
+        } else if (condition instanceof Function) {
+            const { value, done } = iterator.next();
+
+            if (done || !condition(value)) {
+                throw new Error(
+                    `Expected to match condition "${condition.toString()}", but got "${value || ""}"`
+                );
+            }
+
+            consumed = value;
         } else {
             throw new Error("Tag condition must be a string or RegExp");
         }
-
-        // !! TODO: add function as a condition
 
         return { type: "TAG", value: consumed, rest: iterator };
     };
 }
 
-//const zeroParser = pTag(/[0-9]/);
+//const zeroParser = pTag((value) => value === "4");
 //
-//const res = zeroParser("h123");
+//const res = zeroParser("123");
 //console.log(res);
 //console.log(...res.rest);
