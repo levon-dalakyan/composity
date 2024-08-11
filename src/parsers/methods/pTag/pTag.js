@@ -39,7 +39,11 @@ export function pTag(condition) {
             throw new Error("Tag condition must be a string or RegExp");
         }
 
-        return { type: "TAG", value: consumed, rest: iterator };
+        return {
+            type: "TAG",
+            value: consumed,
+            rest: { [Symbol.iterator]: () => iterator },
+        };
     };
 }
 
