@@ -5,18 +5,20 @@ import { pTake } from "../pTake/pTake.js";
 export function pSeq(...parsers) {
     return function (iterable) {
         let currentIterable = iterable;
-        const values = [];
+        let consumed = "";
 
         for (const parser of parsers) {
             const result = parser(currentIterable);
 
-            values.push(result.value);
+            if (result.value !== null) {
+                consumed += result.value;
+            }
             currentIterable = result.rest;
         }
 
         return {
             type: "SEQ",
-            value: values,
+            value: consumed,
             rest: currentIterable,
         };
     };
