@@ -1,4 +1,5 @@
 import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
+import { pOr } from "../pOr/pOr.js";
 
 export function pTag(condition) {
     return function (iterable) {
@@ -55,7 +56,7 @@ export function pTag(condition) {
     };
 }
 
-//const zeroParser = pTag((value) => value === "4");
+//const zeroParser = pOr(pTag("1"), pTag("2"));
 //
 //const res = zeroParser("123");
 //console.log(res);
