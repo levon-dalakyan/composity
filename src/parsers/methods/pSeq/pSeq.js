@@ -10,8 +10,8 @@ export function pSeq(...parsers) {
         for (const parser of parsers) {
             const result = parser(currentIterable);
 
-            currentIterable = result.rest;
             values.push(result.value);
+            currentIterable = result.rest;
         }
 
         return {

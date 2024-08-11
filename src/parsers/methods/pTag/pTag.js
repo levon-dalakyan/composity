@@ -1,3 +1,5 @@
+import { _ParsingError } from "../../utils/_ParsingError/_ParsingError.js";
+
 export function pTag(condition) {
     return function (iterable) {
         const iterator = iterable[Symbol.iterator]();
@@ -8,8 +10,9 @@ export function pTag(condition) {
                 const { value, done } = iterator.next();
 
                 if (done || value !== char) {
-                    throw new Error(
-                        `Expected "${condition}" but got "${consumed}${value || ""}"`
+                    throw new _ParsingError(
+                        `Expected "${condition}" but got "${consumed}${value || ""}"`,
+                        { lastValue: value }
                     );
                 }
 
@@ -19,8 +22,9 @@ export function pTag(condition) {
             const { value, done } = iterator.next();
 
             if (done || !condition.test(value)) {
-                throw new Error(
-                    `Expected "${condition}" but got "${value || ""}"`
+                throw new _ParsingError(
+                    `Expected "${condition}" but got "${value || ""}"`,
+                    { lastValue: value }
                 );
             }
 
@@ -29,8 +33,9 @@ export function pTag(condition) {
             const { value, done } = iterator.next();
 
             if (done || !condition(value)) {
-                throw new Error(
-                    `Expected to match condition "${condition.toString()}", but got "${value || ""}"`
+                throw new _ParsingError(
+                    `Expected to match condition "${condition.toString()}", but got "${value || ""}"`,
+                    { lastValue: value }
                 );
             }
 
