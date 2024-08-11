@@ -1,1 +1,1 @@
-export { iFilterAsync } from "./iFilterAsync.js";
+export { iFilterAsync } from "./iFilterAsync";

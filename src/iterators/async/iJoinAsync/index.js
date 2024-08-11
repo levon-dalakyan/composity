@@ -1,1 +1,1 @@
-export { iJoinAsync } from "./iJoinAsync.js";
+export { iJoinAsync } from "./iJoinAsync";

@@ -1,1 +1,1 @@
-export { iFindAsync } from "./iFindAsync.js";
+export { iFindAsync } from "./iFindAsync";

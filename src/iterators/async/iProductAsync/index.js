@@ -1,0 +1,1 @@
+export { iProductAsync } from "./iProductAsync";
