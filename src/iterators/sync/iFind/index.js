@@ -1,1 +1,1 @@
-export { iFind } from "./iFind.js";
+export { iFind } from "./iFind";

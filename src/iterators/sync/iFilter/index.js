@@ -1,1 +1,1 @@
-export { iFilter } from "./iFilter.js";
+export { iFilter } from "./iFilter";

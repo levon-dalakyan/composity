@@ -1,0 +1,1 @@
+export { iMin } from "./iMin";
