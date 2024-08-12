@@ -1,1 +1,1 @@
-export { State } from "./State.js";
+export { State } from "./State";

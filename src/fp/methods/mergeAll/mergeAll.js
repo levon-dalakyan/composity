@@ -1,5 +1,5 @@
-import { curry } from "../curry";
 import { _curry2, _reduce } from "../../utils";
+import { curry } from "../curry";
 
 /**
  * Merges a list of objects into a single object.

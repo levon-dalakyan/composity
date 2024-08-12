@@ -1,1 +1,1 @@
-export { Reader } from "./Reader.js";
+export { Reader } from "./Reader";

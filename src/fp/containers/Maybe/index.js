@@ -1,1 +1,1 @@
-export { Maybe } from "./Maybe.js";
+export { Maybe } from "./Maybe";

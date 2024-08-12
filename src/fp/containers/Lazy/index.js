@@ -1,1 +1,1 @@
-export { Lazy } from "./Lazy.js";
+export { Lazy } from "./Lazy";
