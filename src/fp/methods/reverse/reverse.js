@@ -22,12 +22,12 @@ export const reverse = _curry1(function reverse(coll) {
         return _reverseString(coll);
     }
 
-    if (typeof coll[Symbol.iterator] === "function") {
-        return _reverseIterator(coll);
-    }
-
     if (_isArray(coll)) {
         return _reverseArray(coll);
+    }
+
+    if (typeof coll[Symbol.iterator] === "function") {
+        return _reverseIterator(coll);
     }
 
     if (typeof coll.reverse === "function") {

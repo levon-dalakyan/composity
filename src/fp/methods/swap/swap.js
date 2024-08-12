@@ -1,3 +1,4 @@
+import { _curry3 } from "../../utils";
 import { clone } from "../clone";
 
 /**
@@ -52,7 +53,7 @@ function swapArray(idx1, idx2, arr) {
         idxMax > newArr.length ||
         idxMin > newArr.length ||
         idxMax < 0 ||
-        idxMax < 0 ||
+        idxMin < 0 ||
         idxMax === idxMin
     ) {
         return newArr;
@@ -60,9 +61,9 @@ function swapArray(idx1, idx2, arr) {
 
     return [
         ...newArr.slice(0, idxMin),
-        idxMax,
+        newArr[idxMax],
         ...newArr.slice(idxMin + 1, idxMax),
-        idxMin,
+        newArr[idxMin],
         ...newArr.slice(idxMax + 1),
     ];
 }
