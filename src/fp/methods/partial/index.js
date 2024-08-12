@@ -1,1 +1,2 @@
-export * from "./partial";
+export { partial } from "./partial";
+

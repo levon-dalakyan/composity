@@ -1,4 +1,4 @@
-import { _arify, _curry2 } from "../../utils";
+import { _arify } from "../../utils";
 
 /**
  * Partially applies a function, returning a new function that expects the remaining arguments.
@@ -12,8 +12,8 @@ import { _arify, _curry2 } from "../../utils";
  * const sayHello = partial(greet, "Hello");
  * console.log(sayHello("World")); // Output: "Hello, World!"
  */
-export const partial = _curry2(function (fn, ...args) {
+export const partial = function (fn, ...args) {
     return _arify(Math.max(0, fn.length - args.length), function (...nextArgs) {
         return fn.call(this, ...args, ...nextArgs);
     });
-});
+};
