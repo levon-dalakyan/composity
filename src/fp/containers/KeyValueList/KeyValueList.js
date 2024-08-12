@@ -193,7 +193,7 @@ export class KeyValueList {
         for (const [k, v] of this._map) {
             const newKVList = fn(v, k);
 
-            for (const [k2, v2] of newKVList.map) {
+            for (const [k2, v2] of newKVList._map) {
                 resMap.set(k2, v2);
             }
         }
