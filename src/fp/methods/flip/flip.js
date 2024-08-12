@@ -1,5 +1,5 @@
-import { curryN } from "../curryN";
 import { _reverseArray, _curry1 } from "../../utils";
+import { curryN } from "../curryN";
 
 /**
  * Creates a new function that calls the provided function with its arguments reversed.
