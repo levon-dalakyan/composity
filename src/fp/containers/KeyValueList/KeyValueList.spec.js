@@ -35,21 +35,21 @@ describe("KeyValueList", () => {
             expect(kvl.has("c")).toBe(false);
         });
 
-        test("set adds or updates a key-value pair", () => {
+        test("set preserves immutability", () => {
             const kvl = new KeyValueList([["a", 1]]);
             const newKvl = kvl.set("b", 2);
             expect(newKvl.get("b")).toBe(2);
-            expect(kvl.has("b")).toBe(false); // Original should be unchanged
+            expect(kvl.has("b")).toBe(false);
         });
 
-        test("delete removes a key-value pair", () => {
+        test("delete preserves immutability", () => {
             const kvl = new KeyValueList([
                 ["a", 1],
                 ["b", 2],
             ]);
             const newKvl = kvl.delete("a");
             expect(newKvl.has("a")).toBe(false);
-            expect(kvl.has("a")).toBe(true); // Original should be unchanged
+            expect(kvl.has("a")).toBe(true);
         });
     });
 
@@ -100,7 +100,7 @@ describe("KeyValueList", () => {
             ]);
             const f = (x) => new KeyValueList([["result", x * 2]]);
             const result = kvl.chain(f);
-            expect(result.get("result")).toBe(4); // Last chained value
+            expect(result.get("result")).toBe(4);
         });
 
         test("of and chain satisfy left identity", () => {
@@ -137,7 +137,7 @@ describe("KeyValueList", () => {
             ]);
             const result = kvl1.concat(kvl2);
             expect(result.get("a")).toBe(1);
-            expect(result.get("b")).toBe(3); // Last value wins
+            expect(result.get("b")).toBe(3);
             expect(result.get("c")).toBe(4);
         });
 

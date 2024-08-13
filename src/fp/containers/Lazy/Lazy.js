@@ -26,14 +26,6 @@ export class Lazy {
     }
 
     /**
-     * Extracts the value from the Lazy computation.
-     * @returns {*} The result of the computation.
-     */
-    extract() {
-        return this["fantasy-land/extract"]();
-    }
-
-    /**
      * Maps a function over this Lazy computation.
      * @param {function(*): *} fn - Function to apply.
      * @returns {Lazy} A new Lazy instance.
