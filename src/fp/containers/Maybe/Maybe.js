@@ -63,7 +63,7 @@ export class Maybe {
      * @returns {Maybe} A new Maybe instance.
      */
     filter(pred) {
-        return this.isEmpty() || !pred(this._value) ? Maybe.empty() : this;
+        return this.isNone() || !pred(this._value) ? Maybe.empty() : this;
     }
 
     /**
@@ -139,6 +139,14 @@ export class Maybe {
      */
     static None() {
         return new Maybe(null);
+    }
+
+    static empty() {
+        return Maybe["fantasy-land/empty"]();
+    }
+
+    static of(value) {
+        return Maybe["fantasy-land/of"](value);
     }
 
     /**
