@@ -180,7 +180,7 @@ export class UniqueList {
      */
     ["fantasy-land/chain"](fn) {
         return new UniqueList(
-            Array.from(this._set, (x) => Array.from(fn(x).set)).flat()
+            Array.from(this._set, (x) => Array.from(fn(x)._set)).flat()
         );
     }
 
