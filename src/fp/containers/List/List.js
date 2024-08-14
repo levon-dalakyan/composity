@@ -142,7 +142,7 @@ export class List {
      * @returns {List} A new List instance.
      */
     ["fantasy-land/chain"](fn) {
-        return new List(this._list.flatMap((value) => fn(value).values));
+        return new List(this._list.flatMap((value) => fn(value)._list));
     }
 
     /**
