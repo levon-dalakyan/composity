@@ -21,7 +21,7 @@ export function iReverse(iterable) {
 
             if (buffer.length > 0) {
                 return {
-                    value: buffer.pop(),
+                    value: buffer.shift(),
                     done: false,
                 };
             }
