@@ -8,7 +8,7 @@ export function iZip(...iterables) {
         },
 
         next() {
-            if (nonEmptyIters === 0) {
+            if (nonEmptyIters <= 0) {
                 return {
                     value: undefined,
                     done: true,
@@ -16,7 +16,6 @@ export function iZip(...iterables) {
             }
 
             const result = [];
-            const allItersFull = nonEmptyIters === iterators.length;
 
             for (const iterator of iterators) {
                 const current = iterator.next();
@@ -28,7 +27,7 @@ export function iZip(...iterables) {
                 result.push(current.value ?? null);
             }
 
-            if (allItersFull && nonEmptyIters === 0) {
+            if (nonEmptyIters <= 0) {
                 return {
                     value: undefined,
                     done: true,
