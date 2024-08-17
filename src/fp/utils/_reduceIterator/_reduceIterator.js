@@ -12,6 +12,8 @@
  * and initial value.
  */
 export function _reduceIterator(reducer, init, iter) {
+    iter = iter[Symbol.iterator]();
+
     let acc = init;
 
     let curr = iter.next();
