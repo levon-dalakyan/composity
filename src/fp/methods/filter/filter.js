@@ -1,3 +1,5 @@
+import { _curry2 } from "../../utils";
+
 /**
  * Filters elements of an array based on a predicate function.
  * @function
@@ -9,7 +11,7 @@
  * const isEven = x => x % 2 === 0;
  * console.log(filter(isEven, [1, 2, 3, 4, 5])); // Output: [2, 4]
  */
-export function filter(pred, coll) {
+export const filter = _curry2(function (pred, coll) {
     const arr = [];
 
     for (let i = 0; i < coll.length; i++) {
@@ -19,4 +21,4 @@ export function filter(pred, coll) {
     }
 
     return arr;
-}
+});

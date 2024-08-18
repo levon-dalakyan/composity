@@ -1,3 +1,5 @@
+import { _curry2 } from "../../utils";
+
 /**
  * Creates a new array with the results of calling a provided function on every element in the array.
  * @function
@@ -9,7 +11,7 @@
  * const double = x => x * 2;
  * console.log(map(double, [1, 2, 3])); // Output: [2, 4, 6]
  */
-export function map(transformer, coll) {
+export const map = _curry2(function (transformer, coll) {
     const arr = [];
 
     for (let i = 0; i < coll.length; i++) {
@@ -17,4 +19,4 @@ export function map(transformer, coll) {
     }
 
     return arr;
-}
+});
