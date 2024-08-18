@@ -14,7 +14,7 @@ export function iReduceAsync(reducer, init) {
             init = current.value[1];
         }
 
-        for (const [idx, value] of iterator) {
+        for await (const [idx, value] of iterator) {
             init = reducer(init, value, idx, iterable);
         }
 

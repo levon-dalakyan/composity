@@ -1,6 +1,6 @@
 import { _createAsyncIterable } from "../../utils";
 import { iToArrayAsync } from "../iToArrayAsync";
-import { iEnumerateAsync } from "./iEnumerateAsync.js";
+import { iEnumerateAsync } from "./iEnumerateAsync";
 
 describe("iEnumerateAsync", () => {
     test("enumerates elements with index", async () => {

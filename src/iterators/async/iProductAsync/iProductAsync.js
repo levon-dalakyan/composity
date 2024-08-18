@@ -1,5 +1,5 @@
 import { iReduceAsync } from "../iReduceAsync";
 
 export function iProductAsync(iterable) {
-    return iReduceAsync(iterable, (a, b) => a * b);
+    return iReduceAsync((a, b) => a * b)(iterable);
 }

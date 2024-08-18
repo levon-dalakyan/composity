@@ -1,4 +1,4 @@
-import { iReduce } from "./iReduce.js";
+import { iReduce } from "./iReduce";
 
 describe("iReduce", () => {
     test("reduces iterable with initial value", () => {
