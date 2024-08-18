@@ -10,7 +10,6 @@ Composize aims to solve this problem by providing a unified and intuitive way to
 **Functional Programming Methods.**
 
 Easily chain and combine pure functions for cleaner, more maintainable code.
-
 ```js
 const sentences = ['Hello world', 'Functional programming is fun', 'Composize makes it easy'];
 
