@@ -7,9 +7,10 @@ Composize is a library for composing functions in JavaScript. It gives a possibi
 In the world of functional programming, composition is a powerful concept that allows developers to build complex operations from simpler ones. However, in JavaScript, composing different types of functions and data structures can often be cumbersome and inconsistent.
 Composize aims to solve this problem by providing a unified and intuitive way to compose various elements:
 
-**Functional Programming Methods.**
+**- Functional Programming Methods.**
 
 Easily chain and combine pure functions for cleaner, more maintainable code.
+
 ```js
 const sentences = ['Hello world', 'Functional programming is fun', 'Composize makes it easy'];
 
