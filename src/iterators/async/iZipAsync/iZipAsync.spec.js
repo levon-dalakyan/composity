@@ -1,6 +1,6 @@
 import { _createAsyncIterable } from "../../utils";
 import { iToArrayAsync } from "../iToArrayAsync";
-import { iZipAsync } from "./iZipAsync.js";
+import { iZipAsync } from "./iZipAsync";
 
 describe("iZipAsync", () => {
     test("zips multiple async iterables", async () => {

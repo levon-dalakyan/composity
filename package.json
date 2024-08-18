@@ -5,7 +5,7 @@
     "sideEffects": false,
     "scripts": {
         "build": "rollup -c",
-        "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js --verbose -o"
+        "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js"
     },
     "author": "",
     "license": "ISC",
