@@ -10,7 +10,7 @@ export function iZipAsync(...iterables) {
         },
 
         async next() {
-            if (nonEmptyIters === 0) {
+            if (nonEmptyIters <= 0) {
                 return {
                     value: undefined,
                     done: true,
@@ -18,7 +18,6 @@ export function iZipAsync(...iterables) {
             }
 
             const result = [];
-            const allItersFull = nonEmptyIters === iterators.length;
 
             for (const iterator of iterators) {
                 const current = await iterator.next();
@@ -30,7 +29,7 @@ export function iZipAsync(...iterables) {
                 result.push(current.value ?? null);
             }
 
-            if (allItersFull && nonEmptyIters === 0) {
+            if (nonEmptyIters <= 0) {
                 return {
                     value: undefined,
                     done: true,

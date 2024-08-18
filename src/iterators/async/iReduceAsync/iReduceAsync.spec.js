@@ -1,5 +1,5 @@
 import { _createAsyncIterable } from "../../utils";
-import { iReduceAsync } from "./iReduceAsync.js";
+import { iReduceAsync } from "./iReduceAsync";
 
 describe("iReduceAsync", () => {
     test("reduces iterable with initial value", async () => {
