@@ -65,7 +65,9 @@ const getTenEvenDoubled = iCompose(
 const iterator = getTenEvenDoubled(numbers());
 
 console.log(...iterator); // Output: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40
+```
 
+```js
 // async
 const numbers = async function* () {
     let i = 1;
