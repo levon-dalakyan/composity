@@ -11,6 +11,7 @@ export { iLastAsync } from "./iLastAsync";
 export { iMapAsync } from "./iMapAsync";
 export { iMaxAsync } from "./iMaxAsync";
 export { iMinAsync } from "./iMinAsync";
+export { iPipeAsync } from "./iPipeAsync";
 export { iPrependAsync } from "./iPrependAsync";
 export { iProductAsync } from "./iProductAsync";
 export { iReduceAsync } from "./iReduceAsync";

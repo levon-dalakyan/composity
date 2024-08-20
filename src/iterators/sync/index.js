@@ -11,6 +11,7 @@ export { iLast } from "./iLast";
 export { iMap } from "./iMap";
 export { iMax } from "./iMax";
 export { iMin } from "./iMin";
+export { iPipe } from "./iPipe";
 export { iPrepend } from "./iPrepend";
 export { iProduct } from "./iProduct";
 export { iReduce } from "./iReduce";
