@@ -1,5 +1,6 @@
 export { iAppendAsync } from "./iAppendAsync";
 export { iAverageAsync } from "./iAverageAsync";
+export { iComposeAsync } from "./iComposeAsync";
 export { iCountAsync } from "./iCountAsync";
 export { iEnumerateAsync } from "./iEnumerateAsync";
 export { iFilterAsync } from "./iFilterAsync";

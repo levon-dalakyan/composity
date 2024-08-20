@@ -44,7 +44,48 @@ const numbers = [2, 0, 5, 4, 0];
 console.log(processNumbers(numbers).toString()); // Output: List(5,2,2.5)
 ```
 
-Iterators: Compose operations on iterables and generators, enabling efficient processing of large or infinite data streams.
+### Iterators 
+
+Compose operations on iterables and generators, enabling efficient processing of large or infinite data streams, synchronously or asynchronously.
+
+```js
+// sync
+const numbers = function* () {
+    let i = 1;
+    while (true) yield i++;
+};
+
+const getTenEvenDoubled = iCompose(
+    iTake(10),
+    iMap((x) => x * 2),
+    iFilter((x) => x % 2 === 0),
+    iSlice(0, 100)
+);
+
+const iterator = getTenEvenDoubled(numbers());
+
+console.log(...iterator); // Output: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40
+
+// async
+const numbers = async function* () {
+    let i = 1;
+    while (true) yield i++;
+};
+
+const getTenEvenDoubled = iComposeAsync(
+    iTakeAsync(10),
+    iMapAsync((x) => x * 2),
+    iFilterAsync((x) => x % 2 === 0),
+    iSliceAsync(0, 100)
+);
+
+const iterator = getTenEvenDoubled(numbers());
+
+for await (const x of iterator) {
+    console.log(x);
+}
+// Output: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40
+```
 
 
 Parsers: Build complex parsers from simpler ones, making it easier to handle complex data formats and domain-specific languages.

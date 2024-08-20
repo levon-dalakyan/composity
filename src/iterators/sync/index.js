@@ -1,5 +1,6 @@
 export { iAppend } from "./iAppend";
 export { iAverage } from "./iAverage";
+export { iCompose } from "./iCompose";
 export { iCount } from "./iCount";
 export { iEnumerate } from "./iEnumerate";
 export { iFilter } from "./iFilter";
