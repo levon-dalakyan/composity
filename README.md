@@ -90,10 +90,11 @@ for await (const x of iterator) {
 ```
 
 
-Parsers: Build complex parsers from simpler ones, making it easier to handle complex data formats and domain-specific languages.
+### Parsers 
+
+Build complex parsers from simpler ones, making it easier to handle complex data formats and domain-specific languages.
 
 
 
-Whether you're working on data transformation pipelines, building domain-specific languages, or just looking to leverage functional programming concepts in your JavaScript projects, Composize provides the tools to make function composition both powerful and accessible.
 
 
