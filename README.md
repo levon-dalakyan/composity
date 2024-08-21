@@ -1,6 +1,6 @@
 # Composize
 
-Composize is a library for composing functions in JavaScript. It gives a possibility to compose classical functional programming methods, fantasy-land containers, iterators and parsers.
+Composize is a library for composing functions in JavaScript. It gives a possibility to compose classical functional programming methods, fantasy-land containers and iterators (sync or async).
 
 ## Motivation
 
@@ -88,13 +88,6 @@ for await (const x of iterator) {
 }
 // Output: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40
 ```
-
-
-### Parsers 
-
-Build complex parsers from simpler ones, making it easier to handle complex data formats and domain-specific languages.
-
-
 
 
 

@@ -1,1 +1,0 @@
-export { pOpt } from "./pOpt";
