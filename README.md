@@ -1,6 +1,6 @@
 # Composize
 
-Composize is a library for composing functions in JavaScript. It gives a possibility to compose classical functional programming methods, fantasy-land containers and iterators (sync or async).
+Composize is a library for composing functions in JavaScript. It gives a possibility to compose classical functional programming methods, fantasy-land containers, iterators (sync or async) and lenses.
 
 ## Motivation
 
@@ -87,6 +87,55 @@ for await (const x of iterator) {
     console.log(x);
 }
 // Output: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40
+```
+
+### Lenses
+
+Focus on a specific part of a larger data structure in a composable way.
+
+```js
+const company = {
+  name: "ComposizeCorp",
+  departments: [
+    {
+      name: "Engineering",
+      teams: [
+        {
+          name: "Frontend",
+          lead: {
+            name: "Levon",
+            contact: {
+              email: "composize@corp.com",
+              phone: "1234567890"
+            }
+          },
+          members: 10
+        },
+        {
+          name: "Backend",
+          lead: {
+            name: "Bob",
+            contact: {
+              email: "composize1@corp.com",
+              phone: "0987654321"
+            }
+          },
+          members: 8
+        }
+      ]
+    }
+  ]
+};
+
+const firstTeamLeadEmailLens = lCompose(
+  lCompose(lProp("departments"), lIndex(0)),
+  lCompose(lProp("teams"), lIndex(0)),
+  lProp("lead"),
+  lProp("contact"),
+  lProp("email")
+);
+
+console.log(lView(firstTeamLeadEmailLens, company)); // Output: "composize@corp.com"
 ```
 
 
