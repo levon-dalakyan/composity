@@ -160,6 +160,13 @@ Composize can be installed using npm:
 npm install composize
 ```
 
+## Usage
+
+Composize can be used in your JavaScript code as follows:
+
+
+
+
 
 
 
