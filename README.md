@@ -156,7 +156,7 @@ Composize is built on the following core principles:
 
 Composize can be installed using npm:
 
-```bash
+```zsh
 npm install composize
 ```
 
