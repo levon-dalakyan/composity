@@ -1,6 +1,7 @@
 import { lCompose } from "../lCompose";
 import { lIndex } from "../lIndex";
 import { lLens } from "../lLens";
+import { lProp } from "../lProp";
 
 export function lPath(...props) {
     return props.reduce(

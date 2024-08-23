@@ -1,1 +1,1 @@
-export { modifyPath } from "./modifyPath";
+export { lModifyPath } from "./lModifyPath";
