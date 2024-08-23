@@ -152,6 +152,13 @@ Composize is built on the following core principles:
 
 - **Abstraction of Complexity**: While the underlying implementation may be complex, Composize aims to provide simple, intuitive interface. This abstraction allows developers to focus on solving problems rather than wrestling with implementation details.
 
+## Installation
+
+Composize can be installed using npm:
+
+```bash
+npm install composize
+```
 
 
 
