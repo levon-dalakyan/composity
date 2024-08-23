@@ -138,6 +138,17 @@ const firstTeamLeadEmailLens = lCompose(
 console.log(lView(firstTeamLeadEmailLens, company)); // Output: "composize@corp.com"
 ```
 
+## Ideology
+
+Composize is built on the following core principles:
+
+- **Unified Composition**: Composize aims to provide a single and consistent approach to composing functions and data structures. Whether you're working with pure functions, fp-containers, iterators or lenses, Composize offers a unified interface for composition.
+
+- **Flexibility**: Composize is designed to be flexible, allowing you to compose various elements in ways that best suits your needs. The flexibility extends from simple function composition to complex operations on nested data structures.
+
+- **Functional Purity**: Composize encourages the use of pure functions and immutable data structures, aligning with functional programming principles. This leads to more predictable, testable, and maintainable code.
+
+
 
 
 
