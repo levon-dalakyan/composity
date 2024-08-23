@@ -1,0 +1,1 @@
+export { lProp } from "./lProp";
