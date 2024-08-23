@@ -148,6 +148,9 @@ Composize is built on the following core principles:
 
 - **Functional Purity**: Composize encourages the use of pure functions and immutable data structures, aligning with functional programming principles. This leads to more predictable, testable, and maintainable code.
 
+- **Lazy Evaluation**: By supporting composition with iterators and generators, Composize enables lazy evaluation of potentially infinite data streams, allowing for efficient processing of large datasets.
+
+- **Abstraction of Complexity**: While the underlying implementation may be complex, Composize aims to provide simple, intuitive interface. This abstraction allows developers to focus on solving problems rather than wrestling with implementation details.
 
 
 
