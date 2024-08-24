@@ -40,7 +40,7 @@ Creates a deep clone of the provided object or array.
 
 **Parameters:**
 
-- **obj**: The object or array to clone.
+- obj: The object or array to clone.
 
 **Returns:** A new deep copy of the input.
 
