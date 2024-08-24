@@ -1,0 +1,1 @@
+export { iAverage } from "./iAverage";

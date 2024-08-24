@@ -1,0 +1,1 @@
+export { iAppendAsync } from "./iAppendAsync";

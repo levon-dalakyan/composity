@@ -1,0 +1,1 @@
+export { curryN } from "./curryN";

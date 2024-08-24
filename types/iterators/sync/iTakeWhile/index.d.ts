@@ -1,0 +1,1 @@
+export { iTakeWhile } from "./iTakeWhile";

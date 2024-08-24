@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "removeComments": false,
+    "outDir": "types"
+  },
+  "include": ["src/**/*.js"],
+  "exclude": ["src/**/*.spec.js" ]
+}
+

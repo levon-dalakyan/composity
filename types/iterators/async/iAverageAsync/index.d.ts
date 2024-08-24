@@ -1,0 +1,1 @@
+export { iAverageAsync } from "./iAverageAsync";

@@ -1,0 +1,1 @@
+export { iSkipWhile } from "./iSkipWhile";

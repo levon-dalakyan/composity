@@ -1,0 +1,1 @@
+export { iPipe } from "./iPipe";

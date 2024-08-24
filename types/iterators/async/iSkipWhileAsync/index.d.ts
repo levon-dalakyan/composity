@@ -1,0 +1,1 @@
+export { iSkipWhileAsync } from "./iSkipWhileAsync";
