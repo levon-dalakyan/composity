@@ -154,13 +154,13 @@ Composize is built on the following core principles:
 
 ## Installation
 
-Composize can be installed using npm:
+Composize can be installed using NPM:
 
 ```zsh
 npm install composize
 ```
 
-or yarn:
+or Yarn:
 
 ```zsh
 yarn add composize
