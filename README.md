@@ -160,7 +160,7 @@ Composize can be installed using npm:
 npm install composize
 ```
 
-or using yarn:
+or yarn:
 
 ```zsh
 yarn add composize
