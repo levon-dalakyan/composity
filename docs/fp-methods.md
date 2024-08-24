@@ -30,6 +30,7 @@ const _ = { "@@composize/placeholder": true };
 
 A placeholder object used in partial function application and currying.
 
+
 ### clone
 
 ```js
