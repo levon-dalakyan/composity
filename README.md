@@ -216,9 +216,15 @@ import { iMapAsync } from "composize/iterators/async";
 import { lOver } from "composize/lenses";
 ```
 
+## Documentation
 
+- [Functional Programming Methods](./docs/fp-methods.md)
+- [Fantasy-land Containers](./docs/fp-containers.md)
+- [Iterators Sync](./docs/iterators-sync.md)
+- [Iterators Async](./docs/iterators-async.md)
+- [Lenses](./docs/lenses.md)
 
-
+## Examples
 
 
 
