@@ -24,8 +24,32 @@ The functional programming paradigm emphasizes the use of pure functions, immuta
 
 ### placeholder
 
-```javascript
+```js
 const _ = { "@@composize/placeholder": true };
 ```
 
 A placeholder object used in partial function application and currying.
+
+### clone
+
+```js
+clone(obj: any): any
+```
+
+Creates a deep clone of the provided object or array.
+
+**Parameters:**
+
+- ==obj==: The object or array to clone.
+
+**Returns:** A new deep copy of the input.
+
+**Example:**
+
+```js
+const original = { a: 1, b: { c: 2 } };
+const cloned = clone(original);
+console.log(cloned); // Output: { a: 1, b: { c: 2 } }
+console.log(cloned === original); // Output: false
+console.log(cloned.b === original.b); // Output: false
+```
