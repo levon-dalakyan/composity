@@ -176,18 +176,6 @@ const Composize = require("composize");
 const { reverse, Lazy, iReverse, iMapAsync } = Composize;
 
 const { filter, Either, iFilter, iComposeAsync, lOver } = require("composize");
-
-console.log(Composize.memoize); // [Function: curried]
-console.log(Composize.lGetPath); // [Function: lGetPath]
-console.log(reverse); // [Function: curried]
-console.log(Lazy); // [class: Lazy]
-console.log(filter); // [Function: curried]
-console.log(Either); // [class: Either]
-console.log(iReverse); // [Function: iReverse]
-console.log(iComposeAsync); // [Function: iComposeAsync]
-console.log(iFilter); // [Function: iFilter]
-console.log(iMapAsync); // [Function: iMapAsync]
-console.log(lOver); // [Function: lOver]
 ```
 
 or import from the specific parts:
@@ -202,18 +190,6 @@ const { iFilter } = require("composize/iterators/sync");
 const { iMapAsync } = require("composize/iterators/async");
 
 const { lOver, lGetPath } = require("composize/lens");
-
-console.log(memoize); // [Function: curried]
-console.log(lGetPath); // [Function: lGetPath]
-console.log(reverse); // [Function: curried]
-console.log(Lazy); // [class: Lazy]
-console.log(filter); // [Function: curried]
-console.log(Either); // [class: Either]
-console.log(iReverse); // [Function: iReverse]
-console.log(iComposeAsync); // [Function: iComposeAsync]
-console.log(iFilter); // [Function: iFilter]
-console.log(iMapAsync); // [Function: iMapAsync]
-console.log(lOver); // [Function: lOver]
 ```
 
 ### ESM
@@ -224,18 +200,6 @@ import * as Composize from "composize";
 const { reverse, Lazy, iReverse, iMapAsync } = Composize;
 
 import { filter, Either, iFilter, iComposeAsync, lOver } from "composize";
-
-console.log(Composize.memoize); // [Function: curried]
-console.log(Composize.lGetPath); // [Function: lGetPath]
-console.log(reverse); // [Function: curried]
-console.log(Lazy); // [class: Lazy]
-console.log(filter); // [Function: curried]
-console.log(Either); // [class: Either]
-console.log(iReverse); // [Function: iReverse]
-console.log(iComposeAsync); // [Function: iComposeAsync]
-console.log(iFilter); // [Function: iFilter]
-console.log(iMapAsync); // [Function: iMapAsync]
-console.log(lOver); // [Function: lOver]
 ```
 
 or import from the specific parts:
@@ -250,18 +214,6 @@ import { iFilter } from "composize/iterators/sync";
 import { iMapAsync } from "composize/iterators/async";
 
 import { lOver, lGetPath } from "composize/lens";
-
-console.log(memoize); // [Function: curried]
-console.log(lGetPath); // [Function: lGetPath]
-console.log(reverse); // [Function: curried]
-console.log(Lazy); // [class: Lazy]
-console.log(filter); // [Function: curried]
-console.log(Either); // [class: Either]
-console.log(iReverse); // [Function: iReverse]
-console.log(iComposeAsync); // [Function: iComposeAsync]
-console.log(iFilter); // [Function: iFilter]
-console.log(iMapAsync); // [Function: iMapAsync]
-console.log(lOver); // [Function: lOver]
 ```
 
 
