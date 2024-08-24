@@ -6,9 +6,6 @@
     "types": "types/index.d.ts",
     "typesVersions": {
         "*": {
-            "*": [
-                "./types/index.d.ts"
-            ],
             "fp": [
                 "./types/fp/index.d.ts"
             ],
