@@ -179,7 +179,7 @@ console.log(
       Composize.map((x) => x * x, [1, 2, 3, 4, 5]),
     ),
   ),
-);
+); // Output: [16, 4]
 
 // fp methods and containers
 
@@ -196,7 +196,7 @@ const composed = Composize.iCompose(
   iFilter((x) => x % 2 === 0),
   Composize.iMap((x) => x * x),
 );
-console.log([...composed(numbers())]);
+console.log([...composed(numbers())]); // Output: [16, 4]
 
 // iterators async
 const asyncNumbers = async function* () {
@@ -214,7 +214,7 @@ const asyncComposed = Composize.iComposeAsync(
 (async () => {
   const arr = await Composize.iToArrayAsync(asyncComposed(asyncNumbers()));
 
-  console.log(arr);
+  console.log(arr); // Output: [16, 4]
 })();
 ```
 
