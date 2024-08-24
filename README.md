@@ -182,7 +182,7 @@ or import from the specific parts:
 
 ```js
 const { reverse, Lazy } = require("composize/fp");
-const { filter  } = require("composize/fp/methods");
+const { filter } = require("composize/fp/methods");
 const { Either } = require("composize/fp/containers");
 
 const { iReverse, iComposeAsync } = require("composize/iterators");
