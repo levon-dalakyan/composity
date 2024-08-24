@@ -53,3 +53,28 @@ console.log(cloned); // Output: { a: 1, b: { c: 2 } }
 console.log(cloned === original); // Output: false
 console.log(cloned.b === original.b); // Output: false
 ```
+
+### compose
+
+```js
+compose(...fns: Function[]): Function
+```
+
+Composes multiple functions into a single function, applying them from right to left.
+
+**Parameters:**
+
+- ...fns: The functions to compose.
+
+**Returns:** A new function that is the composition of the input functions.
+
+**Example:**
+
+```js
+const double = x => x * 2;
+const addOne = x => x + 1;
+const doubleThenAddOne = compose(addOne, double);
+console.log(doubleThenAddOne(3)); // Output: 7
+```
+
+
