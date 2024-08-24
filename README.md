@@ -182,14 +182,14 @@ or import from the specific parts:
 
 ```js
 const { reverse, Lazy } = require("composize/fp");
-const { filter, memoize } = require("composize/fp/methods");
+const { filter  } = require("composize/fp/methods");
 const { Either } = require("composize/fp/containers");
 
 const { iReverse, iComposeAsync } = require("composize/iterators");
 const { iFilter } = require("composize/iterators/sync");
 const { iMapAsync } = require("composize/iterators/async");
 
-const { lOver, lGetPath } = require("composize/lens");
+const { lOver } = require("composize/lens");
 ```
 
 ### ESM
@@ -206,14 +206,14 @@ or import from the specific parts:
 
 ```js
 import { reverse, Lazy } from "composize/fp";
-import { filter, memoize } from "composize/fp/methods";
+import { filter } from "composize/fp/methods";
 import { Either } from "composize/fp/containers";
 
 import { iReverse, iComposeAsync } from "composize/iterators";
 import { iFilter } from "composize/iterators/sync";
 import { iMapAsync } from "composize/iterators/async";
 
-import { lOver, lGetPath } from "composize/lens";
+import { lOver } from "composize/lens";
 ```
 
 
