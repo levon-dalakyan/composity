@@ -39,13 +39,11 @@ clone(obj: any): any
 Creates a deep clone of the provided object or array.
 
 **Parameters:**
-
-- ==obj==: The object or array to clone.
+- ***obj***: The object or array to clone.
 
 **Returns:** A new deep copy of the input.
 
 **Example:**
-
 ```js
 const original = { a: 1, b: { c: 2 } };
 const cloned = clone(original);
