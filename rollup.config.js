@@ -11,7 +11,7 @@ export default {
         iterators: "src/iterators/index.js",
         sync: "src/iterators/sync/index.js",
         async: "src/iterators/async/index.js",
-        lens: "src/lens/index.js",
+        lenses: "src/lenses/index.js",
     },
     output: [
         {

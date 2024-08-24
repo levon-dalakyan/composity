@@ -32,9 +32,9 @@
             "import": "./dist/async.js",
             "require": "./dist/async.cjs"
         },
-        "./lens": {
-            "import": "./dist/lens.js",
-            "require": "./dist/lens.cjs"
+        "./lenses": {
+            "import": "./dist/lenses.js",
+            "require": "./dist/lenses.cjs"
         }
     },
     "files": [

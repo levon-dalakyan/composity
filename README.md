@@ -189,7 +189,7 @@ const { iReverse, iComposeAsync } = require("composize/iterators");
 const { iFilter } = require("composize/iterators/sync");
 const { iMapAsync } = require("composize/iterators/async");
 
-const { lOver } = require("composize/lens");
+const { lOver } = require("composize/lenses");
 ```
 
 ### ESM
@@ -213,7 +213,7 @@ import { iReverse, iComposeAsync } from "composize/iterators";
 import { iFilter } from "composize/iterators/sync";
 import { iMapAsync } from "composize/iterators/async";
 
-import { lOver } from "composize/lens";
+import { lOver } from "composize/lenses";
 ```
 
 
