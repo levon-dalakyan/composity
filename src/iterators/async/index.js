@@ -15,6 +15,7 @@ export { iPipeAsync } from "./iPipeAsync";
 export { iPrependAsync } from "./iPrependAsync";
 export { iProductAsync } from "./iProductAsync";
 export { iReduceAsync } from "./iReduceAsync";
+export { iReverseAsync } from "./iReverseAsync";
 export { iSeqAsync } from "./iSeqAsync";
 export { iSkipAsync } from "./iSkipAsync";
 export { iSkipWhileAsync } from "./iSkipWhileAsync";

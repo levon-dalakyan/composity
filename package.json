@@ -1,7 +1,7 @@
 {
     "name": "composize",
     "version": "1.0.0",
-    "main": "dist/index.js",
+    "main": "dist/index.cjs",
     "module": "dist/index.js",
     "exports": {
         ".": {
@@ -9,16 +9,32 @@
             "require": "./dist/index.cjs"
         },
         "./fp": {
-            "import": "./dist/fp/index.js",
-            "require": "./dist/fp/index.cjs"
+            "import": "./dist/fp.js",
+            "require": "./dist/fp.cjs"
+        },
+        "./fp/methods": {
+            "import": "./dist/methods.js",
+            "require": "./dist/methods.cjs"
+        },
+        "./fp/containers": {
+            "import": "./dist/containers.js",
+            "require": "./dist/containers.cjs"
         },
         "./iterators": {
-            "import": "./dist/iterators/index.js",
-            "require": "./dist/iterators/index.cjs"
+            "import": "./dist/iterators.js",
+            "require": "./dist/iterators.cjs"
+        },
+        "./iterators/sync": {
+            "import": "./dist/sync.js",
+            "require": "./dist/sync.cjs"
+        },
+        "./iterators/async": {
+            "import": "./dist/async.js",
+            "require": "./dist/async.cjs"
         },
         "./lens": {
-            "import": "./dist/lens/index.js",
-            "require": "./dist/lens/index.cjs"
+            "import": "./dist/lens.js",
+            "require": "./dist/lens.cjs"
         }
     },
     "files": [
@@ -29,7 +45,7 @@
         "build": "rollup -c",
         "test": "node --no-warnings --experimental-vm-modules node_modules/jest/bin/jest.js"
     },
-    "author": "",
+    "author": "Levon Dalakyan <wman8800@gmail.com>",
     "license": "ISC",
     "type": "module",
     "devDependencies": {
@@ -42,5 +58,14 @@
         "jest": "^29.7.0",
         "rollup": "^4.20.0"
     },
-    "description": ""
+    "description": "Easily make compositions on functions",
+    "keywords": [
+        "fp",
+        "functional",
+        "programming",
+        "fantasy-land",
+        "iterator",
+        "asynciterator",
+        "lens"
+    ]
 }

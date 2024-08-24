@@ -162,7 +162,70 @@ npm install composize
 
 ## Usage
 
-Composize can be used in your JavaScript code as follows:
+### CommonJS
+
+```js
+const Composize = require("composize");
+
+const { reverse, iReverse, iReverseAsync } = Composize;
+
+const { filter, iFilter, iFilterAsync } = require("composize");
+
+// fp methods
+console.log(
+  reverse(
+    filter(
+      (x) => x % 2 === 0,
+      Composize.map((x) => x * x, [1, 2, 3, 4, 5]),
+    ),
+  ),
+);
+
+// fp methods and containers
+
+// iterators sync
+const numbers = function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+};
+const composed = Composize.iCompose(
+  iReverse,
+  iFilter((x) => x % 2 === 0),
+  Composize.iMap((x) => x * x),
+);
+console.log([...composed(numbers())]);
+
+// iterators async
+const asyncNumbers = async function* () {
+  yield 1;
+  yield 2;
+  yield 3;
+  yield 4;
+  yield 5;
+};
+const asyncComposed = Composize.iComposeAsync(
+  iReverseAsync,
+  iFilterAsync((x) => x % 2 === 0),
+  Composize.iMapAsync((x) => x * x),
+);
+(async () => {
+  const arr = await Composize.iToArrayAsync(asyncComposed(asyncNumbers()));
+
+  console.log(arr);
+})();
+```
+
+
+
+
+
+
+
+
+
 
 
 
