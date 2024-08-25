@@ -18,7 +18,22 @@ The functional programming paradigm emphasizes the use of pure functions, immuta
 8. [find](#find)
 9. [flip](#flip)
 10. [forEach](#foreach)
-... (list continues)
+11. [head](#head)
+12. [isNil](#isnil)
+13. [keys](#keys)
+14. [map](#map)
+15. [memoize](#memoize)
+16. [mergeAll](#mergeall)
+17. [nth](#nth)
+18. [partial](#partial)
+19. [pipe](#pipe)
+20. [prop](#prop)
+21. [reduce](#reduce)
+22. [reverse](#reverse)
+23. [some](#some)
+24. [swap](#swap)
+25. [tail](#tail)
+26. [values](#values)
 
 ## Methods
 
