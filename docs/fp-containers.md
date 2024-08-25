@@ -455,13 +455,109 @@ console.log(altList.toString()); // Output: List(1,2,3,4,5,6)
 
 The `List` container is particularly useful for working with sequences of values in a functional programming style. It provides a rich set of operations that allow you to transform, combine, and analyze lists while maintaining immutability and adhering to functional programming principles.
 
+## Maybe
 
+The `Maybe` represents a value that may or may not exist. It can be either Some value or None. This is useful for handling potentially undefined or null values in a safe and functional manner.
 
+### Class: Maybe
 
+**Implements:** Functor, Apply, Applicative, Chain, Monad, Alt, Plus, Alternative, Extend, Setoid
 
+**Constructor**
 
+```js
+new Maybe(value: any)
+```
 
+Creates a new `Maybe` instance.
 
+- `value`: The value to wrap.
+
+Static Methods
+
+- `Maybe.Some(value: any): Maybe` - Creates a Some Maybe.
+
+- `Maybe.None(): Maybe` - Creates a None Maybe.
+
+- `Maybe.of(value: any): Maybe` - Creates a Some Maybe (Applicative of).
+
+- `Maybe.empty(): Maybe` - Creates a None Maybe (Monoid empty).
+
+Instance Methods
+
+- `getOrElse(defaultValue: any): any` - Returns the value if it's Some, or the provided default value if it's None.
+
+- `map(fn: Function): Maybe` - Maps a function over this Maybe.
+
+- `chain(fn: Function): Maybe` - Chains this Maybe with a function that returns a Maybe.
+
+- `ap(other: Maybe): Maybe` - Applies the function inside another Maybe to the value inside this Maybe.
+
+- `filter(pred: Function): Maybe` - Filters the Maybe based on a predicate function.
+
+- `alt(other: Maybe): Maybe` - Returns this Maybe if it's Some, otherwise returns the other Maybe.
+
+- `extend(fn: Function): Maybe` - Extends this Maybe with a function.
+
+- `join(): Maybe` - Flattens a nested Maybe.
+
+- `equals(other: Maybe): boolean` - Checks if this Maybe is equal to another.
+
+- `isNone(): boolean` - Checks if this Maybe is None.
+
+- `isSome(): boolean` - Checks if this Maybe is Some.
+
+Fantasy Land Methods
+The Maybe class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/chain`
+- `fantasy-land/ap`
+- `fantasy-land/alt`
+- `fantasy-land/extend`
+- `fantasy-land/join`
+- `fantasy-land/equals`
+- `fantasy-land/of` (static method)
+- `fantasy-land/empty` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { Maybe } = require('composize/fp/containers');
+
+// Creating Maybe instances
+const someValue = Maybe.Some(5);
+const noneValue = Maybe.None();
+
+// Using map
+const doubled = someValue.map(x => x * 2);
+console.log(doubled.toString()); // Output: Some(10)
+
+// Using getOrElse
+console.log(someValue.getOrElse(0)); // Output: 5
+console.log(noneValue.getOrElse(0)); // Output: 0
+
+// Using chain
+const safeDivide = (a, b) => b === 0 ? Maybe.None() : Maybe.Some(a / b);
+const result = Maybe.Some(10).chain(x => safeDivide(x, 2));
+console.log(result.toString()); // Output: Some(5)
+
+// Using filter
+const evenOnly = someValue.filter(x => x % 2 === 0);
+console.log(evenOnly.toString()); // Output: None
+
+// Using alt
+const altResult = noneValue.alt(Maybe.Some(42));
+console.log(altResult.toString()); // Output: Some(42)
+
+// Using extend
+const extended = someValue.extend(m => m.getOrElse(0) + 1);
+console.log(extended.toString()); // Output: Some(6)
+```
+
+The `Maybe` container is particularly useful for handling nullable values and computations that might fail. It provides a safe way to perform operations on values that may or may not exist, without the need for explicit null checks throughout your code.
 
 
 
