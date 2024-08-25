@@ -74,17 +74,11 @@ Creates a new Either instance.
 The `Either` class implements the following Fantasy Land methods:
 
 - `fantasy-land/map`
-
 - `fantasy-land/chain`
-
 - `fantasy-land/ap`
-
 - `fantasy-land/bimap`
-
 - `fantasy-land/extend`
-
 - `fantasy-land/equals`
-
 - `fantasy-land/of` (static method)
 
 These methods provide compatibility with libraries that support the Fantasy Land specification.
@@ -155,16 +149,35 @@ Creates a new `IO` instance.
 The `IO` class implements the following Fantasy Land methods:
 
 - `fantasy-land/map`
-
 - `fantasy-land/ap`
-
 - `fantasy-land/chain`
-
 - `fantasy-land/of` (static method)
 
 These methods provide compatibility with libraries that support the Fantasy Land specification.
-Examples
 
+**Examples**
+
+```js
+const { IO } = require('composize/fp/containers');
+
+// Creating IO instances
+const getInput = new IO(() => prompt('Enter a number:'));
+const logOutput = x => new IO(() => console.log(x));
+
+// Using map and chain
+const program = getInput
+  .map(parseInt)
+  .chain(n => logOutput(`You entered: ${n}`));
+
+// Running the IO
+program.run();
+
+// Using IO.of
+const pureIO = IO.of(42);
+pureIO.map(x => x * 2).run(); // Output: 84
+```
+
+The `IO` monad is particularly useful for handling side effects in a pure functional way. It allows you to describe a sequence of I/O operations without immediately performing them, enabling better testability and composability of your code.
 
 
 
