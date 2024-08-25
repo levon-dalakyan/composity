@@ -35,9 +35,8 @@ The functional programming paradigm emphasizes the use of pure functions, immuta
 25. [tail](#tail)
 26. [values](#values)
 
-## Methods
 
-### placeholder
+## placeholder
 
 ```js
 const _ = { "@@composize/placeholder": true };
@@ -45,7 +44,7 @@ const _ = { "@@composize/placeholder": true };
 
 A placeholder object used in partial function application and currying.
 
-### clone
+## clone
 
 ```js
 clone(obj: any): any
@@ -53,13 +52,13 @@ clone(obj: any): any
 
 Creates a deep clone of the provided object or array.
 
-**Parameters:**
+### Parameters:
 
-- obj: The object or array to clone.
+- `obj`: The object or array to clone.
 
-**Returns:** A new deep copy of the input.
+### Returns: A new deep copy of the input.
 
-**Example:**
+### Example:
 
 ```js
 const original = { a: 1, b: { c: 2 } };
@@ -69,7 +68,7 @@ console.log(cloned === original); // Output: false
 console.log(cloned.b === original.b); // Output: false
 ```
 
-### compose
+## compose
 
 ```js
 compose(...fns: Function[]): Function
@@ -92,7 +91,7 @@ const doubleThenAddOne = compose(addOne, double);
 console.log(doubleThenAddOne(3)); // Output: 7
 ```
 
-### curry
+## curry
 
 ```js
 curry(fn: Function): Function
@@ -116,7 +115,7 @@ console.log(curriedAdd(1, 2)(3)); // Output: 6
 console.log(curriedAdd(1)(2, 3)); // Output: 6
 ```
 
-### curryN
+## curryN
 
 ```js
 curryN(length: number, fn: Function): Function
@@ -142,7 +141,7 @@ console.log(curriedAdd(1, 2)(3)); // Output: 6
 console.log(curriedAdd(1)(2, 3)); // Output: 6
 ```
 
-### every
+## every
 
 ```js
 every(pred: Function, coll: Array): boolean
@@ -166,7 +165,7 @@ console.log(every(isEven, [2, 4, 6, 8])); // Output: true
 console.log(every(isEven, [2, 4, 5, 8])); // Output: false
 ```
 
-### filter
+## filter
 
 ```js
 filter(pred: Function, coll: Array): Array
@@ -189,7 +188,7 @@ const isEven = x => x % 2 === 0;
 console.log(filter(isEven, [1, 2, 3, 4, 5])); // Output: [2, 4]
 ```
 
-### find
+## find
 
 ```js
 find(pred: Function, coll: Array): any
@@ -211,7 +210,7 @@ const isEven = x => x % 2 === 0;
 console.log(find(isEven, [1, 3, 4, 5])); // Output: 4
 ```
 
-### flip
+## flip
 
 ```js
 flip(fn: Function): Function
@@ -233,7 +232,7 @@ const flippedSubtract = flip(subtract);
 console.log(flippedSubtract(3, 7)); // Output: 4 (7 - 3)
 ```
 
-### forEach
+## forEach
 
 ```js
 forEach(fn: Function, coll: Array): Array
@@ -256,7 +255,7 @@ const logItem = x => console.log(x);
 forEach(logItem, [1, 2, 3]); // Logs: 1, 2, 3
 ```
 
-### head
+## head
 
 ```js
 head(coll: Array|string): any
@@ -279,7 +278,7 @@ console.log(head([1, 2, 3])); // Output: 1
 console.log(head("hello")); // Output: "h"
 ```
 
-### isNil
+## isNil
 
 ```js
 isNil(value: any): boolean
@@ -301,7 +300,7 @@ console.log(isNil(undefined)); // Output: true
 console.log(isNil(0)); // Output: false
 ```
 
-### keys
+## keys
 
 ```js
 keys(obj: Object): Array
@@ -321,7 +320,7 @@ Returns an array of a given object's own enumerable property names.
 console.log(keys({a: 1, b: 2, c: 3})); // Output: ["a", "b", "c"]
 ```
 
-### map
+## map
 
 ```js
 map(transformer: Function, coll: Array): Array
@@ -344,7 +343,7 @@ const double = x => x * 2;
 console.log(map(double, [1, 2, 3])); // Output: [2, 4, 6]
 ```
 
-### memoize
+## memoize
 
 ```js
 memoize(fn: Function): Function
@@ -369,7 +368,7 @@ console.log(expensiveOperation(4)); // Logs: Computing... Output: 8
 console.log(expensiveOperation(4)); // Output: 8 (no log, result from cache)
 ```
 
-### mergeAll
+## mergeAll
 
 ```js
 mergeAll(...objs: Object[]): Object
@@ -389,7 +388,7 @@ Merges a list of objects into a single object.
 console.log(mergeAll({a: 1}, {b: 2}, {c: 3})); // Output: {a: 1, b: 2, c: 3}
 ```
 
-### nth
+## nth
 
 ```js
 nth(index: number, list: Array): any
@@ -411,7 +410,7 @@ Returns the nth element of a list.
 console.log(nth(1, ['a', 'b', 'c'])); // Output: 'b'
 ```
 
-### partial
+## partial
 
 ```js
 partial(fn: Function, ...args: any[]): Function
@@ -435,7 +434,7 @@ const sayHello = partial(greet, "Hello");
 console.log(sayHello("World")); // Output: "Hello, World!"
 ```
 
-### pipe
+## pipe
 
 ```js
 pipe(...fns: Function[]): Function
@@ -458,7 +457,7 @@ const doubleAndAddOne = pipe(double, addOne);
 console.log(doubleAndAddOne(3)); // Output: 7
 ```
 
-### prop
+## prop
 
 ```js
 prop(key: string|number, obj: Object|Array): any
@@ -483,7 +482,7 @@ const numbers = [10, 20, 30];
 console.log(prop(1, numbers)); // Output: 20
 ```
 
-### reduce 
+## reduce 
 
 ```js
 reduce(reducer: Function, init: any, coll: Array): any
@@ -508,7 +507,7 @@ const sum = (acc, val) => acc + val;
 console.log(reduce(sum, 0, [1, 2, 3, 4, 5])); // Output: 15
 ```
 
-### reverse
+## reverse
 
 ```js
 reverse(coll: Array|string|Iterable): Array|string|Iterable
@@ -531,7 +530,7 @@ console.log(reverse([1, 2, 3])); // Output: [3, 2, 1]
 console.log(reverse("hello")); // Output: "olleh"
 ```
 
-### some
+## some
 
 ```js
 some(pred: Function, coll: Array): boolean
@@ -555,7 +554,7 @@ console.log(some(isEven, [1, 3, 5, 6, 7])); // Output: true
 console.log(some(isEven, [1, 3, 5, 7])); // Output: false
 ```
 
-### swap
+## swap
 
 ```js
 swap(idx1: number|string, idx2: number|string, obj: Array|Object|string): Array|Object|string
@@ -581,7 +580,7 @@ console.log(swap("a", "b", {a: 1, b: 2, c: 3})); // Output: {a: 2, b: 1, c: 3}
 console.log(swap(0, 2, "abc")); // Output: "cba"
 ```
 
-### tail
+## tail
 
 ```js
 tail(coll: Array|string): Array|string
@@ -604,7 +603,7 @@ console.log(tail([1, 2, 3, 4])); // Output: [2, 3, 4]
 console.log(tail("hello")); // Output: "ello"
 ```
 
-### values
+## values
 
 ```js
 values(obj: Object): Array
