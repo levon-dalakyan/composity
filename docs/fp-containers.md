@@ -25,7 +25,7 @@ The `Either` monad represents a value that can be either a `Right` (success) or 
 
 ### Class: Either
 
-**Implements**: Functor, Chain, Apply, Applicative, Bifunctor, Extend, Setoid
+**Implements:** Functor, Chain, Apply, Applicative, Bifunctor, Extend, Setoid
 
 **Constructor**
 
@@ -118,7 +118,7 @@ The `IO` monad represents a computation that will perform I/O operations. It's u
 
 ### Class: IO
 
-**Implements**: Functor, Apply, Applicative, Chain, Monad
+**Implements:** Functor, Apply, Applicative, Chain, Monad
 
 **Constructor**
 
@@ -359,11 +359,101 @@ console.log(extendedGreeting.evaluate()); // Output: Hello, Alice!!
 
 The `Lazy` container is particularly useful for managing computations that you want to defer or control precisely when they are executed. It allows you to build up a chain of operations that will only be performed when the final evaluate() method is called, providing powerful capabilities for optimization and control flow in functional programming scenarios.
 
+## List
 
+The `List` represents an immutable list with various functional programming capabilities. It provides a consistent interface for working with lists in a functional manner.
 
+### Class: List
 
+**Implements:** Functor, Apply, Applicative, Chain, Monad, Semigroup, Monoid, Foldable, Filterable, Setoid, Alt, Plus, Alternative
 
+**Constructor**
 
+```js
+new List(values: Array = [])
+```
+
+Creates a new `List` instance.
+
+- `values`: An optional array of values to initialize the list.
+
+**Static Methods**
+
+- `List.of(value: any): List` - Creates a List containing a single value.
+
+- `List.empty(): List` - Creates an empty List.
+
+**Instance Methods**
+
+- `map(fn: Function): List` - Maps a function over this List.
+
+- `ap(other: List): List` - Applies the functions in another List to the values in this List.
+
+- `chain(fn: Function): List` - Chains this List with a function that returns a List.
+
+- `concat(other: List): List` - Concatenates this List with another.
+
+- `reduce(fn: Function, initial: any): any` - Reduces the List to a single value.
+
+- `filter(pred: Function): List` - Filters the List based on a predicate function.
+
+- `equals(other: List): boolean` - Checks if this List is equal to another.
+
+- `alt(other: List): List` - Combines this List with another, keeping all elements.
+
+**Fantasy Land Methods**
+
+The `List` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/concat`
+- `fantasy-land/reduce`
+- `fantasy-land/filter`
+- `fantasy-land/equals`
+- `fantasy-land/alt`
+- `fantasy-land/of` (static method)
+- `fantasy-land/empty` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { List } = require('composize/fp/containers');
+
+// Creating List instances
+const list1 = new List([1, 2, 3]);
+const list2 = new List([4, 5, 6]);
+
+// Using map
+const doubled = list1.map(x => x * 2);
+console.log(doubled.toString()); // Output: List(2,4,6)
+
+// Using concat
+const combined = list1.concat(list2);
+console.log(combined.toString()); // Output: List(1,2,3,4,5,6)
+
+// Using reduce
+const sum = list1.reduce((acc, val) => acc + val, 0);
+console.log(sum); // Output: 6
+
+// Using filter
+const evens = list1.filter(x => x % 2 === 0);
+console.log(evens.toString()); // Output: List(2)
+
+// Using List.of and chain
+const duplicate = x => List.of(x).concat(List.of(x));
+const duplicated = list1.chain(duplicate);
+console.log(duplicated.toString()); // Output: List(1,1,2,2,3,3)
+
+// Using alt
+const altList = list1.alt(list2);
+console.log(altList.toString()); // Output: List(1,2,3,4,5,6)
+```
+
+The `List` container is particularly useful for working with sequences of values in a functional programming style. It provides a rich set of operations that allow you to transform, combine, and analyze lists while maintaining immutability and adhering to functional programming principles.
 
 
 
