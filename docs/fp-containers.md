@@ -846,12 +846,113 @@ successTask.toPromise()
 
 The `Task` container is particularly useful for handling asynchronous operations in a functional way. It allows you to compose and chain asynchronous computations, handle both success and failure cases, and convert between Tasks and Promises when needed.
 
+## UniqueList
 
+The `UniqueList` represents an immutable list of unique values with various functional programming capabilities. It provides a consistent interface for working with unique sets of values in a functional manner.
 
+### Class: UniqueList
 
+**Implements**: Functor, Apply, Applicative, Chain, Monoid, Foldable, Filterable, Setoid, Alt, Plus, Alternative
 
+**Constructor**
 
+```js
+new UniqueList(values: Array = [])
+```
 
+Creates a new `UniqueList` instance.
+
+- `values`: An optional array of initial values for the list.
+
+**Static Methods**
+
+- `UniqueList.of(value: any): UniqueList` - Creates a UniqueList containing a single value.
+
+- `UniqueList.empty(): UniqueList` - Creates an empty UniqueList.
+
+**Instance Methods**
+
+- `has(value: any): boolean` - Checks if the list contains a specific value.
+
+- `add(value: any): UniqueList` - Adds a value to the list.
+
+- `delete(value: any): UniqueList` - Removes a value from the list.
+
+- `size: number` - Gets the number of unique elements in the list.
+
+- `map(fn: Function): UniqueList` - Maps a function over this UniqueList.
+
+- `ap(other: UniqueList): UniqueList` - Applies the functions in another UniqueList to the values in this UniqueList.
+
+- `chain(fn: Function): UniqueList` - Chains this UniqueList with a function that returns a UniqueList.
+
+- `concat(other: UniqueList): UniqueList` - Concatenates this UniqueList with another.
+
+- `reduce(fn: Function, initial: any): any` - Reduces the UniqueList to a single value.
+
+- `filter(pred: Function): UniqueList` - Filters the UniqueList based on a predicate function.
+
+- `equals(other: UniqueList): boolean` - Checks if this UniqueList is equal to another.
+
+- `alt(other: UniqueList): UniqueList` - Combines this UniqueList with another, removing duplicates.
+
+- `toString(): string` - Returns a string representation of the UniqueList.
+
+**Fantasy Land Methods**
+
+The `UniqueList` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/concat`
+- `fantasy-land/reduce`
+- `fantasy-land/filter`
+- `fantasy-land/equals`
+- `fantasy-land/alt`
+- `fantasy-land/of` (static method)
+- `fantasy-land/empty` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { UniqueList } = require('composize/fp/containers');
+
+// Creating UniqueList instances
+const list1 = new UniqueList([1, 2, 3, 2, 1]);
+const list2 = new UniqueList([3, 4, 5]);
+
+console.log(list1.toString()); // Output: UniqueList(1,2,3)
+
+// Using map
+const doubled = list1.map(x => x * 2);
+console.log(doubled.toString()); // Output: UniqueList(2,4,6)
+
+// Using concat
+const combined = list1.concat(list2);
+console.log(combined.toString()); // Output: UniqueList(1,2,3,4,5)
+
+// Using reduce
+const sum = list1.reduce((acc, val) => acc + val, 0);
+console.log(sum); // Output: 6
+
+// Using filter
+const evens = list1.filter(x => x % 2 === 0);
+console.log(evens.toString()); // Output: UniqueList(2)
+
+// Using UniqueList.of and chain
+const duplicate = x => UniqueList.of(x).concat(UniqueList.of(x + 1));
+const duplicated = list1.chain(duplicate);
+console.log(duplicated.toString()); // Output: UniqueList(1,2,3,4)
+
+// Using alt
+const altList = list1.alt(list2);
+console.log(altList.toString()); // Output: UniqueList(1,2,3,4,5)
+```
+
+The `UniqueList` container is particularly useful for working with sets of unique values in a functional programming style. It provides a rich set of operations that allow you to transform, combine, and analyze unique lists while maintaining immutability and adhering to functional programming principles.
 
 
 
