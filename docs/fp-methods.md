@@ -52,7 +52,7 @@ clone(obj: any): any
 
 Creates a deep clone of the provided object or array.
 
-#### Parameters:
+**Parameters:**
 
 - `obj`: The object or array to clone.
 
@@ -76,7 +76,7 @@ compose(...fns: Function[]): Function
 
 Composes multiple functions into a single function, applying them from right to left.
 
-#### Parameters:
+**Parameters:**
 
 - `...fns`: The functions to compose.
 
