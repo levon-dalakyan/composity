@@ -651,6 +651,132 @@ The `Reader` monad is particularly useful for computations that need to read fro
 
 ## State
 
+The `State` represents computations with mutable state. It allows you to chain computations that can read from and write to a shared state, without actually mutating any external state.
+
+### Class: State
+
+**Implements**: Functor, Apply, Applicative, Chain, Monad
+
+**Constructor**
+
+```js
+new State(run: Function)
+```
+
+Creates a new `State` instance.
+
+- `run`: A function that takes a state and returns a tuple of \[value, newState].
+
+**Static Methods**
+
+- `State.of(value: any): State` - Creates a State that will return the given value.
+
+**Instance Methods**
+
+- `get(): State` - Creates a State that returns the current state.
+
+- `put(newState: any): State` - Creates a State that sets a new state.
+
+- `modify(fn: Function): State` - Creates a State that modifies the current state.
+
+- `evaluate(initialState: any): any` - Evaluates the State with an initial state and returns the final value.
+
+- `execute(initialState: any): any` - Executes the State with an initial state and returns the final state.
+
+- `map(fn: Function): State` - Maps a function over this State.
+
+- `ap(other: State): State` - Applies the function inside another State to the value inside this State.
+
+- `chain(fn: Function): State` - Chains this State with a function that returns a State.
+
+**Fantasy Land Methods**
+
+The State class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/of` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { State } = require('composize/fp/containers');
+
+// Define a simple counter state
+const increment = State.of(1).chain(n => 
+  new State(state => [n, state + n])
+);
+
+// Chain multiple state operations
+const addThree = increment.chain(() => 
+  increment.chain(() => 
+    increment
+  )
+);
+
+console.log(addThree.evaluate(0)); // Output: 1
+console.log(addThree.execute(0)); // Output: 3
+
+// Using get and put
+const doubleState = State.prototype.get().chain(state => 
+  State.prototype.put(state * 2)
+);
+
+console.log(doubleState.execute(5)); // Output: 10
+
+// More complex example: managing a stack
+const push = x => new State(stack => [null, [x, ...stack]]);
+const pop = new State(([top, ...rest]) => [top, rest]);
+
+const stackOperations = push(1)
+  .chain(() => push(2))
+  .chain(() => push(3))
+  .chain(() => pop)
+  .chain(popped => 
+    State.of(`Popped ${popped}`).chain(msg => 
+      State.prototype.get().map(stack => `${msg}, remaining stack: [${stack.join(', ')}]`)
+    )
+  );
+
+console.log(stackOperations.evaluate([])); // Output: "Popped 3, remaining stack: [2, 1]"
+```
+
+The `State` monad is particularly useful for computations that need to maintain and modify state throughout a series of operations. It allows you to write stateful computations in a pure functional way, making it easier to reason about and test your code. This is especially valuable in scenarios where you need to track changes over time or manage complex state transitions without resorting to mutable variables.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
