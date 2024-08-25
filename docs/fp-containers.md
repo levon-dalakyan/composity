@@ -473,7 +473,7 @@ Creates a new `Maybe` instance.
 
 - `value`: The value to wrap.
 
-Static Methods
+**Static Methods**
 
 - `Maybe.Some(value: any): Maybe` - Creates a Some Maybe.
 
@@ -483,7 +483,7 @@ Static Methods
 
 - `Maybe.empty(): Maybe` - Creates a None Maybe (Monoid empty).
 
-Instance Methods
+**Instance Methods**
 
 - `getOrElse(defaultValue: any): any` - Returns the value if it's Some, or the provided default value if it's None.
 
@@ -507,7 +507,8 @@ Instance Methods
 
 - `isSome(): boolean` - Checks if this Maybe is Some.
 
-Fantasy Land Methods
+**Fantasy Land Methods**
+
 The Maybe class implements the following Fantasy Land methods:
 
 - `fantasy-land/map`
@@ -559,13 +560,96 @@ console.log(extended.toString()); // Output: Some(6)
 
 The `Maybe` container is particularly useful for handling nullable values and computations that might fail. It provides a safe way to perform operations on values that may or may not exist, without the need for explicit null checks throughout your code.
 
+## Reader
 
+The `Reader` represents a computation that can read values from a shared environment. It's useful for dependency injection and for computations that rely on some configuration or context.
 
+### Class: Reader
 
+**Implements**: Functor, Apply, Applicative, Chain, Monad
 
+**Constructor**
 
+```js
+new Reader(run: Function)
+```
 
+Creates a new `Reader` instance.
 
+- `run`: A function that takes an environment and returns a value.
+
+**Static Methods**
+
+- `Reader.ask(): Reader` - Creates a Reader that returns the environment itself.
+
+- `Reader.asks(fn: Function): Reader` - Creates a Reader that applies a function to the environment.
+
+- `Reader.of(value: any): Reader` - Creates a Reader that will return the given value.
+
+**Instance Methods**
+
+- `runWith(env: any): any` - Runs the Reader with a given environment.
+
+- `map(fn: Function): Reader` - Maps a function over this Reader.
+
+- `ap(other: Reader): Reader` - Applies the function inside another Reader to the value inside this Reader.
+
+- `chain(fn: Function): Reader` - Chains this Reader with a function that returns a Reader.
+
+**Fantasy Land Methods**
+
+The `Reader` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/of` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { Reader } = require('composize/fp/containers');
+
+// Define an environment
+const env = {
+  greeting: "Hello",
+  punctuation: "!"
+};
+
+// Create a Reader that reads from the environment
+const getGreeting = Reader.asks(env => env.greeting);
+const getPunctuation = Reader.asks(env => env.punctuation);
+
+// Combine Readers
+const createMessage = getGreeting.chain(greeting =>
+  getPunctuation.map(punctuation => `${greeting}, World${punctuation}`)
+);
+
+// Run the Reader with the environment
+console.log(createMessage.runWith(env)); // Output: "Hello, World!"
+
+// Using map
+const shoutGreeting = getGreeting.map(greeting => greeting.toUpperCase());
+console.log(shoutGreeting.runWith(env)); // Output: "HELLO"
+
+// Using Reader.of and ap
+const addExclamation = Reader.of(str => `${str}!`);
+const excitedGreeting = addExclamation.ap(getGreeting);
+console.log(excitedGreeting.runWith(env)); // Output: "Hello!"
+
+// Using chain for more complex operations
+const greetPerson = name =>
+  Reader.asks(env => `${env.greeting}, ${name}${env.punctuation}`);
+
+const greetAlice = Reader.ask().chain(env => greetPerson("Alice"));
+console.log(greetAlice.runWith(env)); // Output: "Hello, Alice!"
+```
+
+The `Reader` monad is particularly useful for computations that need to read from a shared environment or configuration. It allows you to compose and chain operations that depend on this shared context, without explicitly passing the environment through each function call. This leads to cleaner and more modular code, especially in scenarios involving dependency injection or configuration management.
+
+## State
 
 
 
