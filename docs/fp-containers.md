@@ -746,13 +746,105 @@ console.log(stackOperations.evaluate([])); // Output: "Popped 3, remaining stack
 
 The `State` monad is particularly useful for computations that need to maintain and modify state throughout a series of operations. It allows you to write stateful computations in a pure functional way, making it easier to reason about and test your code. This is especially valuable in scenarios where you need to track changes over time or manage complex state transitions without resorting to mutable variables.
 
+## Task
+
+The `Task` represents an asynchronous computation that may succeed or fail. It provides a way to handle asynchronous operations in a functional and composable manner.
+
+### Class: Task
+
+**Implements**: Functor, Apply, Applicative, Chain, Monad, Bifunctor
+
+**Constructor**
+
+```js
+new Task(computation: (resolve: Function, reject: Function) => void)
+```
+
+Creates a new `Task` instance.
+
+- `computation`: A function representing an asynchronous computation. It takes two arguments:
+
+    - `resolve`: A function to call with the successful result.
+
+    - `reject`: A function to call with the failure reason.
 
 
+**Static Methods**
 
+- `Task.of(value: any): Task` - Creates a Task that will resolve with the given value.
 
+**Instance Methods**
 
+- `fork(resolve: Function, reject: Function): void` - Executes the Task, calling resolve on success or reject on failure.
 
+- `toPromise(): Promise<any>` - Converts the Task to a Promise.
 
+- `map(fn: Function): Task` - Maps a function over this Task.
+
+- `ap(other: Task): Task` - Applies the function inside another Task to the value inside this Task.
+
+- `chain(fn: Function): Task` - Chains this Task with a function that returns a Task.
+
+- `bimap(f: Function, g: Function): Task` - Maps both sides of this Task.
+
+**Fantasy Land Methods**
+
+The `Task` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/bimap`
+- `fantasy-land/of` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { Task } = require('composize/fp/containers');
+
+// Creating Task instances
+const successTask = Task.of(42);
+const failTask = new Task((_, reject) => reject('Error'));
+
+// Using map
+const doubledTask = successTask.map(x => x * 2);
+doubledTask.fork(
+  result => console.log(result), // Output: 84
+  error => console.error(error)
+);
+
+// Using chain
+const safeDivide = (a, b) => new Task((resolve, reject) =>
+  b === 0 ? reject('Division by zero') : resolve(a / b)
+);
+
+Task.of(10)
+  .chain(x => safeDivide(x, 2))
+  .fork(
+    result => console.log(result), // Output: 5
+    error => console.error(error)
+  );
+
+// Using bimap
+const bimappedTask = failTask.bimap(
+  x => x * 2,
+  err => `Caught error: ${err}`
+);
+
+bimappedTask.fork(
+  result => console.log(result),
+  error => console.error(error) // Output: Caught error: Error
+);
+
+// Converting to Promise
+successTask.toPromise()
+  .then(result => console.log(result)) // Output: 42
+  .catch(error => console.error(error));
+```
+
+The `Task` container is particularly useful for handling asynchronous operations in a functional way. It allows you to compose and chain asynchronous computations, handle both success and failure cases, and convert between Tasks and Promises when needed.
 
 
 
