@@ -41,11 +41,17 @@ Creates a new Either instance.
 
 **Static Methods**
 
-- `Either.Right(value: any): Either` - Creates a Right Either.
+- `Either.Right`(value: any): Either
 
-- `Either.Left(value: any): Either` - Creates a Left Either.
+Creates a Right Either.
 
-- `Either.of(value: any): Either` - Creates a Right Either (Applicative of).
+- `Either.Left`(value: any): Either
+
+Creates a Left Either.
+
+- `Either.of`(value: any): Either
+
+Creates a Right Either (Applicative of).
 
 **Instance Methods**
 
