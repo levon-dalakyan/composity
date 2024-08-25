@@ -78,7 +78,7 @@ Composes multiple functions into a single function, applying them from right to 
 
 **Parameters:**
 
-- ...fns: The functions to compose.
+- `...fns`: The functions to compose.
 
 **Returns:** A new function that is the composition of the input functions.
 
@@ -101,7 +101,7 @@ Creates a curried version of the provided function.
 
 **Parameters:**
 
-- fn: The function to curry.
+- `fn`: The function to curry.
 
 **Returns:** A curried version of the input function.
 
@@ -125,9 +125,9 @@ Creates a curried version of the provided function with a specified arity.
 
 **Parameters:**
 
-- length: The arity of the curried function.
+- `length`: The arity of the curried function.
 
-- fn: The function to curry.
+- `fn`: The function to curry.
 
 **Returns:** A curried version of the input function with the specified arity.
 
@@ -151,9 +151,9 @@ Checks if all elements in the collection satisfy the predicate.
 
 **Parameters:**
 
-- pred: The predicate function to test each element.
+- `pred`: The predicate function to test each element.
 
-- coll: The collection to iterate over.
+- `coll`: The collection to iterate over.
 
 **Returns:** True if all elements satisfy the predicate, false otherwise.
 
@@ -175,9 +175,9 @@ Filters elements of an array based on a predicate function.
 
 **Parameters:**
 
-- pred: The function to test each element of the array.
+- `pred`: The function to test each element of the array.
 
-- coll: The array to filter.
+- `coll`: The array to filter.
 
 **Returns:** A new array with elements that pass the test.
 
@@ -197,9 +197,9 @@ Finds the first element in the collection satisfying the predicate.
 
 **Parameters:**
 
-- pred: The predicate function to test with.
+- `pred`: The predicate function to test with.
 
-- coll: The collection to search.
+- `coll`: The collection to search.
 
 **Returns:** The first element that satisfies the predicate, or undefined.
 
@@ -220,7 +220,7 @@ Creates a new function that calls the provided function with its arguments rever
 
 **Parameters:**
 
-- fn: The function to flip.
+- `fn`: The function to flip.
 
 **Returns:** A new function with reversed argument order.
 
@@ -242,9 +242,9 @@ Iterates over a collection, calling a provided function for each element.
 
 **Parameters:**
 
-- fn: The function to call for each element.
+- `fn`: The function to call for each element.
 
-- coll: The collection to iterate over.
+- `coll`: The collection to iterate over.
 
 **Returns:** The original collection.
 
@@ -265,7 +265,7 @@ Returns the first element of an array or string.
 
 **Parameters:**
 
-- coll: The collection to get the first element from.
+- `coll`: The collection to get the first element from.
 
 **Returns:** The first element of the collection.
 
@@ -288,7 +288,7 @@ Checks if a value is null or undefined.
 
 **Parameters:**
 
-- value: The value to check.
+- `value`: The value to check.
 
 **Returns:** True if the value is null or undefined, false otherwise.
 
@@ -310,7 +310,7 @@ Returns an array of a given object's own enumerable property names.
 
 **Parameters:**
 
-- obj: The object whose properties are to be returned.
+- `obj`: The object whose properties are to be returned.
 
 **Returns:** An array of the object's own enumerable property names.
 
@@ -330,9 +330,9 @@ Creates a new array with the results of calling a provided function on every ele
 
 **Parameters:**
 
-- transformer: Function that produces an element of the new array.
+- `transformer:` Function that produces an element of the new array.
 
-- coll: Array to map over.
+- `coll`: Array to map over.
 
 **Returns:** A new array with each element being the result of the transformer function.
 
@@ -353,7 +353,7 @@ Creates a new function that memoizes (caches) the result of a given function.
 
 **Parameters:**
 
-- fn: The function to memoize.
+- `fn`: The function to memoize.
 
 **Returns:** A new memoized function.
 
@@ -378,7 +378,7 @@ Merges a list of objects into a single object.
 
 **Parameters:**
 
-- ...objs: The objects to merge.
+- `...objs`: The objects to merge.
 
 **Returns:** A new object with all properties from the input objects.
 
@@ -398,9 +398,9 @@ Returns the nth element of a list.
 
 **Parameters:**
 
-- index: The index of the element to return.
+- `index`: The index of the element to return.
 
-- list: The list to get the element from.
+- `list`: The list to get the element from.
 
 **Returns:** The element at the specified index.
 
@@ -420,9 +420,9 @@ Partially applies a function, returning a new function that expects the remainin
 
 **Parameters:**
 
-- fn: The function to partially apply.
+- `fn`: The function to partially apply.
 
-- ...args: The arguments to partially apply.
+- `...args`: The arguments to partially apply.
 
 **Returns:** A new function with some arguments of the original function applied.
 
@@ -444,7 +444,7 @@ Performs left-to-right function composition.
 
 **Parameters:**
 
-- ...fns: The functions to compose.
+- `...fns`: The functions to compose.
 
 **Returns:** A new function that is the composition of the input functions.
 
@@ -467,9 +467,9 @@ Returns the value at the specified property of an object.
 
 **Parameters:**
 
-- key: The property name or array index.
+- `key`: The property name or array index.
 
-- obj: The object or array to access.
+- `obj`: The object or array to access.
 
 **Returns:** The value at the specified property.
 
@@ -492,11 +492,11 @@ Reduces a collection to a single value.
 
 **Parameters:**
 
-- reducer: The reducer function.
+- `reducer`: The reducer function.
 
-- init: The initial value.
+- `init`: The initial value.
 
-- coll: The collection to reduce.
+- `coll`: The collection to reduce.
 
 **Returns:** The final reduced value.
 
@@ -517,7 +517,7 @@ Reverses the elements of an array, string, or iterable.
 
 **Parameters:**
 
-- coll: The collection to reverse.
+- `coll`: The collection to reverse.
 
 **Returns:** The reversed collection.
 
@@ -540,9 +540,9 @@ Tests whether at least one element in the collection satisfies the predicate.
 
 **Parameters:**
 
-- pred: The predicate function to test with.
+- `pred`: The predicate function to test with.
 
-- coll: The collection to iterate over.
+- `coll`: The collection to iterate over.
 
 **Returns:** True if at least one element satisfies the predicate, false otherwise.
 
@@ -564,11 +564,11 @@ Swaps two elements in an array, object, or string.
 
 **Parameters:**
 
-- idx1: The first index or key.
+- `idx1`: The first index or key.
 
-- idx2: The second index or key.
+- `idx2`: The second index or key.
 
-- obj: The collection to perform the swap on.
+- `obj`: The collection to perform the swap on.
 
 **Returns:** A new collection with the elements swapped.
 
@@ -590,7 +590,7 @@ Returns all but the first element of an array or string.
 
 **Parameters:**
 
-- coll: The collection to get the tail of.
+- `coll`: The collection to get the tail of.
 
 **Returns:** All but the first element of the input.
 
@@ -613,7 +613,7 @@ Returns an array of a given object's own enumerable property values.
 
 **Parameters:**
 
-- obj: The object whose values are to be returned.
+- `obj`: The object whose values are to be returned.
 
 **Returns:** An array of the object's own enumerable property values.
 
