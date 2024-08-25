@@ -106,9 +106,54 @@ const printResult = either => either.fold(
   error => console.log(`Error: ${error}`),
   value => console.log(`Result: ${value}`)
 );
-
 printResult(Either.Right(42)); // Output: Result: 42
 printResult(Either.Left('Something went wrong')); // Output: Error: Something went wrong
 ```
 
 The `Either` monad is particularly useful for handling errors and representing computations that might fail. It allows you to chain operations and handle both success and failure cases in a functional and composable way.
+
+## IO
+
+The `IO` monad represents a computation that will perform I/O operations. It's used to encapsulate and compose operations with side effects.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
