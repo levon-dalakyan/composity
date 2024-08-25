@@ -35,7 +35,6 @@ The functional programming paradigm emphasizes the use of pure functions, immuta
 25. [tail](#tail)
 26. [values](#values)
 
-
 ## placeholder
 
 ```js
