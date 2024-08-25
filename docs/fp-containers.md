@@ -43,15 +43,15 @@ Creates a new Either instance.
 
 - Either.Right(value: any): Either
 
-Creates a Right Either.
+        Creates a Right Either.
 
 - Either.Left(value: any): Either
 
-Creates a Left Either.
+        Creates a Left Either.
 
 - Either.of(value: any): Either
 
-Creates a Right Either (Applicative of).
+        Creates a Right Either (Applicative of).
 
 **Instance Methods**
 
