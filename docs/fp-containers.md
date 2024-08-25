@@ -41,34 +41,34 @@ Creates a new Either instance.
 
 **Static Methods**
 
-- `Either.Right(value: any): Either`: Creates a Right Either.
+- `Either.Right(value: any): Either` - Creates a Right Either.
 
-- `Either.Left(value: any): Either`: Creates a Left Either.
+- `Either.Left(value: any): Either` - Creates a Left Either.
 
-- `Either.of(value: any): Either`: Creates a Right Either (Applicative of).
+- `Either.of(value: any): Either` - Creates a Right Either (Applicative of).
 
 **Instance Methods**
 
-fold(fnLeft: Function, fnRight: Function): any
-Applies a function based on whether this is a Right or Left value.
-map(fn: Function): Either
-Maps a function over this Either.
-chain(fn: Function): Either
-Chains this Either with a function that returns an Either.
-ap(other: Either): Either
-Applies the function inside another Either to the value inside this Either.
-bimap(fnLeft: Function, fnRight: Function): Either
-Maps both sides of this Either.
-extend(fn: Function): Either
-Extends this Either with a function.
-equals(other: Either): boolean
-Checks equality with another Either.
-isRight(): boolean
-Checks if this is a Right value.
-isLeft(): boolean
-Checks if this is a Left value.
-toString(): string
-Returns a string representation of this Either.
+- `fold(fnLeft: Function, fnRight: Function): any` - Applies a function based on whether this is a Right or Left value.
+
+- `map(fn: Function): Either` - Maps a function over this Either.
+
+- `chain(fn: Function): Either` - Chains this Either with a function that returns an Either.
+
+- `ap(other: Either): Either` - Applies the function inside another Either to the value inside this Either.
+
+- `bimap(fnLeft: Function, fnRight: Function): Either` - Maps both sides of this Either.
+
+- `extend(fn: Function): Either` - Extends this Either with a function.
+
+- `equals(other: Either): boolean` - Checks equality with another Either.
+
+- `isRight(): boolean` - Checks if this is a Right value.
+
+- `isLeft(): boolean` - Checks if this is a Left value.
+
+- `toString(): string` - Returns a string representation of this Either.
+
 Fantasy Land Methods
 The Either class implements the following Fantasy Land methods:
 
