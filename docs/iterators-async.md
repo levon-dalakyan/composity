@@ -34,7 +34,7 @@ The asynchronous iterator methods in Composize are designed to work with any asy
 24. [iTakeAsync](#itakeasync)
 25. [iTakeWhileAsync](#itakewhileasync)
 26. [iTapAsync](#itapasync)
-27. [iToArrayAsync](#itoyarrayasync)
+27. [iToArrayAsync](#itoarrayasync)
 28. [iToSetAsync](#itosetasync)
 29. [iZipAsync](#izipasync)
 
