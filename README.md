@@ -225,16 +225,3 @@ import { lOver } from "composize/lenses";
 - [Lenses](./docs/lenses.md)
 
 ## Examples
-
-
-
-
-
-
-
-
-
-
-
-
-
