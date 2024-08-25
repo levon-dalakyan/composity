@@ -273,10 +273,91 @@ console.log(singlePair.toString()); // Output: KeyValueList({"_":42})
 
 The `KeyValueList` container is particularly useful for working with associative data structures in a functional programming style. It allows you to perform operations on key-value pairs while maintaining immutability and providing a rich set of functional programming capabilities.
 
+## Lazy
 
+The `Lazy` container represents a computation that defers evaluation until explicitly requested. It's useful for managing computations that may be expensive or have side effects, allowing you to control when they are executed.
 
+### Class: Lazy
 
+**Implements:** Functor, Apply, Applicative, Chain, Monad, Comonad
 
+**Constructor**
+
+```js
+new Lazy(computation: Function)
+```
+
+Creates a new `Lazy` instance.
+
+- `computation`: A function representing a deferred computation.
+
+**Static Methods**
+
+- `Lazy.of(value: any): Lazy` - Creates a Lazy that will return the given value.
+
+**Instance Methods**
+
+- `evaluate(): any` - Evaluates the lazy computation.
+
+- `map(fn: Function): Lazy` - Maps a function over this Lazy computation.
+
+- `ap(other: Lazy): Lazy` - Applies the function inside another Lazy to the value inside this Lazy.
+
+- `chain(fn: Function): Lazy` - Chains this Lazy with a function that returns a Lazy.
+
+- `extend(fn: Function): Lazy` - Extends this Lazy with a function.
+
+**Fantasy Land Methods**
+
+The `Lazy` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/extend`
+- `fantasy-land/extract`
+- `fantasy-land/of` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { Lazy } = require('composize/fp/containers');
+
+// Creating Lazy instances
+const lazyComputation = new Lazy(() => {
+  console.log('Performing expensive computation');
+  return 42;
+});
+
+// Using map
+const doubled = lazyComputation.map(x => x * 2);
+
+// Evaluation is deferred until explicitly requested
+console.log('Before evaluation');
+console.log(doubled.evaluate());
+console.log('After evaluation');
+
+// Output:
+// Before evaluation
+// Performing expensive computation
+// 84
+// After evaluation
+
+// Using Lazy.of and chain
+const greet = name => Lazy.of(`Hello, ${name}!`);
+const lazyName = Lazy.of('Alice');
+const lazyGreeting = lazyName.chain(greet);
+console.log(lazyGreeting.evaluate()); // Output: Hello, Alice!
+
+// Using extend
+const addExclamation = lazy => lazy.evaluate() + '!';
+const extendedGreeting = lazyGreeting.extend(addExclamation);
+console.log(extendedGreeting.evaluate()); // Output: Hello, Alice!!
+```
+
+The `Lazy` container is particularly useful for managing computations that you want to defer or control precisely when they are executed. It allows you to build up a chain of operations that will only be performed when the final evaluate() method is called, providing powerful capabilities for optimization and control flow in functional programming scenarios.
 
 
 
