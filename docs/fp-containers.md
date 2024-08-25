@@ -33,7 +33,7 @@ The `Either` monad represents a value that can be either a `Right` (success) or 
 new Either(isRight: boolean, value: any)
 ```
 
-Creates a new Either instance.
+Creates a new `Either` instance.
 
 - `isRight`: Indicates if this is a Right value.
 
@@ -179,9 +179,99 @@ pureIO.map(x => x * 2).run(); // Output: 84
 
 The `IO` monad is particularly useful for handling side effects in a pure functional way. It allows you to describe a sequence of I/O operations without immediately performing them, enabling better testability and composability of your code.
 
+## KeyValueList
 
+The `KeyValueList` represents an immutable key-value list with various functional programming capabilities. It provides a consistent interface for working with key-value pairs in a functional manner.
 
+### Class: KeyValueList
 
+**Implements:** Functor, Apply, Applicative, Chain, Monad, Bifunctor, Semigroup, Monoid, Foldable, Setoid
+
+**Constructor**
+
+```js
+new KeyValueList(entries: Array<[any, any]> = [])
+```
+
+Creates a new `KeyValueList` instance.
+
+- `entries`: An optional array of key-value pairs to initialize the list.
+
+**Static Methods**
+
+- `KeyValueList.of(value: any): KeyValueList` - Creates a KeyValueList containing a single key-value pair.
+
+- `KeyValueList.empty(): KeyValueList` - Creates an empty KeyValueList.
+
+**Instance Methods**
+
+- `get(key: any): any` - Gets the value associated with the specified key.
+
+- `has(key: any): boolean` - Checks if the list contains the specified key.
+
+- `set(key: any, value: any): KeyValueList` - Creates a new KeyValueList with the specified key-value pair added or updated.
+
+- `delete(key: any): KeyValueList` - Creates a new KeyValueList with the specified key removed.
+
+- `size: number` - Gets the number of key-value pairs in the list.
+
+- `map(fn: Function): KeyValueList` - Maps a function over the values of this KeyValueList.
+
+- `ap(other: KeyValueList): KeyValueList` - Applies the functions in another KeyValueList to the values in this KeyValueList.
+
+- `chain(fn: Function): KeyValueList` - Chains this KeyValueList with a function that returns a KeyValueList.
+
+- `bimap(fnK: Function, fnV: Function): KeyValueList` - Maps functions over both keys and values of this KeyValueList.
+
+- `concat(other: KeyValueList): KeyValueList` - Concatenates this KeyValueList with another.
+
+- `reduce(fn: Function, initial: any): any` - Reduces the KeyValueList to a single value.
+
+- `equals(other: KeyValueList): boolean` - Checks if this KeyValueList is equal to another.
+
+**Fantasy Land Methods**
+
+The `KeyValueList` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/ap`
+- `fantasy-land/chain`
+- `fantasy-land/bimap`
+- `fantasy-land/concat`
+- `fantasy-land/reduce`
+- `fantasy-land/equals`
+- `fantasy-land/of` (static method)
+- `fantasy-land/empty` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+
+**Examples**
+
+```js
+const { KeyValueList } = require('composize/fp/containers');
+
+// Creating KeyValueList instances
+const list1 = new KeyValueList([['a', 1], ['b', 2]]);
+const list2 = new KeyValueList([['b', 3], ['c', 4]]);
+
+// Using map
+const doubled = list1.map(x => x * 2);
+console.log(doubled.toString()); // Output: KeyValueList({"a":2,"b":4})
+
+// Using concat
+const combined = list1.concat(list2);
+console.log(combined.toString()); // Output: KeyValueList({"a":1,"b":3,"c":4})
+
+// Using reduce
+const sum = list1.reduce((acc, val) => acc + val, 0);
+console.log(sum); // Output: 3
+
+// Using KeyValueList.of
+const singlePair = KeyValueList.of(42);
+console.log(singlePair.toString()); // Output: KeyValueList({"_":42})
+```
+
+The `KeyValueList` container is particularly useful for working with associative data structures in a functional programming style. It allows you to perform operations on key-value pairs while maintaining immutability and providing a rich set of functional programming capabilities.
 
 
 
