@@ -52,13 +52,13 @@ clone(obj: any): any
 
 Creates a deep clone of the provided object or array.
 
-### Parameters:
+**Parameters:**
 
 - `obj`: The object or array to clone.
 
-### Returns: A new deep copy of the input.
+**Returns:** A new deep copy of the input.
 
-### Example:
+**Example:**
 
 ```js
 const original = { a: 1, b: { c: 2 } };
