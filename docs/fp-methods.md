@@ -76,7 +76,7 @@ compose(...fns: Function[]): Function
 
 Composes multiple functions into a single function, applying them from right to left.
 
-**Parameters:**
+#### Parameters:
 
 - `...fns`: The functions to compose.
 
