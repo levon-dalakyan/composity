@@ -69,17 +69,46 @@ Creates a new Either instance.
 
 - `toString(): string` - Returns a string representation of this Either.
 
-Fantasy Land Methods
-The Either class implements the following Fantasy Land methods:
+**Fantasy Land Methods**
 
-fantasy-land/map
-fantasy-land/chain
-fantasy-land/ap
-fantasy-land/bimap
-fantasy-land/extend
-fantasy-land/equals
-fantasy-land/of (static method)
+The `Either` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+- `fantasy-land/chain`
+- `fantasy-land/ap`
+- `fantasy-land/bimap`
+- `fantasy-land/extend`
+- `fantasy-land/equals`
+- `fantasy-land/of` (static method)
 
 These methods provide compatibility with libraries that support the Fantasy Land specification.
-Examples
 
+**Examples**
+
+```js
+const { Either } = require('composize/fp/containers');
+
+// Creating Either instances
+const rightValue = Either.Right(5);
+const leftValue = Either.Left('Error');
+
+// Using map
+const doubled = rightValue.map(x => x * 2);
+console.log(doubled.toString()); // Output: Right(10)
+
+// Using chain
+const safeDivide = (a, b) => b === 0 ? Either.Left('Division by zero') : Either.Right(a / b);
+const result = Either.Right(10).chain(x => safeDivide(x, 2));
+console.log(result.toString()); // Output: Right(5)
+
+// Using fold
+const printResult = either => either.fold(
+  error => console.log(`Error: ${error}`),
+  value => console.log(`Result: ${value}`)
+);
+
+printResult(Either.Right(42)); // Output: Result: 42
+printResult(Either.Left('Something went wrong')); // Output: Error: Something went wrong
+```
+
+The `Either` monad is particularly useful for handling errors and representing computations that might fail. It allows you to chain operations and handle both success and failure cases in a functional and composable way.
