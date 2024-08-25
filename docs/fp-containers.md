@@ -953,27 +953,3 @@ console.log(altList.toString()); // Output: UniqueList(1,2,3,4,5)
 ```
 
 The `UniqueList` container is particularly useful for working with sets of unique values in a functional programming style. It provides a rich set of operations that allow you to transform, combine, and analyze unique lists while maintaining immutability and adhering to functional programming principles.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
