@@ -74,11 +74,17 @@ Creates a new Either instance.
 The `Either` class implements the following Fantasy Land methods:
 
 - `fantasy-land/map`
+
 - `fantasy-land/chain`
+
 - `fantasy-land/ap`
+
 - `fantasy-land/bimap`
+
 - `fantasy-land/extend`
+
 - `fantasy-land/equals`
+
 - `fantasy-land/of` (static method)
 
 These methods provide compatibility with libraries that support the Fantasy Land specification.
@@ -116,7 +122,48 @@ The `Either` monad is particularly useful for handling errors and representing c
 
 The `IO` monad represents a computation that will perform I/O operations. It's used to encapsulate and compose operations with side effects.
 
+### Class: IO
 
+**Implements**: Functor, Apply, Applicative, Chain, Monad
+
+**Constructor**
+
+```js
+new IO(effect: Function)
+```
+
+Creates a new `IO` instance.
+
+- `effect`: A function representing a side effect.
+
+**Static Methods**
+
+- `IO.of(value: any): IO` - Creates an IO that will return the given value.
+
+**Instance Methods**
+
+- `run(): any` - Executes the side effect.
+
+- `map(fn: Function): IO` - Maps a function over this IO.
+
+- `ap(other: IO): IO` - Applies the function inside another IO to the value inside this IO.
+
+- `chain(fn: Function): IO` - Chains this IO with a function that returns an IO.
+
+**Fantasy Land Methods**
+
+The `IO` class implements the following Fantasy Land methods:
+
+- `fantasy-land/map`
+
+- `fantasy-land/ap`
+
+- `fantasy-land/chain`
+
+- `fantasy-land/of` (static method)
+
+These methods provide compatibility with libraries that support the Fantasy Land specification.
+Examples
 
 
 
