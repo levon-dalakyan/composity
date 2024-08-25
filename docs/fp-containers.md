@@ -25,9 +25,9 @@ The `Either` monad represents a value that can be either a `Right` (success) or 
 
 ### Class: Either
 
-Implements: Functor, Chain, Apply, Applicative, Bifunctor, Extend, Setoid
+**Implements**: Functor, Chain, Apply, Applicative, Bifunctor, Extend, Setoid
 
-#### Constructor
+**Constructor**
 
 ```js
 new Either(isRight: boolean, value: any)
@@ -35,18 +35,26 @@ new Either(isRight: boolean, value: any)
 
 Creates a new Either instance.
 
-- isRight: Indicates if this is a Right value.
+- `isRight`: Indicates if this is a Right value.
 
-- value: The wrapped value.
+- `value`: The wrapped value.
 
-Static Methods
-Either.Right(value: any): Either
+**Static Methods**
+
+- Either.Right(value: any): Either
+
 Creates a Right Either.
-Either.Left(value: any): Either
+
+- Either.Left(value: any): Either
+
 Creates a Left Either.
-Either.of(value: any): Either
+
+- Either.of(value: any): Either
+
 Creates a Right Either (Applicative of).
-Instance Methods
+
+**Instance Methods**
+
 fold(fnLeft: Function, fnRight: Function): any
 Applies a function based on whether this is a Right or Left value.
 map(fn: Function): Either
