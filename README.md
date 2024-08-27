@@ -232,3 +232,127 @@ import { lOver } from "composize/lenses";
 - [Lenses](./docs/lenses.md)
 
 ## Examples
+
+### Functional Programming Methods
+
+Process a list of products, apply discounts, filter out unavailable items, and generate a summary report.
+
+```js
+import {
+  curry,
+  filter,
+  map,
+  reduce,
+  pipe,
+  prop,
+  some,
+  memoize,
+  mergeAll,
+} from "composize/fp/methods";
+
+// Sample data
+const products = [
+  { id: 1, name: "Laptop", price: 1000, available: true },
+  { id: 2, name: "Smartphone", price: 500, available: true },
+  { id: 3, name: "Tablet", price: 300, available: false },
+  { id: 4, name: "Headphones", price: 100, available: true },
+  { id: 5, name: "Monitor", price: 200, available: true },
+];
+
+// Helper functions
+const isAvailable = prop("available");
+const getPrice = prop("price");
+
+// Memoized discount calculator
+const calculateDiscount = memoize((price) => {
+  console.log("Calculating discount for", price);
+  return price > 500 ? 0.1 : 0.05;
+});
+
+// Curried function to apply discount
+const applyDiscount = curry((discountFn, product) => {
+  const discount = discountFn(product.price);
+  return mergeAll(product, {
+    discountedPrice: product.price * (1 - discount),
+    discount: discount * 100,
+  });
+});
+
+// Function to check if any product is expensive (price > 800)
+const hasExpensiveItem = some((product) => getPrice(product) > 800);
+
+// Main processing pipeline
+const processProducts = pipe(
+  filter(isAvailable),
+  map(applyDiscount(calculateDiscount)),
+  (products) => ({
+    products,
+    totalOriginal: reduce(
+      (sum, product) => sum + getPrice(product),
+      0,
+      products,
+    ),
+    totalDiscounted: reduce(
+      (sum, product) => sum + product.discountedPrice,
+      0,
+      products,
+    ),
+    hasExpensiveItem: hasExpensiveItem(products),
+  }),
+);
+
+// Execute the pipeline
+const result = processProducts(products);
+
+console.log("Processed Products:");
+console.log(JSON.stringify(result, null, 2));
+
+/*
+Output:
+
+Calculating discount for 1000
+Calculating discount for 500
+Calculating discount for 100
+Calculating discount for 200
+Processed Products:
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": 1000,
+      "available": true,
+      "discountedPrice": 900,
+      "discount": 10
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 500,
+      "available": true,
+      "discountedPrice": 475,
+      "discount": 5
+    },
+    {
+      "id": 4,
+      "name": "Headphones",
+      "price": 100,
+      "available": true,
+      "discountedPrice": 95,
+      "discount": 5
+    },
+    {
+      "id": 5,
+      "name": "Monitor",
+      "price": 200,
+      "available": true,
+      "discountedPrice": 190,
+      "discount": 5
+    }
+  ],
+  "totalOriginal": 1800,
+  "totalDiscounted": 1660,
+  "hasExpensiveItem": true
+}
+*/
+```
