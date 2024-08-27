@@ -1,6 +1,11 @@
 # Composize
 
-[Motivation](#motivation) | [Ideology](#ideology) | [Installation](#installation) | [Usage](#usage) | [Documentation](#documentation) | [Examples](#examples)
+[Motivation](#motivation)
+[Ideology](#ideology)
+[Installation](#installation)
+[Usage](#usage)
+[Documentation](#documentation)
+[Examples](#examples)
 
 Composize is a library for composing functions in JavaScript. It gives a possibility to compose classical functional programming methods, fantasy-land containers, iterators (sync or async) and lenses.
 
