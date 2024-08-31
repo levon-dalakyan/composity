@@ -1,6 +1,6 @@
 {
     "name": "composity",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Easily make compositions on functions and containers",
     "keywords": [
         "fp",
@@ -77,7 +77,8 @@
     },
     "files": [
         "dist",
-        "docs"
+        "docs",
+        "types"
     ],
     "sideEffects": false,
     "scripts": {
