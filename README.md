@@ -229,11 +229,11 @@ import { lOver } from "composity/lenses";
 
 ## Documentation
 
--   [Functional Programming Methods](./docs/fp-methods.md)
--   [Functional Programming Containers](./docs/fp-containers.md)
--   [Iterators Sync](./docs/iterators-sync.md)
--   [Iterators Async](./docs/iterators-async.md)
--   [Lenses](./docs/lenses.md)
+-   [Functional Programming Methods](/docs/fp-methods.md)
+-   [Functional Programming Containers](/docs/fp-containers.md)
+-   [Iterators Sync](/docs/iterators-sync.md)
+-   [Iterators Async](/docs/iterators-async.md)
+-   [Lenses](/docs/lenses.md)
 
 ## Examples
 
