@@ -557,4 +557,127 @@ Reversed, numbered list of products:
 
 ### Lenses
 
+Work with complex, nested data structures.
 
+```js
+import {
+  lCompose,
+  lProp,
+  lIndex,
+  lView,
+  lSet,
+  lPath,
+  lOver,
+  lSetPath,
+  lGetPath,
+  lModifyPath,
+} from "composize/lenses";
+
+// Data structure
+const company = {
+  name: "TechCorp",
+  departments: [
+    {
+      name: "Engineering",
+      employees: [
+        {
+          id: 1,
+          name: "Alice",
+          role: "Software Engineer",
+          skills: ["JavaScript", "React", "Node.js"],
+        },
+        {
+          id: 2,
+          name: "Bob",
+          role: "DevOps Engineer",
+          skills: ["Docker", "Kubernetes", "AWS"],
+        },
+      ],
+    },
+    {
+      name: "Marketing",
+      employees: [
+        {
+          id: 3,
+          name: "Charlie",
+          role: "Marketing Manager",
+          skills: ["SEO", "Content Marketing", "Analytics"],
+        },
+      ],
+    },
+  ],
+};
+
+// Example 1: Composing lenses to access nested data
+const engineeringLens = lCompose(lProp("departments"), lIndex(0));
+const firstEngineerLens = lCompose(
+  engineeringLens,
+  lProp("employees"),
+  lIndex(0),
+);
+const firstEngineerNameLens = lCompose(firstEngineerLens, lProp("name"));
+
+console.log(lView(firstEngineerNameLens, company)); // Output: 'Alice'
+
+// Example 2: Modifying nested data
+const updatedCompany = lSet(firstEngineerNameLens, "Alicia", company);
+console.log(lView(firstEngineerNameLens, updatedCompany)); // Output: 'Alicia'
+
+// Example 3: Using lPath for deep access
+const marketingManagerSkillsLens = lPath(
+  "departments",
+  1,
+  "employees",
+  0,
+  "skills",
+);
+console.log(lView(marketingManagerSkillsLens, company)); // Output: ['SEO', 'Content Marketing', 'Analytics']
+
+// Example 4: Using lOver to modify data
+const addSkill = (skill) => (skills) => [...skills, skill];
+const updatedCompanyWithNewSkill = lOver(
+  marketingManagerSkillsLens,
+  addSkill("Social Media Marketing"),
+  company,
+);
+console.log(lView(marketingManagerSkillsLens, updatedCompanyWithNewSkill));
+// Output: ['SEO', 'Content Marketing', 'Analytics', 'Social Media Marketing']
+
+// Example 5: Using lGetPath and lSetPath for flexible access
+const bobsRole = lGetPath(company, ["departments", 0, "employees", 1, "role"]);
+console.log(bobsRole); // Output: 'DevOps Engineer'
+
+const updatedCompanyWithNewRole = lSetPath(
+  company,
+  ["departments", 0, "employees", 1, "role"],
+  "Senior DevOps Engineer",
+);
+console.log(
+  lGetPath(updatedCompanyWithNewRole, [
+    "departments",
+    0,
+    "employees",
+    1,
+    "role",
+  ]),
+);
+// Output: 'Senior DevOps Engineer'
+
+// Example 6: Using lModifyPath to update nested data
+const capitalizeRole = (role) => role.toUpperCase();
+const updatedCompanyWithCapitalizedRole = lModifyPath(
+  company,
+  ["departments", 1, "employees", 0, "role"],
+  capitalizeRole,
+);
+console.log(
+  lGetPath(updatedCompanyWithCapitalizedRole, [
+    "departments",
+    1,
+    "employees",
+    0,
+    "role",
+  ]),
+);
+// Output: 'MARKETING MANAGER'
+```
