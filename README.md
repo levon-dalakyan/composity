@@ -489,3 +489,68 @@ Reversed, numbered list of products:
  5 .   A p p l e
 */
 ```
+
+### Iterators (Async)
+
+Output enumerated product names from an async collection in reverse order.
+
+```js
+import {
+  iMapAsync,
+  iEnumerateAsync,
+  iPipeAsync,
+  iReverseAsync,
+} from "composize/iterators/async";
+
+function createAsyncIterable(array) {
+  return {
+    [Symbol.asyncIterator]() {
+      let i = 0;
+      return {
+        async next() {
+          if (i < array.length) {
+            return { value: array[i++], done: false };
+          }
+          return { value: undefined, done: true };
+        },
+      };
+    },
+  };
+}
+
+const products = [
+  { name: "Apple", category: "Fruit", price: 0.5, quantity: 100 },
+  { name: "Banana", category: "Fruit", price: 0.3, quantity: 150 },
+  { name: "Carrot", category: "Vegetable", price: 0.4, quantity: 80 },
+  { name: "Date", category: "Fruit", price: 1.2, quantity: 40 },
+  { name: "Eggplant", category: "Vegetable", price: 0.8, quantity: 60 },
+];
+const asyncProducts = createAsyncIterable(products);
+
+(async () => {
+  const reversedNumberedList = iPipeAsync(
+    iMapAsync((product) => product.name),
+    iReverseAsync,
+    iEnumerateAsync,
+    iMapAsync(([index, name]) => `${index + 1}. ${name}`),
+  );
+  const list = reversedNumberedList(asyncProducts);
+
+  console.log("Reversed, numbered list of products:");
+
+  for await (const item of list) {
+    console.log(item);
+  }
+})();
+
+/*
+Output:
+
+Reversed, numbered list of products:
+1. Eggplant
+2. Date
+3. Carrot
+4. Banana
+5. Apple
+*/
+```
