@@ -448,4 +448,44 @@ Application finished.
 
 ### Iterators (Sync)
 
+Output enumerated product names in reverse order.
 
+```js
+import {
+  iMap,
+  iEnumerate,
+  iPipe,
+  iReverse,
+  iJoin,
+} from "composize/iterators/sync";
+
+const products = [
+  { name: "Apple", category: "Fruit", price: 0.5, quantity: 100 },
+  { name: "Banana", category: "Fruit", price: 0.3, quantity: 150 },
+  { name: "Carrot", category: "Vegetable", price: 0.4, quantity: 80 },
+  { name: "Date", category: "Fruit", price: 1.2, quantity: 40 },
+  { name: "Eggplant", category: "Vegetable", price: 0.8, quantity: 60 },
+];
+
+const reversedNumberedList = iPipe(
+  iMap((product) => product.name),
+  iReverse,
+  iEnumerate,
+  iMap(([index, name]) => `${index + 1}. ${name}`),
+  iJoin("\n"),
+);
+
+console.log("Reversed, numbered list of products:");
+console.log(...reversedNumberedList(products));
+
+/*
+Output:
+
+Reversed, numbered list of products:
+ 1 .   E g g p l a n t 
+ 2 .   D a t e 
+ 3 .   C a r r o t 
+ 4 .   B a n a n a 
+ 5 .   A p p l e
+*/
+```
