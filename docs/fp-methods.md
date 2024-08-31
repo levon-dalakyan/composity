@@ -1,10 +1,10 @@
-# Functional Programming Methods in Composize
+# Functional Programming Methods in Composity
 
 ## Introduction
 
-Composize provides a comprehensive set of functional programming methods that allow you to write clean, modular, and reusable code. These methods are designed to work with arrays, objects, and other data structures, enabling you to perform complex operations with ease.
+Composity provides a comprehensive set of functional programming methods that allow you to write clean, modular, and reusable code. These methods are designed to work with arrays, objects, and other data structures, enabling you to perform complex operations with ease.
 
-The functional programming paradigm emphasizes the use of pure functions, immutability, and declarative code. Composize's methods adhere to these principles, helping you write more predictable and easier-to-test code.
+The functional programming paradigm emphasizes the use of pure functions, immutability, and declarative code. Composity's methods adhere to these principles, helping you write more predictable and easier-to-test code.
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@ The functional programming paradigm emphasizes the use of pure functions, immuta
 ## placeholder
 
 ```js
-const _ = { "@@composize/placeholder": true };
+const _ = { "@@composity/placeholder": true };
 ```
 
 A placeholder object used in partial function application and currying.
@@ -53,7 +53,7 @@ Creates a deep clone of the provided object or array.
 
 **Parameters:**
 
-- `obj`: The object or array to clone.
+-   `obj`: The object or array to clone.
 
 **Returns:** A new deep copy of the input.
 
@@ -77,15 +77,15 @@ Composes multiple functions into a single function, applying them from right to 
 
 **Parameters:**
 
-- `...fns`: The functions to compose.
+-   `...fns`: The functions to compose.
 
 **Returns:** A new function that is the composition of the input functions.
 
 **Example:**
 
 ```js
-const double = x => x * 2;
-const addOne = x => x + 1;
+const double = (x) => x * 2;
+const addOne = (x) => x + 1;
 const doubleThenAddOne = compose(addOne, double);
 console.log(doubleThenAddOne(3)); // Output: 7
 ```
@@ -100,7 +100,7 @@ Creates a curried version of the provided function.
 
 **Parameters:**
 
-- `fn`: The function to curry.
+-   `fn`: The function to curry.
 
 **Returns:** A curried version of the input function.
 
@@ -124,9 +124,9 @@ Creates a curried version of the provided function with a specified arity.
 
 **Parameters:**
 
-- `length`: The arity of the curried function.
+-   `length`: The arity of the curried function.
 
-- `fn`: The function to curry.
+-   `fn`: The function to curry.
 
 **Returns:** A curried version of the input function with the specified arity.
 
@@ -150,16 +150,16 @@ Checks if all elements in the collection satisfy the predicate.
 
 **Parameters:**
 
-- `pred`: The predicate function to test each element.
+-   `pred`: The predicate function to test each element.
 
-- `coll`: The collection to iterate over.
+-   `coll`: The collection to iterate over.
 
 **Returns:** True if all elements satisfy the predicate, false otherwise.
 
 **Example:**
 
 ```js
-const isEven = x => x % 2 === 0;
+const isEven = (x) => x % 2 === 0;
 console.log(every(isEven, [2, 4, 6, 8])); // Output: true
 console.log(every(isEven, [2, 4, 5, 8])); // Output: false
 ```
@@ -174,16 +174,16 @@ Filters elements of an array based on a predicate function.
 
 **Parameters:**
 
-- `pred`: The function to test each element of the array.
+-   `pred`: The function to test each element of the array.
 
-- `coll`: The array to filter.
+-   `coll`: The array to filter.
 
 **Returns:** A new array with elements that pass the test.
 
 **Example:**
 
 ```js
-const isEven = x => x % 2 === 0;
+const isEven = (x) => x % 2 === 0;
 console.log(filter(isEven, [1, 2, 3, 4, 5])); // Output: [2, 4]
 ```
 
@@ -192,20 +192,21 @@ console.log(filter(isEven, [1, 2, 3, 4, 5])); // Output: [2, 4]
 ```js
 find(pred: Function, coll: Array): any
 ```
+
 Finds the first element in the collection satisfying the predicate.
 
 **Parameters:**
 
-- `pred`: The predicate function to test with.
+-   `pred`: The predicate function to test with.
 
-- `coll`: The collection to search.
+-   `coll`: The collection to search.
 
 **Returns:** The first element that satisfies the predicate, or undefined.
 
 **Example:**
 
 ```js
-const isEven = x => x % 2 === 0;
+const isEven = (x) => x % 2 === 0;
 console.log(find(isEven, [1, 3, 4, 5])); // Output: 4
 ```
 
@@ -219,7 +220,7 @@ Creates a new function that calls the provided function with its arguments rever
 
 **Parameters:**
 
-- `fn`: The function to flip.
+-   `fn`: The function to flip.
 
 **Returns:** A new function with reversed argument order.
 
@@ -241,16 +242,16 @@ Iterates over a collection, calling a provided function for each element.
 
 **Parameters:**
 
-- `fn`: The function to call for each element.
+-   `fn`: The function to call for each element.
 
-- `coll`: The collection to iterate over.
+-   `coll`: The collection to iterate over.
 
 **Returns:** The original collection.
 
 **Example:**
 
 ```js
-const logItem = x => console.log(x);
+const logItem = (x) => console.log(x);
 forEach(logItem, [1, 2, 3]); // Logs: 1, 2, 3
 ```
 
@@ -264,7 +265,7 @@ Returns the first element of an array or string.
 
 **Parameters:**
 
-- `coll`: The collection to get the first element from.
+-   `coll`: The collection to get the first element from.
 
 **Returns:** The first element of the collection.
 
@@ -287,7 +288,7 @@ Checks if a value is null or undefined.
 
 **Parameters:**
 
-- `value`: The value to check.
+-   `value`: The value to check.
 
 **Returns:** True if the value is null or undefined, false otherwise.
 
@@ -309,14 +310,14 @@ Returns an array of a given object's own enumerable property names.
 
 **Parameters:**
 
-- `obj`: The object whose properties are to be returned.
+-   `obj`: The object whose properties are to be returned.
 
 **Returns:** An array of the object's own enumerable property names.
 
 **Example:**
 
 ```js
-console.log(keys({a: 1, b: 2, c: 3})); // Output: ["a", "b", "c"]
+console.log(keys({ a: 1, b: 2, c: 3 })); // Output: ["a", "b", "c"]
 ```
 
 ## map
@@ -329,16 +330,16 @@ Creates a new array with the results of calling a provided function on every ele
 
 **Parameters:**
 
-- `transformer:` Function that produces an element of the new array.
+-   `transformer:` Function that produces an element of the new array.
 
-- `coll`: Array to map over.
+-   `coll`: Array to map over.
 
 **Returns:** A new array with each element being the result of the transformer function.
 
 **Example:**
 
 ```js
-const double = x => x * 2;
+const double = (x) => x * 2;
 console.log(map(double, [1, 2, 3])); // Output: [2, 4, 6]
 ```
 
@@ -352,16 +353,16 @@ Creates a new function that memoizes (caches) the result of a given function.
 
 **Parameters:**
 
-- `fn`: The function to memoize.
+-   `fn`: The function to memoize.
 
 **Returns:** A new memoized function.
 
 **Example:**
 
 ```js
-const expensiveOperation = memoize(x => {
-  console.log('Computing...');
-  return x * 2;
+const expensiveOperation = memoize((x) => {
+    console.log("Computing...");
+    return x * 2;
 });
 console.log(expensiveOperation(4)); // Logs: Computing... Output: 8
 console.log(expensiveOperation(4)); // Output: 8 (no log, result from cache)
@@ -377,14 +378,14 @@ Merges a list of objects into a single object.
 
 **Parameters:**
 
-- `...objs`: The objects to merge.
+-   `...objs`: The objects to merge.
 
 **Returns:** A new object with all properties from the input objects.
 
 **Example:**
 
 ```js
-console.log(mergeAll({a: 1}, {b: 2}, {c: 3})); // Output: {a: 1, b: 2, c: 3}
+console.log(mergeAll({ a: 1 }, { b: 2 }, { c: 3 })); // Output: {a: 1, b: 2, c: 3}
 ```
 
 ## nth
@@ -397,16 +398,16 @@ Returns the nth element of a list.
 
 **Parameters:**
 
-- `index`: The index of the element to return.
+-   `index`: The index of the element to return.
 
-- `list`: The list to get the element from.
+-   `list`: The list to get the element from.
 
 **Returns:** The element at the specified index.
 
 **Example:**
 
 ```js
-console.log(nth(1, ['a', 'b', 'c'])); // Output: 'b'
+console.log(nth(1, ["a", "b", "c"])); // Output: 'b'
 ```
 
 ## partial
@@ -419,9 +420,9 @@ Partially applies a function, returning a new function that expects the remainin
 
 **Parameters:**
 
-- `fn`: The function to partially apply.
+-   `fn`: The function to partially apply.
 
-- `...args`: The arguments to partially apply.
+-   `...args`: The arguments to partially apply.
 
 **Returns:** A new function with some arguments of the original function applied.
 
@@ -443,15 +444,15 @@ Performs left-to-right function composition.
 
 **Parameters:**
 
-- `...fns`: The functions to compose.
+-   `...fns`: The functions to compose.
 
 **Returns:** A new function that is the composition of the input functions.
 
 **Example:**
 
 ```js
-const double = x => x * 2;
-const addOne = x => x + 1;
+const double = (x) => x * 2;
+const addOne = (x) => x + 1;
 const doubleAndAddOne = pipe(double, addOne);
 console.log(doubleAndAddOne(3)); // Output: 7
 ```
@@ -466,9 +467,9 @@ Returns the value at the specified property of an object.
 
 **Parameters:**
 
-- `key`: The property name or array index.
+-   `key`: The property name or array index.
 
-- `obj`: The object or array to access.
+-   `obj`: The object or array to access.
 
 **Returns:** The value at the specified property.
 
@@ -481,7 +482,7 @@ const numbers = [10, 20, 30];
 console.log(prop(1, numbers)); // Output: 20
 ```
 
-## reduce 
+## reduce
 
 ```js
 reduce(reducer: Function, init: any, coll: Array): any
@@ -491,11 +492,11 @@ Reduces a collection to a single value.
 
 **Parameters:**
 
-- `reducer`: The reducer function.
+-   `reducer`: The reducer function.
 
-- `init`: The initial value.
+-   `init`: The initial value.
 
-- `coll`: The collection to reduce.
+-   `coll`: The collection to reduce.
 
 **Returns:** The final reduced value.
 
@@ -516,7 +517,7 @@ Reverses the elements of an array, string, or iterable.
 
 **Parameters:**
 
-- `coll`: The collection to reverse.
+-   `coll`: The collection to reverse.
 
 **Returns:** The reversed collection.
 
@@ -539,16 +540,16 @@ Tests whether at least one element in the collection satisfies the predicate.
 
 **Parameters:**
 
-- `pred`: The predicate function to test with.
+-   `pred`: The predicate function to test with.
 
-- `coll`: The collection to iterate over.
+-   `coll`: The collection to iterate over.
 
 **Returns:** True if at least one element satisfies the predicate, false otherwise.
 
 **Example:**
 
 ```js
-const isEven = x => x % 2 === 0;
+const isEven = (x) => x % 2 === 0;
 console.log(some(isEven, [1, 3, 5, 6, 7])); // Output: true
 console.log(some(isEven, [1, 3, 5, 7])); // Output: false
 ```
@@ -563,11 +564,11 @@ Swaps two elements in an array, object, or string.
 
 **Parameters:**
 
-- `idx1`: The first index or key.
+-   `idx1`: The first index or key.
 
-- `idx2`: The second index or key.
+-   `idx2`: The second index or key.
 
-- `obj`: The collection to perform the swap on.
+-   `obj`: The collection to perform the swap on.
 
 **Returns:** A new collection with the elements swapped.
 
@@ -575,7 +576,7 @@ Swaps two elements in an array, object, or string.
 
 ```js
 console.log(swap(0, 2, [1, 2, 3])); // Output: [3, 2, 1]
-console.log(swap("a", "b", {a: 1, b: 2, c: 3})); // Output: {a: 2, b: 1, c: 3}
+console.log(swap("a", "b", { a: 1, b: 2, c: 3 })); // Output: {a: 2, b: 1, c: 3}
 console.log(swap(0, 2, "abc")); // Output: "cba"
 ```
 
@@ -589,7 +590,7 @@ Returns all but the first element of an array or string.
 
 **Parameters:**
 
-- `coll`: The collection to get the tail of.
+-   `coll`: The collection to get the tail of.
 
 **Returns:** All but the first element of the input.
 
@@ -612,7 +613,7 @@ Returns an array of a given object's own enumerable property values.
 
 **Parameters:**
 
-- `obj`: The object whose values are to be returned.
+-   `obj`: The object whose values are to be returned.
 
 **Returns:** An array of the object's own enumerable property values.
 

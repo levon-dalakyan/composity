@@ -3,4 +3,4 @@
  * @constant
  * @type {Object}
  */
-export default { "@@composize/placeholder": true };
+export default { "@@composity/placeholder": true };

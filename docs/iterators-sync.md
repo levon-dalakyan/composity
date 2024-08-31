@@ -1,10 +1,10 @@
-# Synchronous Iterator Methods in Composize
+# Synchronous Iterator Methods in Composity
 
 ## Introduction
 
-Composize provides a powerful set of synchronous iterator methods that allow you to work efficiently with iterable data structures. These methods enable you to perform various operations on iterables, such as filtering, mapping, and composing, in a lazy and memory-efficient manner.
+Composity provides a powerful set of synchronous iterator methods that allow you to work efficiently with iterable data structures. These methods enable you to perform various operations on iterables, such as filtering, mapping, and composing, in a lazy and memory-efficient manner.
 
-The synchronous iterator methods in Composize are designed to work with any iterable object, including arrays, strings, and custom iterables. They provide a flexible and functional approach to data processing, allowing you to create complex data transformations with ease.
+The synchronous iterator methods in Composity are designed to work with any iterable object, including arrays, strings, and custom iterables. They provide a flexible and functional approach to data processing, allowing you to create complex data transformations with ease.
 
 ## Table of Contents
 
@@ -49,7 +49,7 @@ Creates an iterator that appends multiple iterables to the given iterable.
 
 **Parameters:**
 
-- `...iterables`: The iterables to append.
+-   `...iterables`: The iterables to append.
 
 **Returns:** A function that takes an iterable and returns a new iterable with the appended values.
 
@@ -72,7 +72,7 @@ Calculates the average of numeric values in an iterable.
 
 **Parameters:**
 
-- `iterable`: The input iterable containing numeric values.
+-   `iterable`: The input iterable containing numeric values.
 
 **Returns:** The average of the values, or 0 if the iterable is empty.
 
@@ -93,7 +93,7 @@ Creates a composition of functions that operate on iterables. The functions are 
 
 **Parameters:**
 
-- `...fns`: The functions to compose.
+-   `...fns`: The functions to compose.
 
 **Returns**: A function that takes an iterable and returns a new iterable with all functions applied.
 
@@ -102,8 +102,8 @@ Creates a composition of functions that operate on iterables. The functions are 
 ```js
 const numbers = [1, 2, 3, 4, 5];
 const evenSquares = iCompose(
-  iFilter(x => x % 2 === 0),
-  iMap(x => x * x)
+    iFilter((x) => x % 2 === 0),
+    iMap((x) => x * x)
 )(numbers);
 console.log([...evenSquares]); // Output: [4, 16]
 ```
@@ -118,14 +118,14 @@ Counts the number of elements in an iterable.
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** The number of elements in the iterable.
 
 **Example:**
 
 ```js
-letters = ['a', 'b', 'c'];
+letters = ["a", "b", "c"];
 console.log(iCount(letters)); // Output: 3
 ```
 
@@ -139,16 +139,16 @@ Creates an iterator that yields pairs of \[index, value] for each element in the
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** An iterator that yields \[index, value] pairs.
 
 **Example:**
 
 ```js
-words = ['apple', 'banana', 'cherry'];
+words = ["apple", "banana", "cherry"];
 for (const [index, word] of iEnumerate(words)) {
-  console.log(`${index}: ${word}`);
+    console.log(`${index}: ${word}`);
 }
 // Output:
 // 0: apple
@@ -166,7 +166,7 @@ Creates a filtering iterator based on a predicate function.
 
 **Parameters:**
 
-- `predicate`: A function that returns true for values to be included.
+-   `predicate`: A function that returns true for values to be included.
 
 **Returns:** A function that takes an iterable and returns a filtering iterator.
 
@@ -174,7 +174,7 @@ Creates a filtering iterator based on a predicate function.
 
 ```js
 numbers = [1, 2, 3, 4, 5, 6];
-const evenNumbers = iFilter(x => x % 2 === 0)(numbers);
+const evenNumbers = iFilter((x) => x % 2 === 0)(numbers);
 console.log([...evenNumbers]); // Output: [2, 4, 6]
 ```
 
@@ -188,7 +188,7 @@ Creates a function that finds the first element in an iterable that satisfies a 
 
 **Parameters:**
 
-- `predicate`: A function that returns true for the desired element.
+-   `predicate`: A function that returns true for the desired element.
 
 **Returns:** A function that takes an iterable and returns the first matching element or undefined.
 
@@ -196,7 +196,7 @@ Creates a function that finds the first element in an iterable that satisfies a 
 
 ```js
 numbers = [1, 2, 3, 4, 5];
-const firstEven = iFind(x => x % 2 === 0)(numbers);
+const firstEven = iFind((x) => x % 2 === 0)(numbers);
 console.log(firstEven); // Output: 2
 ```
 
@@ -210,14 +210,14 @@ Returns the first element of an iterable.
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** The first element of the iterable, or undefined if the iterable is empty.
 
 **Example:**
 
 ```js
-fruits = ['apple', 'banana', 'cherry'];
+fruits = ["apple", "banana", "cherry"];
 console.log(iFirst(fruits)); // Output: 'apple'
 ```
 
@@ -231,15 +231,15 @@ Creates a function that joins the elements of an iterable into a string.
 
 **Parameters:**
 
-- `separator`: The separator to use between elements. Default is an empty string.
+-   `separator`: The separator to use between elements. Default is an empty string.
 
 **Returns:** A function that takes an iterable and returns a joined string.
 
 **Example:**
 
 ```js
-words = ['Hello', 'world', '!'];
-const joinWithSpace = iJoin(' ');
+words = ["Hello", "world", "!"];
+const joinWithSpace = iJoin(" ");
 console.log(joinWithSpace(words)); // Output: 'Hello world !'
 ```
 
@@ -253,7 +253,7 @@ Returns the last element of an iterable.
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** The last element of the iterable, or undefined if the iterable is empty.
 
@@ -274,7 +274,7 @@ Creates a mapping iterator based on a transformation function.
 
 **Parameters:**
 
-- `fn`: A function that transforms each value.
+-   `fn`: A function that transforms each value.
 
 **Returns:** A function that takes an iterable and returns a mapping iterator.
 
@@ -282,7 +282,7 @@ Creates a mapping iterator based on a transformation function.
 
 ```js
 numbers = [1, 2, 3, 4];
-const doubled = iMap(x => x * 2)(numbers);
+const doubled = iMap((x) => x * 2)(numbers);
 console.log([...doubled]); // Output: [2, 4, 6, 8]
 ```
 
@@ -296,7 +296,7 @@ Finds the maximum value in an iterable of numbers.
 
 **Parameters:**
 
-- `iterable`: The input iterable of numbers.
+-   `iterable`: The input iterable of numbers.
 
 **Returns:** The maximum value, or -Infinity if the iterable is empty.
 
@@ -317,7 +317,7 @@ Finds the minimum value in an iterable of numbers.
 
 **Parameters:**
 
-- `iterable`: The input iterable of numbers.
+-   `iterable`: The input iterable of numbers.
 
 **Returns:** The minimum value, or Infinity if the iterable is empty.
 
@@ -338,7 +338,7 @@ Creates a pipeline of functions that operate on iterables. The functions are app
 
 **Parameters:**
 
-- `...fns`: The functions to pipeline.
+-   `...fns`: The functions to pipeline.
 
 **Returns:** A function that takes an iterable and returns a new iterable with all functions applied.
 
@@ -347,8 +347,8 @@ Creates a pipeline of functions that operate on iterables. The functions are app
 ```js
 numbers = [1, 2, 3, 4, 5];
 const doubledOdds = iPipe(
-  iFilter(x => x % 2 !== 0),
-  iMap(x => x * 2)
+    iFilter((x) => x % 2 !== 0),
+    iMap((x) => x * 2)
 )(numbers);
 console.log([...doubledOdds]); // Output: [2, 6, 10]
 ```
@@ -363,7 +363,7 @@ Creates an iterator that prepends multiple iterables to the given iterable.
 
 **Parameters:**
 
-- `...iterables`: The iterables to prepend.
+-   `...iterables`: The iterables to prepend.
 
 **Returns:** A function that takes an iterable and returns a new iterable with the prepended values.
 
@@ -386,7 +386,7 @@ Calculates the product of all numbers in an iterable.
 
 **Parameters:**
 
-- `iterable`: The input iterable of numbers.
+-   `iterable`: The input iterable of numbers.
 
 **Returns:** The product of all numbers in the iterable.
 
@@ -407,9 +407,9 @@ Creates a reducing function for an iterable.
 
 **Parameters:**
 
-- `reducer`: The reducer function.
+-   `reducer`: The reducer function.
 
-- `init`: The initial value for the reduction (optional).
+-   `init`: The initial value for the reduction (optional).
 
 **Returns:** A function that takes an iterable and returns the reduced value.
 
@@ -431,7 +431,7 @@ Creates an iterator that repeats the given iterable a specified number of times.
 
 **Parameters:**
 
-- `amount`: The number of times to repeat the iterable. Default is Infinity.
+-   `amount`: The number of times to repeat the iterable. Default is Infinity.
 
 **Returns:** A function that takes an iterable and returns a repeating iterator.
 
@@ -453,7 +453,7 @@ Creates an iterator that yields the elements of the input iterable in reverse or
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** An iterator that yields the elements in reverse order.
 
@@ -475,7 +475,7 @@ Creates an iterator that sequentially yields elements from multiple iterables.
 
 **Parameters:**
 
-- `...iterables`: The input iterables.
+-   `...iterables`: The input iterables.
 
 **Returns:** An iterator that yields elements from all input iterables in sequence.
 
@@ -483,7 +483,7 @@ Creates an iterator that sequentially yields elements from multiple iterables.
 
 ```js
 const numbers = [1, 2, 3];
-const letters = ['a', 'b', 'c'];
+const letters = ["a", "b", "c"];
 const combined = iSeq(numbers, letters);
 console.log([...combined]); // Output: [1, 2, 3, 'a', 'b', 'c']
 ```
@@ -498,7 +498,7 @@ Creates an iterator that skips a specified number of elements from the beginning
 
 **Parameters:**
 
-- `amount`: The number of elements to skip. Default is 1.
+-   `amount`: The number of elements to skip. Default is 1.
 
 **Returns:** A function that takes an iterable and returns an iterator skipping the specified number of elements.
 
@@ -520,7 +520,7 @@ Creates an iterator that skips elements from the beginning of an iterable while 
 
 **Parameters:**
 
-- `predicate`: A function that returns true for elements to be skipped.
+-   `predicate`: A function that returns true for elements to be skipped.
 
 **Returns:** A function that takes an iterable and returns an iterator skipping elements while the predicate is true.
 
@@ -528,7 +528,7 @@ Creates an iterator that skips elements from the beginning of an iterable while 
 
 ```js
 const numbers = [1, 2, 3, 4, 5, 1, 2];
-const skipWhileLessThan3 = iSkipWhile(x => x < 3)(numbers);
+const skipWhileLessThan3 = iSkipWhile((x) => x < 3)(numbers);
 console.log([...skipWhileLessThan3]); // Output: [3, 4, 5, 1, 2]
 ```
 
@@ -542,9 +542,9 @@ Creates an iterator that yields a slice of an iterable from a start index to an 
 
 **Parameters:**
 
-- `from`: The start index (inclusive).
+-   `from`: The start index (inclusive).
 
-- `to`: The end index (exclusive).
+-   `to`: The end index (exclusive).
 
 **Returns:** A function that takes an iterable and returns an iterator yielding the specified slice.
 
@@ -566,7 +566,7 @@ Calculates the sum of all numbers in an iterable.
 
 **Parameters:**
 
-- `iterable`: The input iterable of numbers.
+-   `iterable`: The input iterable of numbers.
 
 **Returns**: The sum of all numbers in the iterable.
 
@@ -587,7 +587,7 @@ Creates an iterator that yields a specified number of elements from the beginnin
 
 **Parameters:**
 
-- `amount`: The number of elements to take.
+-   `amount`: The number of elements to take.
 
 **Returns:** A function that takes an iterable and returns an iterator yielding the specified number of elements.
 
@@ -609,7 +609,7 @@ Creates an iterator that yields elements from the beginning of an iterable while
 
 **Parameters:**
 
-- `predicate`: A function that returns true for elements to be taken.
+-   `predicate`: A function that returns true for elements to be taken.
 
 **Returns:** A function that takes an iterable and returns an iterator yielding elements while the predicate is true.
 
@@ -617,7 +617,7 @@ Creates an iterator that yields elements from the beginning of an iterable while
 
 ```js
 const numbers = [1, 2, 3, 4, 5, 1, 2];
-const takeLessThan4 = iTakeWhile(x => x < 4)(numbers);
+const takeLessThan4 = iTakeWhile((x) => x < 4)(numbers);
 console.log([...takeLessThan4]); // Output: [1, 2, 3]
 ```
 
@@ -631,7 +631,7 @@ Creates an iterator that applies a side-effect function to each element of an it
 
 **Parameters:**
 
-- `fn`: A function to be called for each element.
+-   `fn`: A function to be called for each element.
 
 **Returns:** A function that takes an iterable and returns an iterator applying the side-effect function.
 
@@ -653,7 +653,7 @@ Converts an iterable to an array.
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** An array containing all elements from the iterable.
 
@@ -674,7 +674,7 @@ Converts an iterable to a Set.
 
 **Parameters:**
 
-- `iterable`: The input iterable.
+-   `iterable`: The input iterable.
 
 **Returns:** A Set containing all unique elements from the iterable.
 
@@ -695,7 +695,7 @@ Creates an iterator that yields arrays of elements from multiple iterables, pair
 
 **Parameters:**
 
-- `...iterables`: The input iterables to be zipped.
+-   `...iterables`: The input iterables to be zipped.
 
 **Returns:** An iterator yielding arrays of elements from the input iterables.
 
@@ -703,7 +703,7 @@ Creates an iterator that yields arrays of elements from multiple iterables, pair
 
 ```js
 const numbers = [1, 2, 3];
-const letters = ['a', 'b', 'c'];
+const letters = ["a", "b", "c"];
 const zipped = iZip(numbers, letters);
 console.log([...zipped]); // Output: [[1, 'a'], [2, 'b'], [3, 'c']]
 ```
