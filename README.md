@@ -33,7 +33,7 @@ const processStrings = pipe(
 console.log(processStrings(sentences)); // Output: 'easy it makes composize'
 ```
 
-### Fantasy-land Containers
+### Functional Programming Containers
 
 Seamlessly work with monads, functors, and other algebraic structures without breaking the flow of your composition.
 
@@ -226,7 +226,7 @@ import { lOver } from "composize/lenses";
 ## Documentation
 
 - [Functional Programming Methods](./docs/fp-methods.md)
-- [Fantasy-land Containers](./docs/fp-containers.md)
+- [Functional Programming Containers](./docs/fp-containers.md)
 - [Iterators Sync](./docs/iterators-sync.md)
 - [Iterators Async](./docs/iterators-async.md)
 - [Lenses](./docs/lenses.md)
