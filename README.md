@@ -356,3 +356,96 @@ Processed Products:
 }
 */
 ```
+
+### Functional Programming Containers
+
+A user management system.
+
+```js
+import { IO, Lazy, Reader } from "composize/fp/containers";
+
+// Simulating a database
+const db = {
+  users: [
+    { id: 1, name: "Alice", role: "admin" },
+    { id: 2, name: "Bob", role: "user" },
+    { id: 3, name: "Charlie", role: "user" },
+  ],
+};
+
+// IO monad for logging
+const log = (message) => new IO(() => console.log(message));
+
+// Lazy monad for expensive computations
+const expensiveOperation = new Lazy(() => {
+  console.log("Performing expensive operation...");
+  return Array(100000000)
+    .fill(1)
+    .reduce((a, b) => a + b, 0);
+});
+
+// Reader monad for accessing the database
+const getUser = (id) =>
+  new Reader((db) => {
+    const user = db.users.find((u) => u.id === id);
+    return user || null;
+  });
+
+// Combine monads to create a complex operation
+const processUser = (userId) => {
+  return Reader.ask().chain((env) => {
+    return getUser(userId).chain((user) => {
+      if (!user) {
+        return Reader.of(log(`User ${userId} not found`));
+      }
+
+      return Reader.of(
+        log(`Processing user: ${user.name}`).chain(() => {
+          if (user.role === "admin") {
+            return new IO(() => expensiveOperation.evaluate()).chain((result) =>
+              log(`Admin ${user.name} processed with result: ${result}`),
+            );
+          } else {
+            return log(`User ${user.name} processed`);
+          }
+        }),
+      );
+    });
+  });
+};
+
+// Usage
+function main() {
+  console.log("Starting application...");
+
+  // Process an admin user
+  processUser(1).runWith(db).run();
+
+  // Process a regular user
+  processUser(2).runWith(db).run();
+
+  // Process a non-existent user
+  processUser(4).runWith(db).run();
+
+  console.log("Application finished.");
+}
+
+main();
+
+/*
+Output:
+
+Starting application...
+Processing user: Alice
+Performing expensive operation...
+Admin Alice processed with result: 100000000
+Processing user: Bob
+User Bob processed
+User 4 not found
+Application finished.
+*/
+```
+
+### Iterators (Sync)
+
+
