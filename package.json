@@ -32,43 +32,35 @@
     "exports": {
         ".": {
             "import": "./dist/index.js",
-            "require": "./dist/index.cjs",
-            "types": "./types/index.d.ts"
+            "require": "./dist/index.cjs"
         },
         "./fp": {
             "import": "./dist/fp.js",
-            "require": "./dist/fp.cjs",
-            "types": "./types/fp/index.d.ts"
+            "require": "./dist/fp.cjs"
         },
         "./fp/methods": {
             "import": "./dist/methods.js",
-            "require": "./dist/methods.cjs",
-            "types": "./types/fp/methods/index.d.ts"
+            "require": "./dist/methods.cjs"
         },
         "./fp/containers": {
             "import": "./dist/containers.js",
-            "require": "./dist/containers.cjs",
-            "types": "./types/fp/containers/index.d.ts"
+            "require": "./dist/containers.cjs"
         },
         "./iterators": {
             "import": "./dist/iterators.js",
-            "require": "./dist/iterators.cjs",
-            "types": "./types/iterators/index.d.ts"
+            "require": "./dist/iterators.cjs"
         },
         "./iterators/sync": {
             "import": "./dist/sync.js",
-            "require": "./dist/sync.cjs",
-            "types": "./types/iterators/sync/index.d.ts"
+            "require": "./dist/sync.cjs"
         },
         "./iterators/async": {
             "import": "./dist/async.js",
-            "require": "./dist/async.cjs",
-            "types": "./types/iterators/async/index.d.ts"
+            "require": "./dist/async.cjs"
         },
         "./lenses": {
             "import": "./dist/lenses.js",
-            "require": "./dist/lenses.cjs",
-            "types": "./types/lenses/index.d.ts"
+            "require": "./dist/lenses.cjs"
         }
     },
     "files": [
